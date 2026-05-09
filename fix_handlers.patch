@@ -1,0 +1,94 @@
+diff --git a/src/app/(marketing)/modelos/modelo-651/page.tsx b/src/app/(marketing)/modelos/modelo-651/page.tsx
+index af28cfc..1f21ec0 100644
+--- a/src/app/(marketing)/modelos/modelo-651/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-651/page.tsx
+@@ -133,12 +133,6 @@ export default function Modelo651Page() {
+                     textDecoration: "none",
+                     transition: "color 200ms ease",
+                   }}
+-                  onMouseEnter={(e) =>
+-                    (e.currentTarget.style.color = "rgba(255,255,255,0.9)")
+-                  }
+-                  onMouseLeave={(e) =>
+-                    (e.currentTarget.style.color = "rgba(255,255,255,0.5)")
+-                  }
+                 >
+                   Inicio
+                 </Link>
+@@ -152,12 +146,6 @@ export default function Modelo651Page() {
+                     textDecoration: "none",
+                     transition: "color 200ms ease",
+                   }}
+-                  onMouseEnter={(e) =>
+-                    (e.currentTarget.style.color = "rgba(255,255,255,0.9)")
+-                  }
+-                  onMouseLeave={(e) =>
+-                    (e.currentTarget.style.color = "rgba(255,255,255,0.5)")
+-                  }
+                 >
+                   Modelos
+                 </Link>
+@@ -453,15 +441,6 @@ export default function Modelo651Page() {
+                 border: "1px solid var(--mist)",
+                 transition: "all 200ms ease",
+               }}
+-              onMouseEnter={(e) => {
+-                e.currentTarget.style.boxShadow =
+-                  "0 4px 12px rgba(0,0,0,0.08)";
+-                e.currentTarget.style.borderColor = "var(--slate)";
+-              }}
+-              onMouseLeave={(e) => {
+-                e.currentTarget.style.boxShadow = "none";
+-                e.currentTarget.style.borderColor = "var(--mist)";
+-              }}
+             >
+               <div
+                 style={{
+@@ -494,15 +473,6 @@ export default function Modelo651Page() {
+                 border: "1px solid var(--mist)",
+                 transition: "all 200ms ease",
+               }}
+-              onMouseEnter={(e) => {
+-                e.currentTarget.style.boxShadow =
+-                  "0 4px 12px rgba(0,0,0,0.08)";
+-                e.currentTarget.style.borderColor = "var(--slate)";
+-              }}
+-              onMouseLeave={(e) => {
+-                e.currentTarget.style.boxShadow = "none";
+-                e.currentTarget.style.borderColor = "var(--mist)";
+-              }}
+             >
+               <div
+                 style={{
+@@ -535,15 +505,6 @@ export default function Modelo651Page() {
+                 border: "1px solid var(--mist)",
+                 transition: "all 200ms ease",
+               }}
+-              onMouseEnter={(e) => {
+-                e.currentTarget.style.boxShadow =
+-                  "0 4px 12px rgba(0,0,0,0.08)";
+-                e.currentTarget.style.borderColor = "var(--slate)";
+-              }}
+-              onMouseLeave={(e) => {
+-                e.currentTarget.style.boxShadow = "none";
+-                e.currentTarget.style.borderColor = "var(--mist)";
+-              }}
+             >
+               <div
+                 style={{
+@@ -576,15 +537,6 @@ export default function Modelo651Page() {
+                 border: "1px solid var(--mist)",
+                 transition: "all 200ms ease",
+               }}
+-              onMouseEnter={(e) => {
+-                e.currentTarget.style.boxShadow =
+-                  "0 4px 12px rgba(0,0,0,0.08)";
+-                e.currentTarget.style.borderColor = "var(--slate)";
+-              }}
+-              onMouseLeave={(e) => {
+-                e.currentTarget.style.boxShadow = "none";
+-                e.currentTarget.style.borderColor = "var(--mist)";
+-              }}
+             >
+               <div
+                 style={{

@@ -1,0 +1,183 @@
+From a9aa4f044696d778b9bebf18bcf7787df0d15457 Mon Sep 17 00:00:00 2001
+From: Miquel <hola@gironatour.com>
+Date: Wed, 15 Apr 2026 20:41:57 +0200
+Subject: [PATCH] =?UTF-8?q?fix(build):=20eliminar=20tots=20els=20blocs=20<?=
+ =?UTF-8?q?style>=20de=20les=20p=C3=A0gines=20de=20models?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Turbopack rebutja styled-jsx (<style jsx> i <style>{`}) dins de Server
+Components. Eliminats de modelo-650, 651, 652, 653 i 660. Les classes
+mod-nav, mod-summary-row, mod-table etc. estan definides als globals.css
+o via inline styles als components.
+
+Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>
+---
+ .../(marketing)/modelos/modelo-650/page.tsx   | 17 ----
+ .../(marketing)/modelos/modelo-651/page.tsx   | 92 -------------------
+ .../(marketing)/modelos/modelo-660/page.tsx   | 17 ----
+ 3 files changed, 126 deletions(-)
+
+diff --git a/src/app/(marketing)/modelos/modelo-650/page.tsx b/src/app/(marketing)/modelos/modelo-650/page.tsx
+index 5871cd9..6909ee6 100644
+--- a/src/app/(marketing)/modelos/modelo-650/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-650/page.tsx
+@@ -366,23 +366,6 @@ export default function Modelo650Page() {
+       </section>
+ 
+       {/* ── Shared scoped styles ── */}
+-      <style>{`
+-        .mod-nav { display:flex; gap:6px; flex-wrap:wrap; }
+-        .mod-nav__item { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:6px; font-size:13px; font-weight:500; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 200ms ease, background 200ms ease; }
+-        .mod-nav__item:hover { color:rgba(255,255,255,0.9); }
+-        .mod-nav__item--active { background:var(--ulpiano-green); color:white; }
+-        .mod-summary-row { display:grid; grid-template-columns:240px 1fr; gap:var(--space-4); }
+-        .mod-summary-field { padding:var(--space-4); font-weight:600; font-size:14px; color:var(--ink); background:rgba(241,245,249,0.5); }
+-        .mod-summary-value { padding:var(--space-4); font-size:15px; color:var(--ink); line-height:1.6; }
+-        .mod-obligados-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-6); }
+-        .mod-related-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+-        .mod-table { width:100%; border-collapse:collapse; border:1px solid var(--mist); border-radius:12px; overflow:hidden; font-size:14px; }
+-        .mod-table th { background:var(--surface); padding:12px 16px; text-align:left; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:var(--slate); border-bottom:1px solid var(--mist); }
+-        .mod-table td { padding:12px 16px; border-bottom:1px solid var(--mist); color:var(--ink); line-height:1.5; }
+-        .mod-table tr:last-child td { border-bottom:none; }
+-        @media (max-width:1024px) { .mod-obligados-grid { grid-template-columns:repeat(2,1fr); } .mod-related-grid { grid-template-columns:repeat(2,1fr); } .mod-summary-row { grid-template-columns:180px 1fr; } }
+-        @media (max-width:768px) { .mod-obligados-grid { grid-template-columns:1fr; } .mod-related-grid { grid-template-columns:1fr; } .mod-summary-row { grid-template-columns:1fr; } .mod-summary-field { padding-bottom:0; } .mod-nav { overflow-x:auto; flex-wrap:nowrap; -webkit-overflow-scrolling:touch; padding-bottom:4px; } .mod-nav__item { white-space:nowrap; } }
+-      `}</style>
+     </>
+   );
+ }
+diff --git a/src/app/(marketing)/modelos/modelo-651/page.tsx b/src/app/(marketing)/modelos/modelo-651/page.tsx
+index 202f57d..af28cfc 100644
+--- a/src/app/(marketing)/modelos/modelo-651/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-651/page.tsx
+@@ -667,98 +667,6 @@ export default function Modelo651Page() {
+         </div>
+       </section>
+ 
+-      <style jsx>{`
+-        .mod-nav {
+-          display: flex;
+-          gap: 6px;
+-          flex-wrap: wrap;
+-        }
+-        .mod-nav__item {
+-          display: inline-flex;
+-          align-items: center;
+-          gap: 6px;
+-          padding: 6px 14px;
+-          border-radius: 6px;
+-          font-size: 13px;
+-          font-weight: 500;
+-          color: rgba(255, 255, 255, 0.5);
+-          text-decoration: none;
+-          transition: color 200ms ease, background 200ms ease;
+-        }
+-        .mod-nav__item:hover {
+-          color: rgba(255, 255, 255, 0.9);
+-        }
+-        .mod-nav__item--active {
+-          background: var(--ulpiano-green);
+-          color: white;
+-        }
+-        .mod-summary-row {
+-          display: grid;
+-          grid-template-columns: 240px 1fr;
+-          gap: var(--space-4);
+-        }
+-        .mod-summary-field {
+-          padding: var(--space-4);
+-          font-weight: 600;
+-          font-size: 14px;
+-          color: var(--ink);
+-          background: rgba(241, 245, 249, 0.5);
+-        }
+-        .mod-summary-value {
+-          padding: var(--space-4);
+-          font-size: 15px;
+-          color: var(--ink);
+-          line-height: 1.6;
+-        }
+-        .mod-table {
+-          width: 100%;
+-          border-collapse: collapse;
+-          border: 1px solid var(--mist);
+-          font-size: 14px;
+-        }
+-        .mod-table th {
+-          background: var(--surface);
+-          padding: 12px 16px;
+-          text-align: left;
+-          font-weight: 600;
+-          font-size: 13px;
+-          color: var(--slate);
+-          border-bottom: 1px solid var(--mist);
+-        }
+-        .mod-table td {
+-          padding: 12px 16px;
+-          border-bottom: 1px solid var(--mist);
+-          color: var(--ink);
+-          line-height: 1.5;
+-        }
+-        .mod-table tr:last-child td {
+-          border-bottom: none;
+-        }
+-        .mod-related-grid {
+-          display: grid;
+-          grid-template-columns: repeat(4, 1fr);
+-          gap: var(--space-6);
+-        }
+-        @media (max-width: 1024px) {
+-          .mod-related-grid {
+-            grid-template-columns: repeat(2, 1fr);
+-          }
+-          .mod-summary-row {
+-            grid-template-columns: 180px 1fr;
+-          }
+-        }
+-        @media (max-width: 768px) {
+-          .mod-related-grid {
+-            grid-template-columns: 1fr;
+-          }
+-          .mod-summary-row {
+-            grid-template-columns: 1fr;
+-          }
+-          .mod-summary-field {
+-            padding-bottom: 0;
+-          }
+-        }
+-      `}</style>
+     </>
+   );
+ }
+diff --git a/src/app/(marketing)/modelos/modelo-660/page.tsx b/src/app/(marketing)/modelos/modelo-660/page.tsx
+index 47f7044..3eeec2e 100644
+--- a/src/app/(marketing)/modelos/modelo-660/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-660/page.tsx
+@@ -292,23 +292,6 @@ export default function Modelo660Page() {
+       </section>
+ 
+       {/* ── Shared scoped styles ── */}
+-      <style>{`
+-        .mod-nav { display:flex; gap:6px; flex-wrap:wrap; }
+-        .mod-nav__item { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:6px; font-size:13px; font-weight:500; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 200ms ease, background 200ms ease; }
+-        .mod-nav__item:hover { color:rgba(255,255,255,0.9); }
+-        .mod-nav__item--active { background:var(--ulpiano-green); color:white; }
+-        .mod-summary-row { display:grid; grid-template-columns:240px 1fr; gap:var(--space-4); }
+-        .mod-summary-field { padding:var(--space-4); font-weight:600; font-size:14px; color:var(--ink); background:rgba(241,245,249,0.5); }
+-        .mod-summary-value { padding:var(--space-4); font-size:15px; color:var(--ink); line-height:1.6; }
+-        .mod-obligados-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+-        .mod-related-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-6); }
+-        .mod-table { width:100%; border-collapse:collapse; border:1px solid var(--mist); border-radius:12px; overflow:hidden; font-size:14px; }
+-        .mod-table th { background:var(--surface); padding:12px 16px; text-align:left; font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:var(--slate); border-bottom:1px solid var(--mist); }
+-        .mod-table td { padding:12px 16px; border-bottom:1px solid var(--mist); color:var(--ink); line-height:1.5; }
+-        .mod-table tr:last-child td { border-bottom:none; }
+-        @media (max-width:1024px) { .mod-obligados-grid { grid-template-columns:repeat(2,1fr); } .mod-related-grid { grid-template-columns:repeat(2,1fr); } .mod-summary-row { grid-template-columns:180px 1fr; } }
+-        @media (max-width:768px) { .mod-obligados-grid { grid-template-columns:1fr; } .mod-related-grid { grid-template-columns:1fr; } .mod-summary-row { grid-template-columns:1fr; } .mod-summary-field { padding-bottom:0; } .mod-nav { overflow-x:auto; flex-wrap:nowrap; -webkit-overflow-scrolling:touch; padding-bottom:4px; } .mod-nav__item { white-space:nowrap; } }
+-      `}</style>
+     </>
+   );
+ }
+-- 
+2.34.1
+

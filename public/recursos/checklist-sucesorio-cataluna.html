@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist del Expediente Sucesorio en Cataluña — 47 Puntos de Control | Ulpiano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0F1F3D;
+    --ink: #1E293B;
+    --slate: #64748B;
+    --fog: #94A3B8;
+    --mist: #CBD5E1;
+    --surface: #F1F5F9;
+    --white: #FFFFFF;
+    --ulpiano-green: #2D6A4F;
+    --green-light: #40916C;
+    --green-bg: #D8F3DC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    line-height: 1.7;
+    background: var(--white);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  @media print {
+    body { padding: 24px; max-width: 100%; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .section { page-break-inside: avoid; }
+    .checklist-item { page-break-inside: avoid; }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--night);
+    margin-bottom: 32px;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--ulpiano-green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--night);
+  }
+
+  .header-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--slate);
+  }
+
+  .title-block {
+    margin-bottom: 32px;
+  }
+
+  .title-block h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--night);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .title-block .subtitle {
+    font-size: 15px;
+    color: var(--slate);
+    max-width: 600px;
+  }
+
+  .info-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 36px;
+    border: 1px solid var(--mist);
+  }
+
+  .info-bar-item {
+    font-size: 13px;
+  }
+
+  .info-bar-label {
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .info-bar-value {
+    color: var(--slate);
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: var(--night);
+    color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    background: var(--ulpiano-green);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .section-range {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--fog);
+    margin-left: auto;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(203, 213, 225, 0.4);
+  }
+
+  .checklist-item:last-child { border-bottom: none; }
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--mist);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .item-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--fog);
+    min-width: 22px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .item-content {
+    flex: 1;
+  }
+
+  .item-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .item-detail {
+    font-size: 12px;
+    color: var(--slate);
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+
+  .item-ref {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ulpiano-green);
+    background: var(--green-bg);
+    padding: 1px 6px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 3px;
+  }
+
+  .item-badge {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 3px;
+    margin-left: 4px;
+  }
+
+  .badge-diferenciador {
+    background: #EDE9FE;
+    color: #6D28D9;
+  }
+
+  .notes-area {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 2px solid var(--mist);
+  }
+
+  .notes-area h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .notes-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .note-line {
+    border-bottom: 1px solid var(--mist);
+    height: 28px;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 2px solid var(--night);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .footer-cta {
+    background: var(--surface);
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 16px 20px;
+    max-width: 420px;
+  }
+
+  .footer-cta p {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .footer-cta strong {
+    color: var(--ulpiano-green);
+  }
+
+  .footer-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--slate);
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-area">
+    <div class="logo-mark">U</div>
+    <span class="logo-text">Ulpiano</span>
+  </div>
+  <div class="header-meta">
+    ulpiano.es<br>
+    Recurso profesional gratuito
+  </div>
+</div>
+
+<div class="title-block">
+  <h1>Checklist del Expediente Sucesorio en Cataluña</h1>
+  <p class="subtitle">47 puntos de control desde la apertura del expediente hasta la presentación ante la ATC. Normativa catalana actualizada (CCCat · Llei 19/2010).</p>
+</div>
+
+<div class="info-bar">
+  <div class="info-bar-item">
+    <div class="info-bar-label">Expediente</div>
+    <div class="info-bar-value">_________________________</div>
+  </div>
+  <div class="info-bar-item">
+    <div class="info-bar-label">Fecha apertura</div>
+    <div class="info-bar-value">______ / ______ / ______</div>
+  </div>
+  <div class="info-bar-item">
+    <div class="info-bar-label">Profesional responsable</div>
+    <div class="info-bar-value">_________________________</div>
+  </div>
+</div>
+
+<!-- SECCIÓN 1: FASE DOCUMENTAL INICIAL -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">1</div>
+    <div class="section-title">Fase Documental Inicial</div>
+    <div class="section-range">Puntos 1–10</div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">01</div>
+    <div class="item-content">
+      <div class="item-title">Certificado literal de defunción</div>
+      <div class="item-detail">Solicitar al Registro Civil correspondiente. Verificar fecha y lugar de fallecimiento.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">02</div>
+    <div class="item-content">
+      <div class="item-title">Certificado de últimas voluntades</div>
+      <div class="item-detail">Solicitar al Registro General de Actos de Última Voluntad (RGAUV). Plazo mínimo: 15 días hábiles desde el fallecimiento.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">03</div>
+    <div class="item-content">
+      <div class="item-title">Certificado de seguros con cobertura de fallecimiento</div>
+      <div class="item-detail">Solicitar al Registro de Contratos de Seguros de Cobertura de Fallecimiento.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">04</div>
+    <div class="item-content">
+      <div class="item-title">Copia autorizada del testamento</div>
+      <div class="item-detail">Solicitar a la notaría indicada en el certificado de últimas voluntades.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">05</div>
+    <div class="item-content">
+      <div class="item-title">Verificación de la ley civil aplicable</div>
+      <div class="item-detail">Determinar vecindad civil del causante. Si catalán → Codi Civil de Catalunya (Libro IV).</div>
+      <div class="item-ref">CCCat Libro IV</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">06</div>
+    <div class="item-content">
+      <div class="item-title">Identificación de todos los herederos y legatarios</div>
+      <div class="item-detail">Libro de familia, certificados del Registro Civil, DNI/NIE de cada interviniente.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">07</div>
+    <div class="item-content">
+      <div class="item-title">Determinación del grupo de parentesco de cada beneficiario</div>
+      <div class="item-detail">Grupo I (menores 21), II (cónyuge, descendientes ≥21, ascendientes), III (colaterales 2º–3º), IV (otros).</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">08</div>
+    <div class="item-content">
+      <div class="item-title">Verificación de seguros de vida y planes de pensiones</div>
+      <div class="item-detail">Identificar beneficiarios designados. Los seguros no forman parte del caudal relicto pero tributan en ISD.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">09</div>
+    <div class="item-content">
+      <div class="item-title">Solicitud de notas simples de inmuebles</div>
+      <div class="item-detail">Registro de la Propiedad: titularidad, cargas, limitaciones de dominio, estado de las fincas.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">10</div>
+    <div class="item-content">
+      <div class="item-title">Certificados bancarios de saldos a fecha de fallecimiento</div>
+      <div class="item-detail">Solicitar a todas las entidades. Incluir cuentas, depósitos, fondos de inversión y valores.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 2: INVENTARIO PATRIMONIAL -->
+<div class="section page-break">
+  <div class="section-header">
+    <div class="section-number">2</div>
+    <div class="section-title">Inventario Patrimonial</div>
+    <div class="section-range">Puntos 11–22</div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">11</div>
+    <div class="item-content">
+      <div class="item-title">Inmuebles: titularidad y coeficiente de participación</div>
+      <div class="item-detail">Determinar porcentaje de propiedad del causante en cada finca. Verificar gananciales/privativos.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">12</div>
+    <div class="item-content">
+      <div class="item-title">Inmuebles: valor de referencia catastral</div>
+      <div class="item-detail">Obtener valor de referencia de la Sede Electrónica del Catastro. Base mínima para ISD desde enero 2022.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">13</div>
+    <div class="item-content">
+      <div class="item-title">Inmuebles: cargas deducibles</div>
+      <div class="item-detail">Hipotecas pendientes, servidumbres, censos, derechos reales limitados. Solo las cargas del causante.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">14</div>
+    <div class="item-content">
+      <div class="item-title">Identificación de vivienda habitual del causante</div>
+      <div class="item-detail">Requisito para aplicar reducción del 95% (máx. 500.000 €). Verificar empadronamiento y uso efectivo.</div>
+      <div class="item-ref">Art. 18 Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">15</div>
+    <div class="item-content">
+      <div class="item-title">Productos financieros: saldos a fecha de devengo</div>
+      <div class="item-detail">Cuentas corrientes, depósitos a plazo, fondos de inversión (valor liquidativo), acciones (cotización de cierre).</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">16</div>
+    <div class="item-content">
+      <div class="item-title">Participaciones societarias y empresa familiar</div>
+      <div class="item-detail">Valorar según último balance aprobado. Verificar si aplica reducción de empresa familiar (95%).</div>
+      <div class="item-ref">Art. 12 Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">17</div>
+    <div class="item-content">
+      <div class="item-title">Bienes afectos a actividad económica</div>
+      <div class="item-detail">Verificar actividad y exención en el Impuesto sobre el Patrimonio como requisito previo.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">18</div>
+    <div class="item-content">
+      <div class="item-title">Vehículos y embarcaciones</div>
+      <div class="item-detail">Valor según tablas de Hacienda. Incluir matriculación y titularidad.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">19</div>
+    <div class="item-content">
+      <div class="item-title">Activos digitales: criptomonedas y tokens</div>
+      <div class="item-detail">Identificar wallets y exchanges. Valorar al tipo de cambio a fecha de devengo. Documentar claves de acceso.</div>
+      <span class="item-badge badge-diferenciador">Diferenciador Ulpiano</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">20</div>
+    <div class="item-content">
+      <div class="item-title">Activos digitales: huella digital y cuentas online</div>
+      <div class="item-detail">Redes sociales, servicios cloud, suscripciones. Instrucciones de gestión o eliminación post mortem.</div>
+      <span class="item-badge badge-diferenciador">Diferenciador Ulpiano</span>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">21</div>
+    <div class="item-content">
+      <div class="item-title">Derechos de crédito y otros bienes muebles</div>
+      <div class="item-detail">Préstamos concedidos por el causante, joyas, obras de arte, colecciones. Valoración pericial si procede.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">22</div>
+    <div class="item-content">
+      <div class="item-title">Cálculo del caudal relicto neto</div>
+      <div class="item-detail">Activos − Pasivos deducibles (deudas del causante, gastos de última enfermedad, entierro).</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 3: ESCENARIO SUCESORIO -->
+<div class="section page-break">
+  <div class="section-header">
+    <div class="section-number">3</div>
+    <div class="section-title">Escenario Sucesorio — Derecho Civil Catalán</div>
+    <div class="section-range">Puntos 23–32</div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">23</div>
+    <div class="item-content">
+      <div class="item-title">Verificación de institución de heredero</div>
+      <div class="item-detail">En derecho catalán, la institución de heredero es esencial para la validez del testamento.</div>
+      <div class="item-ref">Art. 423-1 CCCat</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">24</div>
+    <div class="item-content">
+      <div class="item-title">Existencia de pactos sucesorios (heredamientos)</div>
+      <div class="item-detail">Verificar si existen heredamientos en capítulos matrimoniales u otros pactos sucesorios válidos.</div>
+      <div class="item-ref">Art. 431-1 a 431-30 CCCat</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">25</div>
+    <div class="item-content">
+      <div class="item-title">Cálculo de la legítima catalana</div>
+      <div class="item-detail">1/4 del caudal computable. Se reparte a partes iguales entre legitimarios (descendientes del causante).</div>
+      <div class="item-ref">Art. 451-5 CCCat</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">26</div>
+    <div class="item-content">
+      <div class="item-title">Cómputo del caudal hereditario para la legítima</div>
+      <div class="item-detail">Relictum (bienes existentes − deudas) + donatum (donaciones computables). Base de la legítima individual.</div>
+      <div class="item-ref">Art. 451-5.2 CCCat</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">27</div>
+    <div class="item-content">
+      <div class="item-title">Verificación de prelegados y su imputación</div>
+      <div class="item-detail">Los prelegados se computan a cuenta de la legítima si así lo dispone el testador o la ley.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">28</div>
+    <div class="item-content">
+      <div class="item-title">Cuarta viudal</div>
+      <div class="item-detail">Derecho del cónyuge viudo que no tiene recursos suficientes. Máximo 1/4 del caudal hereditario.</div>
+      <div class="item-ref">Art. 452-1 CCCat</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">29</div>
+    <div class="item-content">
+      <div class="item-title">Derechos del cónyuge superviviente</div>
+      <div class="item-detail">Usufructo universal, usufructo de vivienda habitual, año de viudedad. Según testamento y ley.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">30</div>
+    <div class="item-content">
+      <div class="item-title">Simulación comparativa de escenarios</div>
+      <div class="item-detail">Herencia directa vs. donación en vida vs. usufructo al cónyuge. Impacto fiscal de cada alternativa.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">31</div>
+    <div class="item-content">
+      <div class="item-title">Verificación de elemento transfronterizo</div>
+      <div class="item-detail">Si hay bienes o herederos en otro Estado miembro → aplicar Reglamento UE 650/2012 (professio iuris, ley aplicable).</div>
+      <div class="item-ref">Reglamento UE 650/2012</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">32</div>
+    <div class="item-content">
+      <div class="item-title">Distribución de adjudicaciones por heredero</div>
+      <div class="item-detail">Asignar bienes concretos a cada heredero/legatario. Verificar congruencia con cuotas hereditarias.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 4: LIQUIDACIÓN FISCAL ISD -->
+<div class="section page-break">
+  <div class="section-header">
+    <div class="section-number">4</div>
+    <div class="section-title">Liquidación Fiscal ISD — Cataluña</div>
+    <div class="section-range">Puntos 33–42</div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">33</div>
+    <div class="item-content">
+      <div class="item-title">Determinación de la base imponible individual</div>
+      <div class="item-detail">Porción hereditaria individual + seguros de vida percibidos. Una liquidación por cada sujeto pasivo.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">34</div>
+    <div class="item-content">
+      <div class="item-title">Reducción por parentesco</div>
+      <div class="item-detail">Grupo I: 100.000 € + 12.000 €/año menor de 21 (máx. 196.000 €). Grupo II: de 100.000 € a 8.000 € según relación.</div>
+      <div class="item-ref">Art. 2 Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">35</div>
+    <div class="item-content">
+      <div class="item-title">Reducción por discapacidad</div>
+      <div class="item-detail">275.000 € (grado ≥33%) o 650.000 € (grado ≥65%). Compatible con reducción por parentesco.</div>
+      <div class="item-ref">Art. 3 Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">36</div>
+    <div class="item-content">
+      <div class="item-title">Reducción por persona mayor de 75 años</div>
+      <div class="item-detail">275.000 € adicionales para beneficiarios de 75 años o más. Compatible con parentesco y discapacidad.</div>
+      <div class="item-ref">Art. 3 bis Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">37</div>
+    <div class="item-content">
+      <div class="item-title">Reducción por vivienda habitual del causante</div>
+      <div class="item-detail">95% del valor (máx. 500.000 €). Requisito: mantenimiento 5 años. Solo cónyuge, descendientes o ascendientes.</div>
+      <div class="item-ref">Art. 18 Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">38</div>
+    <div class="item-content">
+      <div class="item-title">Reducción por empresa familiar / participaciones</div>
+      <div class="item-detail">95% del valor. Requisitos: exención en IP, mantenimiento 5 años, funciones de dirección.</div>
+      <div class="item-ref">Art. 12 Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">39</div>
+    <div class="item-content">
+      <div class="item-title">Cálculo de la base liquidable y aplicación de tarifa</div>
+      <div class="item-detail">Base imponible − reducciones = Base liquidable. Aplicar tarifa progresiva (art. 57 Ley 22/2009).</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">40</div>
+    <div class="item-content">
+      <div class="item-title">Coeficiente multiplicador por patrimonio preexistente</div>
+      <div class="item-detail">Según grupo de parentesco y patrimonio previo del heredero. Grupos I y II: coeficiente 1,0000.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">41</div>
+    <div class="item-content">
+      <div class="item-title">Bonificaciones catalanas</div>
+      <div class="item-detail">Cónyuge/pareja: 99% plano. Grupos I y II: tablas progresivas según base imponible (del 99% al 20%).</div>
+      <div class="item-ref">Art. 58 bis Llei 19/2010</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">42</div>
+    <div class="item-content">
+      <div class="item-title">Verificación de recargo por extemporaneidad</div>
+      <div class="item-detail">Si presentación fuera de plazo voluntario (6 meses + posible prórroga). Recargos según Art. 27 LGT.</div>
+      <div class="item-ref">Art. 27 LGT</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN 5: TRAMITACIÓN Y CIERRE -->
+<div class="section page-break">
+  <div class="section-header">
+    <div class="section-number">5</div>
+    <div class="section-title">Tramitación y Cierre</div>
+    <div class="section-range">Puntos 43–47</div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">43</div>
+    <div class="item-content">
+      <div class="item-title">Generación del Modelo 660 (inventario de bienes)</div>
+      <div class="item-detail">Declaración del caudal hereditario. Documento base para la liquidación individual de cada heredero.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">44</div>
+    <div class="item-content">
+      <div class="item-title">Generación del Modelo 650 (autoliquidación por heredero)</div>
+      <div class="item-detail">Una autoliquidación por cada sujeto pasivo. Verificar coherencia con Modelo 660 y cuaderno particional.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">45</div>
+    <div class="item-content">
+      <div class="item-title">Presentación ante la ATC dentro del período voluntario</div>
+      <div class="item-detail">Plazo: 6 meses desde fallecimiento. Posibilidad de solicitar prórroga (5 meses desde la fecha de defunción).</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">46</div>
+    <div class="item-content">
+      <div class="item-title">Inscripción registral de los bienes adjudicados</div>
+      <div class="item-detail">Presentar escritura de aceptación y adjudicación en los Registros de la Propiedad correspondientes.</div>
+    </div>
+  </div>
+
+  <div class="checklist-item">
+    <div class="checkbox"></div>
+    <div class="item-number">47</div>
+    <div class="item-content">
+      <div class="item-title">Archivo del expediente con trazabilidad completa</div>
+      <div class="item-detail">Documentar todas las decisiones, cálculos y referencias normativas. Conservar durante el período de prescripción (4 años + 6 meses).</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTAS -->
+<div class="notes-area">
+  <h3>Notas del expediente</h3>
+  <div class="notes-lines">
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+    <div class="note-line"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-cta">
+    <p>Este proceso te lleva <strong>20–40 horas</strong> por expediente. Con Ulpiano, la plataforma de gestión sucesoria integral, reduces ese tiempo hasta un <strong>35%</strong>. Inventario, legítima, ISD y cuaderno particional — automatizados y con norma citada.</p>
+  </div>
+  <div class="footer-url">
+    ulpiano.es/demo<br>
+    © Ulpiano 2026
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+From 685097e77c755c4e61037133372e84145f82701c Mon Sep 17 00:00:00 2001
+From: Miquel <hola@gironatour.com>
+Date: Wed, 15 Apr 2026 20:39:17 +0200
+Subject: [PATCH] =?UTF-8?q?fix(build):=20corregir=20errors=20de=20compilac?=
+ =?UTF-8?q?i=C3=B3=20als=20models=20651,=20652=20i=20653?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Canviar import { BreadcrumbJsonLd } per import default als models 651/652/653
+- Eliminar bloc <style> de modelo-652 i modelo-653 (no permès en Server Components)
+- Moure 'canonical' dins d'alternates als models 652 i 653
+- Corregir prop url→href al BreadcrumbJsonLd de 652 i 653
+
+Co-Authored-By: Claude Sonnet 4.6 (1M context) <noreply@anthropic.com>
+---
+ .../(marketing)/modelos/modelo-651/page.tsx   |   2 +-
+ .../(marketing)/modelos/modelo-652/page.tsx   | 130 +--------------
+ .../(marketing)/modelos/modelo-653/page.tsx   | 154 +-----------------
+ 3 files changed, 13 insertions(+), 273 deletions(-)
+
+diff --git a/src/app/(marketing)/modelos/modelo-651/page.tsx b/src/app/(marketing)/modelos/modelo-651/page.tsx
+index efca6a8..202f57d 100644
+--- a/src/app/(marketing)/modelos/modelo-651/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-651/page.tsx
+@@ -2,7 +2,7 @@ import { Metadata } from "next";
+ import Link from "next/link";
+ import { Modelo651InteractiveShells } from "./Modelo651Client";
+ import { ModelNav } from "@/components/modelos/ModelNav";
+-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
++import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+ 
+ export const metadata: Metadata = {
+   title: "Modelo 651 Catalunya: Guía Completa del Impuesto de Donaciones | Ulpiano",
+diff --git a/src/app/(marketing)/modelos/modelo-652/page.tsx b/src/app/(marketing)/modelos/modelo-652/page.tsx
+index cf2d860..87c6d2e 100644
+--- a/src/app/(marketing)/modelos/modelo-652/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-652/page.tsx
+@@ -1,13 +1,13 @@
+ import { Metadata } from "next";
+-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
++import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+ import { ModelNav } from "@/components/modelos/ModelNav";
+ import { Modelo652InteractiveShells } from "./Modelo652Client";
+ 
+ export const metadata: Metadata = {
+   title: "Modelo 652 Cataluña: Tributación de Seguros de Vida en Sucesiones | Ulpiano",
+   description: "Guía completa del Modelo 652: tributación del capital de seguros de vida cuando el beneficiario no es el tomador, plazo de 6 meses, reducciones catalanas (Llei 19/2010) y cómo Ulpiano lo genera automáticamente desde el expediente.",
+-  canonical: "https://ulpiano.es/modelos/modelo-652",
+   alternates: {
++    canonical: "https://ulpiano.es/modelos/modelo-652",
+     languages: {
+       es: "https://ulpiano.es/modelos/modelo-652",
+       ca: "https://ulpiano.es/ca/models/model-652",
+@@ -52,130 +52,12 @@ const faqs = [
+ export default function Modelo652Page() {
+   return (
+     <main>
+-      <style>{`
+-        .mod-nav {
+-          display: flex;
+-          gap: var(--space-4);
+-          margin-bottom: var(--space-6);
+-          overflow-x: auto;
+-          padding-bottom: var(--space-3);
+-        }
+-        .mod-nav__item {
+-          padding: var(--space-3) var(--space-4);
+-          border-radius: 6px;
+-          background: var(--surface);
+-          color: var(--slate);
+-          text-decoration: none;
+-          font-size: 14px;
+-          font-weight: 500;
+-          white-space: nowrap;
+-          border: 1px solid transparent;
+-          transition: all 200ms ease;
+-        }
+-        .mod-nav__item:hover {
+-          background: var(--mist);
+-        }
+-        .mod-nav__item--active {
+-          background: var(--ulpiano-green);
+-          color: var(--white);
+-          border-color: var(--ulpiano-green);
+-        }
+-        .mod-summary-row {
+-          display: grid;
+-          grid-template-columns: 1fr 1fr;
+-          gap: var(--space-6);
+-          padding: var(--space-4) 0;
+-          border-bottom: 1px solid var(--mist);
+-        }
+-        .mod-summary-field {
+-          font-weight: 600;
+-          color: var(--ink);
+-          font-size: 14px;
+-        }
+-        .mod-summary-value {
+-          color: var(--slate);
+-          font-size: 14px;
+-          line-height: 1.6;
+-        }
+-        .mod-obligados-grid {
+-          display: grid;
+-          grid-template-columns: repeat(3, 1fr);
+-          gap: var(--space-6);
+-          margin-top: var(--space-8);
+-        }
+-        .mod-obligados-grid > div {
+-          padding: var(--space-6);
+-          border: 1px solid var(--mist);
+-          border-radius: 8px;
+-          background: var(--white);
+-        }
+-        .mod-obligados-grid h3 {
+-          font-size: 16px;
+-          font-weight: 600;
+-          color: var(--ink);
+-          margin-bottom: var(--space-3);
+-        }
+-        .mod-obligados-grid p {
+-          font-size: 14px;
+-          color: var(--slate);
+-          line-height: 1.6;
+-        }
+-        .mod-related-grid {
+-          display: grid;
+-          grid-template-columns: repeat(4, 1fr);
+-          gap: var(--space-6);
+-          margin-top: var(--space-8);
+-        }
+-        .mod-related-grid > a {
+-          padding: var(--space-6);
+-          border: 1px solid var(--mist);
+-          border-radius: 8px;
+-          background: var(--white);
+-          text-decoration: none;
+-          transition: all 200ms ease;
+-        }
+-        .mod-related-grid > a:hover {
+-          border-color: var(--ulpiano-green);
+-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+-        }
+-        .mod-related-grid h4 {
+-          font-size: 14px;
+-          font-weight: 600;
+-          color: var(--ink);
+-          margin-bottom: var(--space-2);
+-        }
+-        .mod-related-grid p {
+-          font-size: 13px;
+-          color: var(--slate);
+-          line-height: 1.5;
+-        }
+-        @media (max-width: 1024px) {
+-          .mod-obligados-grid {
+-            grid-template-columns: repeat(2, 1fr);
+-          }
+-          .mod-related-grid {
+-            grid-template-columns: repeat(2, 1fr);
+-          }
+-        }
+-        @media (max-width: 768px) {
+-          .mod-obligados-grid {
+-            grid-template-columns: 1fr;
+-          }
+-          .mod-related-grid {
+-            grid-template-columns: 1fr;
+-          }
+-          .mod-summary-row {
+-            grid-template-columns: 1fr;
+-            gap: var(--space-3);
+-          }
+-        }
+-      `}</style>
+-
++      
+       <BreadcrumbJsonLd
+         items={[
+-          { name: "Inicio", url: "https://ulpiano.es" },
+-          { name: "Modelos fiscales", url: "https://ulpiano.es/modelos" },
+-          { name: "Modelo 652", url: "https://ulpiano.es/modelos/modelo-652" },
++          { name: "Inicio", href: "/" },
++          { name: "Modelos fiscales", href: "/modelos" },
++          { name: "Modelo 652", href: "/modelos/modelo-652" },
+         ]}
+       />
+ 
+diff --git a/src/app/(marketing)/modelos/modelo-653/page.tsx b/src/app/(marketing)/modelos/modelo-653/page.tsx
+index b50bfa0..c1ec83e 100644
+--- a/src/app/(marketing)/modelos/modelo-653/page.tsx
++++ b/src/app/(marketing)/modelos/modelo-653/page.tsx
+@@ -1,13 +1,13 @@
+ import { Metadata } from "next";
+-import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
++import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+ import { ModelNav } from "@/components/modelos/ModelNav";
+ import { Modelo653InteractiveShells } from "./Modelo653Client";
+ 
+ export const metadata: Metadata = {
+   title: "Modelo 653 Cataluña: Consolidación de Dominio y Extinción de Usufructo | Ulpiano",
+   description: "Guía completa del Modelo 653: qué es, cuándo se presenta, causas de extinción del usufructo, cálculo de la cuota complementaria (Art. 26.c LISD) y cómo Ulpiano simula la consolidación antes de constituir el usufructo.",
+-  canonical: "https://ulpiano.es/modelos/modelo-653",
+   alternates: {
++    canonical: "https://ulpiano.es/modelos/modelo-653",
+     languages: {
+       es: "https://ulpiano.es/modelos/modelo-653",
+       ca: "https://ulpiano.es/ca/models/model-653",
+@@ -51,154 +51,12 @@ const faqs = [
+ export default function Modelo653Page() {
+   return (
+     <main>
+-      <style>{`
+-        .mod-nav {
+-          display: flex;
+-          gap: var(--space-4);
+-          margin-bottom: var(--space-6);
+-          overflow-x: auto;
+-          padding-bottom: var(--space-3);
+-        }
+-        .mod-nav__item {
+-          padding: var(--space-3) var(--space-4);
+-          border-radius: 6px;
+-          background: var(--surface);
+-          color: var(--slate);
+-          text-decoration: none;
+-          font-size: 14px;
+-          font-weight: 500;
+-          white-space: nowrap;
+-          border: 1px solid transparent;
+-          transition: all 200ms ease;
+-        }
+-        .mod-nav__item:hover {
+-          background: var(--mist);
+-        }
+-        .mod-nav__item--active {
+-          background: var(--ulpiano-green);
+-          color: var(--white);
+-          border-color: var(--ulpiano-green);
+-        }
+-        .mod-summary-row {
+-          display: grid;
+-          grid-template-columns: 1fr 1fr;
+-          gap: var(--space-6);
+-          padding: var(--space-4) 0;
+-          border-bottom: 1px solid var(--mist);
+-        }
+-        .mod-summary-field {
+-          font-weight: 600;
+-          color: var(--ink);
+-          font-size: 14px;
+-        }
+-        .mod-summary-value {
+-          color: var(--slate);
+-          font-size: 14px;
+-          line-height: 1.6;
+-        }
+-        .mod-obligados-grid {
+-          display: grid;
+-          grid-template-columns: repeat(3, 1fr);
+-          gap: var(--space-6);
+-          margin-top: var(--space-8);
+-        }
+-        .mod-obligados-grid > div {
+-          padding: var(--space-6);
+-          border: 1px solid var(--mist);
+-          border-radius: 8px;
+-          background: var(--white);
+-        }
+-        .mod-obligados-grid h3 {
+-          font-size: 16px;
+-          font-weight: 600;
+-          color: var(--ink);
+-          margin-bottom: var(--space-3);
+-        }
+-        .mod-obligados-grid p {
+-          font-size: 14px;
+-          color: var(--slate);
+-          line-height: 1.6;
+-        }
+-        .mod-calc-steps {
+-          display: grid;
+-          gap: var(--space-6);
+-          margin-top: var(--space-8);
+-          max-width: 640px;
+-        }
+-        .mod-calc-step {
+-          padding: var(--space-6);
+-          border-left: 4px solid var(--ulpiano-green);
+-          background: var(--mist);
+-          border-radius: 4px;
+-        }
+-        .mod-calc-step-num {
+-          font-weight: 700;
+-          font-size: 13px;
+-          color: var(--ulpiano-green);
+-          text-transform: uppercase;
+-          margin-bottom: var(--space-2);
+-        }
+-        .mod-calc-step-text {
+-          font-size: 15px;
+-          color: var(--slate);
+-          line-height: 1.6;
+-        }
+-        .mod-related-grid {
+-          display: grid;
+-          grid-template-columns: repeat(4, 1fr);
+-          gap: var(--space-6);
+-          margin-top: var(--space-8);
+-        }
+-        .mod-related-grid > a {
+-          padding: var(--space-6);
+-          border: 1px solid var(--mist);
+-          border-radius: 8px;
+-          background: var(--white);
+-          text-decoration: none;
+-          transition: all 200ms ease;
+-        }
+-        .mod-related-grid > a:hover {
+-          border-color: var(--ulpiano-green);
+-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+-        }
+-        .mod-related-grid h4 {
+-          font-size: 14px;
+-          font-weight: 600;
+-          color: var(--ink);
+-          margin-bottom: var(--space-2);
+-        }
+-        .mod-related-grid p {
+-          font-size: 13px;
+-          color: var(--slate);
+-          line-height: 1.5;
+-        }
+-        @media (max-width: 1024px) {
+-          .mod-obligados-grid {
+-            grid-template-columns: repeat(2, 1fr);
+-          }
+-          .mod-related-grid {
+-            grid-template-columns: repeat(2, 1fr);
+-          }
+-        }
+-        @media (max-width: 768px) {
+-          .mod-obligados-grid {
+-            grid-template-columns: 1fr;
+-          }
+-          .mod-related-grid {
+-            grid-template-columns: 1fr;
+-          }
+-          .mod-summary-row {
+-            grid-template-columns: 1fr;
+-            gap: var(--space-3);
+-          }
+-        }
+-      `}</style>
+-
++      
+       <BreadcrumbJsonLd
+         items={[
+-          { name: "Inicio", url: "https://ulpiano.es" },
+-          { name: "Modelos fiscales", url: "https://ulpiano.es/modelos" },
+-          { name: "Modelo 653", url: "https://ulpiano.es/modelos/modelo-653" },
++          { name: "Inicio", href: "/" },
++          { name: "Modelos fiscales", href: "/modelos" },
++          { name: "Modelo 653", href: "/modelos/modelo-653" },
+         ]}
+       />
+ 
+-- 
+2.34.1
+

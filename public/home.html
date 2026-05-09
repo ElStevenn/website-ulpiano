@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulpiano — El sistema operativo de las herencias</title>
+  <meta name="description" content="Ulpiano es la plataforma que estructura, valida y documenta el proceso sucesorio completo. Para abogados, asesores y notarías.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES — TOKENS
+       ============================================ */
+    :root {
+      /* Colors */
+      --night: #0F1F3D;
+      --ink: #1E293B;
+      --slate: #64748B;
+      --fog: #94A3B8;
+      --mist: #CBD5E1;
+      --surface: #F1F5F9;
+      --white: #FFFFFF;
+      --ulpiano-green: #2D6A4F;
+      --green-light: #40916C;
+      --green-bg: #D8F3DC;
+
+      /* Functional colors */
+      --warning: #B45309;
+      --warning-bg: #FEF3C7;
+      --error: #991B1B;
+      --error-bg: #FEE2E2;
+      --info: #1E6A9E;
+      --info-bg: #DBEAFE;
+
+      /* Spacing (8px base) */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+      --space-32: 128px;
+
+      /* Typography */
+      --font-display: 'DM Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    @media (min-width: 1440px) {
+      .container { max-width: 1280px; }
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .body-large {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .caption {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 48px; }
+      h2 { font-size: 34px; }
+      h3 { font-size: 22px; }
+      .body-large { font-size: 18px; }
+      .eyebrow { font-size: 13px; }
+      .caption { font-size: 13px; }
+    }
+
+    @media (min-width: 1024px) {
+      h1 { font-size: 64px; }
+      h2 { font-size: 42px; }
+      h3 { font-size: 24px; }
+      .body-large { font-size: 20px; }
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ulpiano-green);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 250ms ease, box-shadow 250ms ease, transform 150ms ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-light);
+      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--green-light);
+      outline-offset: 2px;
+    }
+
+    .btn-primary--large {
+      padding: 16px 40px;
+      font-size: 17px;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 15px;
+      padding: 0;
+      border: none;
+      cursor: pointer;
+      transition: opacity 200ms ease;
+    }
+
+    .btn-ghost:hover { opacity: 0.7; }
+    .btn-ghost svg { transition: transform 200ms ease; }
+    .btn-ghost:hover svg { transform: translateX(4px); }
+
+    .btn-ghost:focus-visible {
+      outline: 2px solid var(--white);
+      outline-offset: 2px;
+    }
+
+    .btn-ghost--dark {
+      color: var(--ink);
+    }
+
+    /* ============================================
+       CARDS
+       ============================================ */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--mist);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(15, 31, 61, 0.04), 0 4px 12px rgba(15, 31, 61, 0.06);
+      transition: box-shadow 300ms ease, transform 300ms ease;
+      padding: var(--space-6);
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(15, 31, 61, 0.06), 0 12px 28px rgba(15, 31, 61, 0.10);
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 1024px) {
+      .card { padding: var(--space-8); }
+    }
+
+    /* ============================================
+       SCROLL REVEAL
+       ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       SECCIÓN 1: NAV
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--night);
+      padding: 0 var(--space-6);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      transition: box-shadow 300ms ease;
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav__links {
+      display: none;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .nav__links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 200ms ease;
+    }
+
+    .nav__links a:hover,
+    .nav__links a:focus-visible {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .nav__ctas {
+      display: none;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .nav__login {
+      font-weight: 500;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 200ms ease;
+    }
+
+    .nav__login:hover { color: var(--white); }
+
+    .nav__cta-btn {
+      background: var(--ulpiano-green);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: background 250ms ease;
+    }
+
+    .nav__cta-btn:hover {
+      background: var(--green-light);
+    }
+
+    .nav__hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 1px;
+      transition: transform 300ms ease, opacity 200ms ease;
+    }
+
+    .nav__hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav__hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav__hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav__mobile-panel {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--night);
+      padding: var(--space-6);
+      flex-direction: column;
+      gap: 0;
+      z-index: 99;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav__mobile-panel.open {
+      display: flex;
+    }
+
+    .nav__mobile-panel a {
+      display: block;
+      padding: var(--space-4) 0;
+      font-weight: 500;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: color 200ms ease;
+    }
+
+    .nav__mobile-panel a:last-child {
+      border-bottom: none;
+    }
+
+    .nav__mobile-panel a:hover {
+      color: var(--white);
+    }
+
+    .nav__mobile-cta {
+      margin-top: var(--space-4);
+      text-align: center;
+    }
+
+    .nav__mobile-cta .btn-primary {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .nav__links { display: flex; }
+      .nav__ctas { display: flex; }
+      .nav__hamburger { display: none; }
+    }
+
+    /* ============================================
+       SECCIÓN 2: HERO
+       ============================================ */
+    .hero {
+      background: var(--night);
+      color: var(--white);
+      padding-top: calc(64px + var(--space-16));
+      padding-bottom: var(--space-24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__orb {
+      position: absolute;
+      top: -100px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: rgba(180, 100, 220, 0.04);
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .hero__eyebrow {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .hero__title {
+      margin-top: var(--space-4);
+      max-width: 640px;
+    }
+
+    .hero__subtitle {
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 520px;
+      margin-top: var(--space-6);
+    }
+
+    .hero__cta-primary {
+      margin-top: var(--space-8);
+    }
+
+    .hero__cta-secondary {
+      margin-top: var(--space-4);
+    }
+
+    /* Hero Mockup */
+    .hero-mockup {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      background: var(--surface);
+      width: 100%;
+    }
+
+    .mockup__chrome {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      background: var(--white);
+      border-bottom: 1px solid var(--mist);
+    }
+
+    .mockup__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mist);
+    }
+
+    .mockup__title {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--fog);
+      margin-left: var(--space-2);
+    }
+
+    .mockup__table {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .mockup__table-header {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
+      padding: var(--space-2) var(--space-4);
+      background: var(--surface);
+      border-bottom: 1px solid var(--mist);
+      font-weight: 500;
+      color: var(--slate);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .mockup__row {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid rgba(203, 213, 225, 0.4);
+      align-items: center;
+      background: var(--white);
+    }
+
+    .mockup__row--active {
+      background: rgba(45, 106, 79, 0.06);
+      border-left: 3px solid var(--ulpiano-green);
+    }
+
+    .mockup__name {
+      font-weight: 500;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .mockup__badge {
+      display: inline-flex;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .mockup__badge--green {
+      background: var(--green-bg);
+      color: var(--ulpiano-green);
+    }
+
+    .mockup__badge--amber {
+      background: var(--warning-bg);
+      color: var(--warning);
+    }
+
+    .mockup__badge--blue {
+      background: var(--info-bg);
+      color: var(--info);
+    }
+
+    .mockup__date {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--slate);
+    }
+
+    .mockup__amount {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    @media (min-width: 1024px) {
+      .hero__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-mockup {
+        transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
+        transition: transform 600ms ease;
+        margin-bottom: -60px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero__subtitle { font-size: 18px; }
+    }
+
+    /* ============================================
+       SECCIÓN 3: SOCIAL PROOF
+       ============================================ */
+    .social-proof {
+      background: var(--surface);
+      padding: var(--space-12) 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-proof__eyebrow {
+      text-align: center;
+      color: var(--slate);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+
+    .social-proof__logos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+      align-items: center;
+      justify-items: center;
+    }
+
+    .logo-proof {
+      filter: grayscale(1) opacity(0.4);
+      transition: filter 300ms ease;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      padding: var(--space-3) var(--space-4);
+      white-space: nowrap;
+    }
+
+    .logo-proof:hover {
+      filter: grayscale(0) opacity(1);
+    }
+
+    .social-proof__metric {
+      text-align: center;
+      margin-top: var(--space-8);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--mist);
+    }
+
+    .social-proof__number {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .social-proof__label {
+      font-size: 15px;
+      color: var(--slate);
+      margin-top: var(--space-2);
+    }
+
+    @media (min-width: 768px) {
+      .social-proof__logos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .social-proof__logos {
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-10);
+      }
+    }
+
+    /* ============================================
+       SECCIÓN 4: OUTPUTS
+       ============================================ */
+    .outputs {
+      background: var(--white);
+      padding: var(--space-12) 0;
+    }
+
+    .outputs__header {
+      margin-bottom: var(--space-10);
+    }
+
+    .outputs__eyebrow {
+      color: var(--slate);
+    }
+
+    .outputs__title {
+      color: var(--ink);
+      margin-top: var(--space-3);
+    }
+
+    .outputs__subtitle {
+      font-size: 18px;
+      color: var(--slate);
+      margin-top: var(--space-3);
+    }
+
+    .outputs__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .output-card__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .output-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--ulpiano-green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .output-card h3 {
+      color: var(--ink);
+      margin-top: var(--space-4);
+      font-size: 20px;
+    }
+
+    .output-card p {
+      font-size: 15px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-top: var(--space-3);
+    }
+
+    .output-card__badge {
+      display: inline-flex;
+      padding: 4px 12px;
+      border-radius: 6px;
+      background: var(--green-bg);
+      color: var(--ulpiano-green);
+      font-weight: 500;
+      font-size: 12px;
+      margin-top: var(--space-4);
+    }
+
+    .output-card__highlight {
+      margin-top: var(--space-4);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: var(--space-4);
+    }
+
+    .output-card__highlight-amount {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .output-card__highlight-label {
+      font-size: 13px;
+      color: var(--slate);
+      margin-top: var(--space-1);
+    }
+
+    @media (min-width: 768px) {
+      .outputs { padding: var(--space-20) 0; }
+      .outputs__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .output-card h3 { font-size: 22px; }
+    }
+
+    /* ============================================
+       SECCIÓN 5: PARA QUIÉN
+       ============================================ */
+    .para-quien {
+      background: var(--white);
+      padding: var(--space-12) 0;
+    }
+
+    .para-quien__header {
+      margin-bottom: var(--space-8);
+    }
+
+    .para-quien__eyebrow {
+      color: var(--slate);
+    }
+
+    .para-quien__title {
+      color: var(--ink);
+      margin-top: var(--space-3);
+    }
+
+    .tabs {
+      margin-top: var(--space-6);
+    }
+
+    .tabs__bar {
+      display: flex;
+      gap: var(--space-2);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs__bar[role="tablist"] {
+      border-bottom: 1px solid var(--mist);
+      padding-bottom: 0;
+    }
+
+    .tab-btn {
+      padding: 12px 24px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 8px 8px 0 0;
+      color: var(--slate);
+      transition: background 200ms ease, color 200ms ease;
+      cursor: pointer;
+      white-space: nowrap;
+      border: none;
+      background: transparent;
+    }
+
+    .tab-btn:hover {
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .tab-btn[aria-selected="true"] {
+      background: var(--night);
+      color: var(--white);
+    }
+
+    .tab-btn:focus-visible {
+      outline: 2px solid var(--ulpiano-green);
+      outline-offset: -2px;
+    }
+
+    .tabs__content {
+      margin-top: var(--space-8);
+    }
+
+    .tab-panel {
+      display: none;
+      opacity: 0;
+      transition: opacity 250ms ease;
+    }
+
+    .tab-panel.active {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      opacity: 1;
+    }
+
+    .tab-panel__claim {
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: var(--space-4);
+    }
+
+    .tab-panel__bullets {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .tab-panel__bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: 15px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    .tab-panel__bullet svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--ulpiano-green);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .tab-panel__mockup {
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--mist);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--fog);
+      font-weight: 500;
+    }
+
+    @media (min-width: 768px) {
+      .para-quien { padding: var(--space-20) 0; }
+      .tab-panel.active {
+        grid-template-columns: 3fr 2fr;
+      }
+    }
+
+    /* ============================================
+       SECCIÓN 6: CÓMO FUNCIONA
+       ============================================ */
+    .como-funciona {
+      background: var(--surface);
+      padding: var(--space-12) 0;
+    }
+
+    .como-funciona__header {
+      margin-bottom: var(--space-10);
+    }
+
+    .como-funciona__eyebrow {
+      color: var(--slate);
+    }
+
+    .como-funciona__title {
+      color: var(--ink);
+      margin-top: var(--space-3);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      position: relative;
+    }
+
+    .step {
+      position: relative;
+      padding-left: var(--space-16);
+    }
+
+    .step__number {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 48px;
+      color: var(--mist);
+      opacity: 0.5;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    .step__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--ulpiano-green);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--ulpiano-green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .step__title {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--ink);
+      margin-top: var(--space-4);
+    }
+
+    .step__desc {
+      font-size: 15px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-top: var(--space-2);
+    }
+
+    /* Vertical connector for mobile */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 87px;
+      top: 58px;
+      bottom: -32px;
+      border-left: 2px dashed var(--mist);
+    }
+
+    @media (min-width: 768px) {
+      .como-funciona { padding: var(--space-20) 0; }
+    }
+
+    @media (min-width: 1024px) {
+      .steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+      }
+
+      .step {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .step__number {
+        font-size: 72px;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .step__icon {
+        margin: 0 auto;
+      }
+
+      .step:not(:last-child)::after {
+        left: calc(50% + 28px);
+        top: 24px;
+        bottom: auto;
+        right: calc(-50% + 28px);
+        width: auto;
+        border-left: none;
+        border-top: 2px dashed var(--mist);
+        height: 0;
+      }
+    }
+
+    /* ============================================
+       SECCIÓN 7: TESTIMONIO
+       ============================================ */
+    .testimonio {
+      background: var(--night);
+      color: var(--white);
+      padding: var(--space-12) 0;
+    }
+
+    .testimonio__quote {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+      border-left: 3px solid var(--ulpiano-green);
+      padding-left: var(--space-6);
+    }
+
+    .testimonio__text {
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--white);
+    }
+
+    .testimonio__author {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--fog);
+      margin-top: var(--space-4);
+    }
+
+    .testimonio__metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+      text-align: center;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .metric__number {
+      font-family: var(--font-mono);
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--green-light);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .metric__separator {
+      width: 40px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: var(--space-3) auto;
+    }
+
+    .metric__label {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (min-width: 768px) {
+      .testimonio { padding: var(--space-24) 0; }
+      .testimonio__text { font-size: 22px; }
+      .testimonio__metrics {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: var(--space-16);
+      }
+      .metric__number { font-size: 56px; }
+    }
+
+    /* ============================================
+       SECCIÓN 8: CTA FINAL
+       ============================================ */
+    .cta-final {
+      background: var(--night);
+      color: var(--white);
+      padding: var(--space-12) 0;
+      text-align: center;
+      border-top: 1px solid rgba(203, 213, 225, 0.1);
+      position: relative;
+    }
+
+    .cta-final__orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background: rgba(180, 100, 220, 0.03);
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .cta-final__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-final__title {
+      color: var(--white);
+    }
+
+    .cta-final__subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 520px;
+      margin: var(--space-4) auto 0;
+    }
+
+    .cta-final__btn {
+      margin-top: var(--space-8);
+    }
+
+    .cta-final__alt {
+      margin-top: var(--space-4);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (min-width: 768px) {
+      .cta-final { padding: var(--space-24) 0; }
+    }
+
+    /* ============================================
+       SECCIÓN 9: FOOTER
+       ============================================ */
+    .footer {
+      background: var(--ink);
+      color: var(--white);
+      padding: var(--space-16) 0 var(--space-10) 0;
+      border-top: 1px solid rgba(203, 213, 225, 0.12);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    .footer__logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    .footer__tagline {
+      font-size: 14px;
+      color: var(--fog);
+      margin-top: var(--space-3);
+    }
+
+    .footer__copyright {
+      font-size: 13px;
+      color: var(--fog);
+      margin-top: var(--space-4);
+    }
+
+    .footer__col-header {
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-4);
+    }
+
+    .footer__col ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .footer__col a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      transition: color 200ms ease;
+    }
+
+    .footer__col a:hover {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: 1.5fr repeat(4, 1fr);
+      }
+      .footer__brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECCIÓN 1: NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">ULPIANO</a>
+      <div class="nav__links">
+        <a href="#outputs">Soluciones</a>
+        <a href="#para-quien">Pensado para</a>
+        <a href="#como-funciona">Proceso</a>
+        <a href="#testimonio">Resultados</a>
+      </div>
+      <div class="nav__ctas">
+        <a href="#" class="nav__login">Iniciar sesion</a>
+        <a href="#cta-final" class="nav__cta-btn">Reserva tu demo</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir menu de navegacion" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav__mobile-panel" id="mobile-panel">
+      <a href="#outputs">Soluciones</a>
+      <a href="#para-quien">Pensado para</a>
+      <a href="#como-funciona">Proceso</a>
+      <a href="#testimonio">Resultados</a>
+      <a href="#">Iniciar sesion</a>
+      <div class="nav__mobile-cta">
+        <a href="#cta-final" class="btn-primary">Reserva tu demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECCIÓN 2: HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__orb"></div>
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow hero__eyebrow">Plataforma de gestion sucesoria</p>
+          <h1 class="hero__title">De inventario a cuaderno particional. Sin errores de calculo. Sin revision manual de la norma.</h1>
+          <p class="hero__subtitle">Ulpiano es la plataforma que estructura, valida y documenta el proceso sucesorio completo. Para abogados, asesores y notarias que gestionan herencias con volumen, complejidad y responsabilidad profesional.</p>
+          <div class="hero__cta-primary">
+            <a href="#cta-final" class="btn-primary">Solicita tu demo gratuita</a>
+          </div>
+          <div class="hero__cta-secondary">
+            <a href="#como-funciona" class="btn-ghost">
+              Ver como funciona el motor normativo
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10"/><path d="M9 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero-mockup">
+            <div class="mockup__chrome">
+              <span class="mockup__dot"></span>
+              <span class="mockup__dot"></span>
+              <span class="mockup__dot"></span>
+              <span class="mockup__title">Panel de Expedientes</span>
+            </div>
+            <div class="mockup__table">
+              <div class="mockup__table-header">
+                <span>Causante</span>
+                <span>Estado</span>
+                <span>Proximo plazo</span>
+                <span style="text-align:right">Cuota ISD</span>
+              </div>
+              <div class="mockup__row mockup__row--active">
+                <span class="mockup__name">Garcia Puig, M.</span>
+                <span><span class="mockup__badge mockup__badge--green">Liquidado</span></span>
+                <span class="mockup__date">12/03/2026</span>
+                <span class="mockup__amount">&euro; 12.430,00</span>
+              </div>
+              <div class="mockup__row">
+                <span class="mockup__name">Casals Ferrer, J.</span>
+                <span><span class="mockup__badge mockup__badge--amber">Pendiente ISD</span></span>
+                <span class="mockup__date">28/04/2026</span>
+                <span class="mockup__amount">&euro; 8.215,50</span>
+              </div>
+              <div class="mockup__row">
+                <span class="mockup__name">Roca Vidal, T.</span>
+                <span><span class="mockup__badge mockup__badge--blue">En calculo</span></span>
+                <span class="mockup__date">15/05/2026</span>
+                <span class="mockup__amount">&euro; 24.890,00</span>
+              </div>
+              <div class="mockup__row">
+                <span class="mockup__name">Puig Soler, A.</span>
+                <span><span class="mockup__badge mockup__badge--green">Liquidado</span></span>
+                <span class="mockup__date">02/02/2026</span>
+                <span class="mockup__amount">&euro; 5.640,75</span>
+              </div>
+              <div class="mockup__row">
+                <span class="mockup__name">Ferrer Costa, L.</span>
+                <span><span class="mockup__badge mockup__badge--amber">Pendiente ISD</span></span>
+                <span class="mockup__date">30/06/2026</span>
+                <span class="mockup__amount">&euro; 31.200,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: SOCIAL PROOF / CONFIANZA -->
+  <section class="social-proof" id="social-proof">
+    <div class="container">
+      <p class="eyebrow social-proof__eyebrow reveal">Profesionales que confian en Ulpiano</p>
+      <div class="social-proof__logos reveal">
+        <span class="logo-proof">Despacho Garcia &amp; Asociados</span>
+        <span class="logo-proof">Notaria Puig</span>
+        <span class="logo-proof">Asesoria Roca</span>
+        <span class="logo-proof">Bufete Casals</span>
+        <span class="logo-proof">Gestoria Pla</span>
+      </div>
+      <div class="social-proof__metric reveal">
+        <div class="social-proof__number" data-count="35" data-suffix="%">0%</div>
+        <p class="social-proof__label">de reduccion en tiempo de gestion por expediente</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: OUTPUTS — LO QUE OBTIENES -->
+  <section class="outputs" id="outputs">
+    <div class="container">
+      <div class="outputs__header reveal">
+        <p class="eyebrow outputs__eyebrow">Resultados</p>
+        <h2 class="outputs__title">Lo que sale de Ulpiano</h2>
+        <p class="outputs__subtitle">No herramientas. Resultados.</p>
+      </div>
+      <div class="outputs__grid">
+        <!-- Output 1 -->
+        <div class="card output-card reveal">
+          <div class="output-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="13"/><line x1="12" y1="13" x2="7" y2="19"/><line x1="12" y1="13" x2="17" y2="19"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>
+          </div>
+          <h3>El arbol familiar de la herencia, dibujado solo</h3>
+          <p>Introduce los herederos y beneficiarios. Ulpiano construye el diagrama sucesorio, asigna grupos de parentesco y respeta automaticamente las legitimas del CCCat.</p>
+          <span class="output-card__badge">Visual &middot; Exportable</span>
+        </div>
+        <!-- Output 2 -->
+        <div class="card output-card reveal">
+          <div class="output-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><path d="M14 17l2 2 4-4"/></svg>
+          </div>
+          <h3>La cuota del ISD de cada heredero, calculada</h3>
+          <p>Base imponible, reducciones autonomicas, bonificaciones, coeficiente multiplicador. El resultado final con la norma citada. Para Cataluña, con la Llei 19/2010 integrada desde la base.</p>
+          <div class="output-card__highlight">
+            <div class="output-card__highlight-amount">&euro; 12.430,00</div>
+            <div class="output-card__highlight-label">cuota a ingresar</div>
+          </div>
+          <span class="output-card__badge">Modelo 650 incluido</span>
+        </div>
+        <!-- Output 3 -->
+        <div class="card output-card reveal">
+          <div class="output-card__icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="6" x2="6" y2="12"/><line x1="12" y1="6" x2="18" y2="12"/><line x1="6" y1="12" x2="6" y2="22"/><line x1="18" y1="12" x2="18" y2="22"/><line x1="12" y1="6" x2="12" y2="22"/></svg>
+          </div>
+          <h3>Tres escenarios, comparados en segundos</h3>
+          <p>Herencia directa vs. donacion en vida vs. usufructo al conyuge. Ulpiano calcula el impacto fiscal de cada opcion y lo muestra en paralelo. Tu cliente entiende lo que esta decidiendo.</p>
+          <span class="output-card__badge">Planificacion pre-mortem</span>
+        </div>
+        <!-- Output 4 -->
+        <div class="card output-card reveal">
+          <div class="output-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/><path d="M21.17 8A10 10 0 0 0 16 3.83" style="stroke:var(--ulpiano-green);stroke-dasharray:3 3"/></svg>
+          </div>
+          <h3>El coste de llegar tarde, calculado antes de llegar tarde</h3>
+          <p>Si el periodo voluntario de 6 meses vence, Ulpiano calcula automaticamente el recargo por extemporaneidad segun el Art. 27 LGT. Sin sorpresas para el cliente. Sin contingencias para el despacho.</p>
+          <span class="output-card__badge">Alertas automaticas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: PARA QUIÉN -->
+  <section class="para-quien" id="para-quien">
+    <div class="container">
+      <div class="para-quien__header reveal">
+        <p class="eyebrow para-quien__eyebrow">Segmentos</p>
+        <h2 class="para-quien__title">Hecho para quien gestiona herencias en serio</h2>
+      </div>
+      <div class="tabs reveal">
+        <div class="tabs__bar" role="tablist" aria-label="Perfiles profesionales">
+          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-despachos" id="tab-despachos">Despachos</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-asesorias" id="tab-asesorias" tabindex="-1">Asesorias</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-notarias" id="tab-notarias" tabindex="-1">Notarias</button>
+        </div>
+        <div class="tabs__content">
+          <!-- Panel Despachos -->
+          <div class="tab-panel active" role="tabpanel" id="panel-despachos" aria-labelledby="tab-despachos">
+            <div>
+              <p class="tab-panel__claim">El calculo de la legitima no deberia tardar dos horas. En Ulpiano tarda tres minutos.</p>
+              <div class="tab-panel__bullets">
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Derecho foral catalan integrado desde la base, sin excepciones</span>
+                </div>
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Borrador del cuaderno particional generado a partir del expediente</span>
+                </div>
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Cada decision del expediente queda registrada y es auditable</span>
+                </div>
+              </div>
+            </div>
+            <div class="tab-panel__mockup">Vista del Planificador Sucesorio</div>
+          </div>
+          <!-- Panel Asesorías -->
+          <div class="tab-panel" role="tabpanel" id="panel-asesorias" aria-labelledby="tab-asesorias" hidden>
+            <div>
+              <p class="tab-panel__claim">El ISD cambia. Tus expedientes activos, no.</p>
+              <div class="tab-panel__bullets">
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Recalculo automatico ante cambios normativos</span>
+                </div>
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Trazabilidad auditable ante la ATC</span>
+                </div>
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Alertas de plazo antes de que el problema llegue al cliente</span>
+                </div>
+              </div>
+            </div>
+            <div class="tab-panel__mockup">Vista del Motor Fiscal ISD</div>
+          </div>
+          <!-- Panel Notarías -->
+          <div class="tab-panel" role="tabpanel" id="panel-notarias" aria-labelledby="tab-notarias" hidden>
+            <div>
+              <p class="tab-panel__claim">El testamento es el inicio de una relacion de 20 años. Ulpiano te da las herramientas para mantenerla activa.</p>
+              <div class="tab-panel__bullets">
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Panel de seguimiento del expediente post-testamento</span>
+                </div>
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Comunicacion con el cliente desde la plataforma</span>
+                </div>
+                <div class="tab-panel__bullet">
+                  <svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg>
+                  <span>Documentacion centralizada y cifrada</span>
+                </div>
+              </div>
+            </div>
+            <div class="tab-panel__mockup">Vista del Panel de Expedientes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: CÓMO FUNCIONA -->
+  <section class="como-funciona" id="como-funciona">
+    <div class="container">
+      <div class="como-funciona__header reveal">
+        <p class="eyebrow como-funciona__eyebrow">Proceso</p>
+        <h2 class="como-funciona__title">De cero a expediente cerrado</h2>
+      </div>
+      <div class="steps">
+        <!-- Paso 1 -->
+        <div class="step reveal">
+          <span class="step__number">01</span>
+          <div class="step__icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <h4 class="step__title">Introduces el inventario</h4>
+          <p class="step__desc">Bienes, deudas, herederos y sus relaciones. El sistema lo estructura.</p>
+        </div>
+        <!-- Paso 2 -->
+        <div class="step reveal">
+          <span class="step__number">02</span>
+          <div class="step__icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6"/><path d="M9 12h6"/><path d="M9 15h4"/><circle cx="17" cy="17" r="4" style="fill:var(--surface)"/><path d="M15.5 15.5l3 3"/></svg>
+          </div>
+          <h4 class="step__title">Ulpiano calcula</h4>
+          <p class="step__desc">Legitimas, cuotas, base del ISD, reducciones y bonificaciones autonomicas. Con la norma citada.</p>
+        </div>
+        <!-- Paso 3 -->
+        <div class="step reveal">
+          <span class="step__number">03</span>
+          <div class="step__icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h4 class="step__title">Comparas escenarios</h4>
+          <p class="step__desc">Ves el impacto fiscal de cada opcion de distribucion antes de decidir.</p>
+        </div>
+        <!-- Paso 4 -->
+        <div class="step reveal">
+          <span class="step__number">04</span>
+          <div class="step__icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h4 class="step__title">Generas la documentacion</h4>
+          <p class="step__desc">Borrador del cuaderno particional listo para tu revision. En Word, con tus datos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 7: TESTIMONIO / SOCIAL PROOF AMPLIADO -->
+  <section class="testimonio" id="testimonio">
+    <div class="container">
+      <div class="testimonio__quote reveal">
+        <p class="testimonio__text">&ldquo;La automatizacion de los calculos del ISD y el arbol familiar interactivo nos han ahorrado horas de trabajo por expediente. El motor normativo catalan es lo que nos convencio.&rdquo;</p>
+        <p class="testimonio__author">&mdash; Abogada, Despacho Sucesorio, Barcelona</p>
+      </div>
+      <div class="testimonio__metrics reveal">
+        <div class="metric">
+          <span class="metric__number" data-count="35" data-suffix="%">0%</span>
+          <div class="metric__separator"></div>
+          <span class="metric__label">Reduccion media en tiempo de gestion por expediente</span>
+        </div>
+        <div class="metric">
+          <span class="metric__number" data-count="6" data-suffix=" meses">0 meses</span>
+          <div class="metric__separator"></div>
+          <span class="metric__label">Plazo legal controlado automaticamente</span>
+        </div>
+        <div class="metric">
+          <span class="metric__number" data-count="100" data-suffix="%">0%</span>
+          <div class="metric__separator"></div>
+          <span class="metric__label">Normativa catalana integrada, sin adaptaciones manuales</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 8: CTA FINAL -->
+  <section class="cta-final" id="cta-final">
+    <div class="cta-final__orb"></div>
+    <div class="container">
+      <div class="cta-final__content reveal">
+        <h2 class="cta-final__title">Tu proximo expediente, ya en Ulpiano</h2>
+        <p class="cta-final__subtitle">25 minutos de demo. Sin presentacion comercial. Directamente sobre el producto con un caso del sector.</p>
+        <div class="cta-final__btn">
+          <a href="#" class="btn-primary btn-primary--large">Solicita tu demo gratuita</a>
+        </div>
+        <p class="cta-final__alt">O empieza gratis sin tarjeta</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 9: FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">ULPIANO</div>
+          <p class="footer__tagline">El sistema operativo de las herencias.</p>
+          <p class="footer__copyright">&copy; 2026 Ulpiano. Todos los derechos reservados.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-header">Producto</p>
+          <ul>
+            <li><a href="#">Soluciones</a></li>
+            <li><a href="#">Planificador</a></li>
+            <li><a href="#">Fiscalidad</a></li>
+            <li><a href="#">Activos digitales</a></li>
+            <li><a href="#">Precios</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-header">Para quien</p>
+          <ul>
+            <li><a href="#">Despachos</a></li>
+            <li><a href="#">Notarias</a></li>
+            <li><a href="#">Asesorias</a></li>
+            <li><a href="#">Family Office</a></li>
+            <li><a href="#">Funerarias</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-header">Legal</p>
+          <ul>
+            <li><a href="#">Politica de privacidad</a></li>
+            <li><a href="#">Terminos y condiciones</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-header">Contacto</p>
+          <ul>
+            <li><a href="mailto:soporte@ulpiano.es">soporte@ulpiano.es</a></li>
+            <li><a href="tel:+34000000000">+34 XXX XXX XXX</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT — Vanilla
+       ============================================ -->
+  <script>
+    /* --- Nav scroll shadow --- */
+    (function() {
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 10) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    })();
+
+    /* --- Hamburger menu --- */
+    (function() {
+      var hamburger = document.getElementById('hamburger');
+      var panel = document.getElementById('mobile-panel');
+      hamburger.addEventListener('click', function() {
+        var isOpen = panel.classList.toggle('open');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+      // Close on link click
+      var links = panel.querySelectorAll('a');
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          panel.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    /* --- Scroll reveal --- */
+    (function() {
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, index) {
+          if (entry.isIntersecting) {
+            // Stagger children within same parent
+            var parent = entry.target.parentElement;
+            var siblings = parent.querySelectorAll('.reveal');
+            var i = Array.prototype.indexOf.call(siblings, entry.target);
+            setTimeout(function() {
+              entry.target.classList.add('visible');
+            }, i * 100);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    /* --- Counter animation --- */
+    (function() {
+      var counters = document.querySelectorAll('[data-count]');
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var target = parseInt(el.getAttribute('data-count'), 10);
+            var suffix = el.getAttribute('data-suffix') || '';
+            var duration = 2000;
+            var start = 0;
+            var startTime = null;
+
+            function animate(timestamp) {
+              if (!startTime) startTime = timestamp;
+              var progress = Math.min((timestamp - startTime) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+              var current = Math.floor(eased * target);
+              el.textContent = current + suffix;
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              } else {
+                el.textContent = target + suffix;
+              }
+            }
+
+            requestAnimationFrame(animate);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counters.forEach(function(el) {
+        counterObserver.observe(el);
+      });
+    })();
+
+    /* --- Tabs --- */
+    (function() {
+      var tabs = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          // Deselect all
+          tabs.forEach(function(t) {
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+          });
+          panels.forEach(function(p) {
+            p.classList.remove('active');
+            p.setAttribute('hidden', '');
+          });
+          // Select clicked
+          tab.setAttribute('aria-selected', 'true');
+          tab.removeAttribute('tabindex');
+          var panelId = tab.getAttribute('aria-controls');
+          var panel = document.getElementById(panelId);
+          panel.removeAttribute('hidden');
+          // Trigger fade-in
+          requestAnimationFrame(function() {
+            panel.classList.add('active');
+          });
+        });
+
+        // Keyboard nav
+        tab.addEventListener('keydown', function(e) {
+          var index = Array.prototype.indexOf.call(tabs, tab);
+          var next;
+          if (e.key === 'ArrowRight') {
+            next = tabs[(index + 1) % tabs.length];
+          } else if (e.key === 'ArrowLeft') {
+            next = tabs[(index - 1 + tabs.length) % tabs.length];
+          }
+          if (next) {
+            e.preventDefault();
+            next.click();
+            next.focus();
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
