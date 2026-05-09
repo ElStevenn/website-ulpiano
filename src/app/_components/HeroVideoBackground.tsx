@@ -30,10 +30,7 @@ export default function HeroVideoBackground() {
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
       <div 
-        className="absolute inset-0 z-[1]"
-        style={{
-          background: 'linear-gradient(90deg, rgba(10,15,40,0.72) 0%, rgba(10,15,40,0.45) 100%)',
-        }}
+        className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0A0F28]/90 via-[#0A0F28]/70 to-[#0A0F28]/30 md:from-[#0A0F28]/75 md:via-[#0A0F28]/60 md:to-[#0A0F28]/45"
       />
     </>
   );

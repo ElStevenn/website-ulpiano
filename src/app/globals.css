@@ -326,13 +326,19 @@ h3 {
   background: var(--night);
   color: var(--white);
   padding-top: calc(64px + var(--space-16));
-  padding-bottom: var(--space-24);
+  padding-bottom: 140px;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@supports not (min-height: 100dvh) {
+  .hero {
+    min-height: 100vh;
+  }
 }
 
 .hero__orb {

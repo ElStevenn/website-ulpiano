@@ -2,29 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-  type ReactNode,
-} from "react";
+import { useState, useEffect, useRef, useCallback, type ReactNode } from "react";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import ButtonPrimary from "@/components/buttons/ButtonPrimary";
-import {
-  solucionesItems,
-  pensadoProfesionales,
-  pensadoCanales,
-  type NavDropdownItem,
-} from "./nav-config";
-import {
-  solucionsItemsCa,
-  pensatProfessionalsCa,
-  pensatCanalsCa,
-} from "./nav-config-ca";
+import { solucionesItems, pensadoProfesionales, pensadoCanales, type NavDropdownItem } from "./nav-config";
+import { solucionsItemsCa, pensatProfessionalsCa, pensatCanalsCa } from "./nav-config-ca";
 import LangSwitch from "./LangSwitch";
-
-import Image from "next/image";
 
 /* ─── Dropdown item ─── */
 
@@ -257,7 +240,7 @@ export default function Header() {
   }, [pathname, closeAll]);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 0);
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -283,112 +266,51 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-out px-4 md:px-6 ${
-        isScrolled ? "top-3" : "top-6"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "bg-[rgba(8,12,30,0.85)] backdrop-blur-[12px] border-b border-white/[0.08]"
+          : "bg-transparent border-transparent"
       }`}
     >
-      <div className={`mx-auto flex w-full max-w-[1200px] items-center justify-between rounded-2xl px-6 transition-all duration-500 ${
-        isScrolled 
-          ? "h-14 bg-night/95 backdrop-blur-xl border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)]" 
-          : "h-16 bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
-      }`}>
+      <div
+        className={`mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 transition-all duration-300 ${
+          isScrolled ? "h-16" : "h-24"
+        }`}
+      >
         <div className="flex-1 flex justify-start">
-          <Link href={homeHref} className="text-white font-dm-sans font-bold text-xl tracking-[0.1em] flex items-center gap-3">
-            <Image src="/logo_ulpiano_landing.png" alt="Ulpiano Logo" width={28} height={28} className="opacity-95" />
+          <Link
+            href={homeHref}
+            className="text-white font-sans font-medium text-[20px] tracking-[0.1em] flex items-center"
+          >
             ULPIANO
           </Link>
         </div>
 
-        <nav className="hidden lg:flex items-center justify-center gap-1" role="navigation" aria-label={t.nav}>
-          <DesktopDropdown
-            label={t.solutions}
-            isActive={isSolucionesActive}
-            isOpen={openDropdown === "soluciones"}
-            onOpen={() => setOpenDropdown("soluciones")}
-            onClose={() => setOpenDropdown(null)}
-          >
-            <div className="w-[420px] rounded-xl border border-white/[0.08] bg-night/95 backdrop-blur-2xl p-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-              <div className="flex flex-col">
-                {solutionsData.map((item) => (
-                  <DropdownLink key={item.href} item={item} onClick={closeAll} />
-                ))}
-              </div>
-              <div className="mt-1 border-t border-white/[0.06] pt-1">
-                <Link
-                  href={solutionsPrefix}
-                  onClick={closeAll}
-                  className="group flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] text-white/45 transition-colors hover:text-white/70"
-                >
-                  {t.verTodas}
-                  <ArrowRight size={13} strokeWidth={2} className="transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </div>
-            </div>
-          </DesktopDropdown>
-
-          <DesktopDropdown
-            label={t.pensado}
-            isActive={isPensadoActive}
-            isOpen={openDropdown === "pensado"}
-            onOpen={() => setOpenDropdown("pensado")}
-            onClose={() => setOpenDropdown(null)}
-          >
-            <div className="w-[520px] rounded-xl border border-white/[0.08] bg-night/95 backdrop-blur-2xl p-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-              <div className="grid grid-cols-2 gap-0">
-                <div>
-                  <p className="px-3 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
-                    {t.profesionales}
-                  </p>
-                  {professionalsData.map((item) => (
-                    <DropdownLink key={item.href} item={item} onClick={closeAll} />
-                  ))}
-                </div>
-                <div>
-                  <p className="px-3 pt-2 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
-                    {t.canales}
-                  </p>
-                  {channelsData.map((item) => (
-                    <DropdownLink key={item.href} item={item} onClick={closeAll} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </DesktopDropdown>
-
-          <Link
-            href={iaHref}
-            className={`inline-flex items-center rounded-lg px-4 py-2 text-[14px] font-medium transition-all duration-150 ${
-              isIaActive
-                ? "text-white bg-white/[0.06]"
-                : "text-white/60 hover:text-white hover:bg-white/[0.06]"
-            }`}
-          >
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-8" role="navigation" aria-label={t.nav}>
+          <Link href={solutionsPrefix} className="text-white/85 text-[14px] hover:text-white transition-colors">
+            {t.solutions}
+          </Link>
+          <Link href={pensadoPrefix} className="text-white/85 text-[14px] hover:text-white transition-colors">
+            {t.pensado}
+          </Link>
+          <Link href={iaHref} className="text-white/85 text-[14px] hover:text-white transition-colors">
             {t.ia}
           </Link>
-
-          <Link
-            href={preciosHref}
-            className={`inline-flex items-center rounded-lg px-4 py-2 text-[14px] font-medium transition-all duration-150 ${
-              isPreciosActive
-                ? "text-white bg-white/[0.06]"
-                : "text-white/60 hover:text-white hover:bg-white/[0.06]"
-            }`}
-          >
+          <Link href={preciosHref} className="text-white/85 text-[14px] hover:text-white transition-colors">
             {t.precios}
           </Link>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <LangSwitch />
-          <Link
-            href={loginHref}
-            className="text-[14px] font-medium text-white/60 transition-colors hover:text-white"
-          >
+        <div className="hidden lg:flex flex-1 items-center justify-end gap-6">
+          <Link href={loginHref} className="text-white/85 text-[14px] hover:text-white transition-colors">
             {t.login}
           </Link>
-          <ButtonPrimary href={demoHref} size="sm" trackLocation="header">
+          <Link
+            href={demoHref}
+            className="bg-white text-[#0a0a0a] text-[14px] font-medium px-5 py-2.5 rounded-lg hover:bg-white/90 transition-colors"
+          >
             {t.demo}
-          </ButtonPrimary>
+          </Link>
         </div>
 
         <button
@@ -449,9 +371,6 @@ export default function Header() {
           </Link>
 
           <div className="mt-auto pt-6">
-            <div className="flex justify-center mb-4">
-              <LangSwitch />
-            </div>
             <Link
               href={loginHref}
               onClick={closeAll}
@@ -460,9 +379,9 @@ export default function Header() {
               {t.login}
             </Link>
             <div className="mt-3">
-              <ButtonPrimary href={demoHref} size="sm" className="w-full" trackLocation="mobile_menu">
+              <Link href={demoHref} className="btn-primary w-full text-center" onClick={closeAll}>
                 {t.demo}
-              </ButtonPrimary>
+              </Link>
             </div>
           </div>
         </div>

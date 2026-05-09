@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import HeroVideoBackground from '../_components/HeroVideoBackground'
+import HeroVideoBackground from '../../_components/HeroVideoBackground'
 
 export default function HeroCa() {
   const marqueeNames = [
-    'Bufete Casals', 'Notaría Puig', 'Asesoría Roca', 'Despacho García & Asoc.', 'Gestoría Pla', 'Bufete Martínez', 'Notaría Soler'
+    'Bufete Casals', 'Notaría Puig', 'Fàbrega Legal', 'Asesoría Roca', 'Despacho García & Asoc.', 'Gestoría Pla', 'Bufete Martínez', 'Notaría Soler'
   ];
   const marqueeItems = [...marqueeNames, ...marqueeNames];
 
@@ -36,8 +36,8 @@ export default function HeroCa() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-20" style={{ background: '#0a0a0a', padding: '32px 0', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-        <p className="eyebrow text-center mb-6" style={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '11px' }}>
+      <div className="absolute bottom-0 left-0 right-0 z-20 py-6 md:py-8 border-t border-white/10" style={{ background: 'rgba(10, 10, 10, 0.4)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
+        <p className="eyebrow text-center mb-4 md:mb-6 text-white/40 text-[10px] md:text-[11px]">
           PROFESSIONALS QUE CONFIEN EN ULPIANO
         </p>
         <div style={{ overflow: 'hidden' }}>
@@ -45,14 +45,7 @@ export default function HeroCa() {
             {marqueeItems.map((name, index) => (
               <span 
                 key={`${name}-${index}`} 
-                style={{ 
-                  margin: '0 48px', 
-                  color: '#ffffff',
-                  fontWeight: 500,
-                  fontSize: '15px', 
-                  letterSpacing: '0.02em',
-                  whiteSpace: 'nowrap'
-                }}
+                className="mx-6 md:mx-12 text-white font-medium text-[14px] md:text-[15px] tracking-[0.02em] whitespace-nowrap"
               >
                 {name} &middot;
               </span>
