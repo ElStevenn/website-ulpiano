@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { usePathname } from "next/navigation";
+
 const columns = [
   {
     header: "Producto",
@@ -52,6 +54,9 @@ const columns = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname === "/login") return null;
+
   return (
     <footer className="bg-ink text-white border-t border-mist/10">
       <div className="max-w-4xl mx-auto px-6 py-20">

@@ -195,6 +195,9 @@ const labels = {
 
 export default function Header() {
   const pathname = usePathname();
+  
+  if (pathname === "/login") return null;
+
   const isCa = pathname === "/ca" || pathname.startsWith("/ca/");
   const locale = isCa ? "ca" : "es";
   const t = labels[locale];
@@ -257,10 +260,14 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
         isScrolled
           ? "bg-[rgba(8,12,30,0.85)] backdrop-blur-[12px] border-b border-white/[0.08]"
           : "bg-transparent border-transparent"
+      } ${
+        isMobileOpen
+          ? "max-lg:bg-[#050505]/98 max-lg:backdrop-blur-2xl max-lg:border-transparent"
+          : ""
       }`}
     >
       <div
@@ -356,51 +363,61 @@ export default function Header() {
       </div>
 
       <div
-        className={`absolute top-full left-0 right-0 h-[calc(100dvh-3.5rem)] bg-night/[0.98] backdrop-blur-2xl lg:hidden transition-all duration-300 ${
+        className={`absolute top-full left-0 right-0 bg-[#050505]/98 backdrop-blur-2xl lg:hidden transition-all duration-500 ease-out ${
+          isScrolled ? "h-[calc(100dvh-4rem)]" : "h-[calc(100dvh-6rem)]"
+        } ${
           isMobileOpen
-            ? "pointer-events-auto opacity-100 translate-y-0"
-            : "pointer-events-none opacity-0 -translate-y-2"
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         }`}
       >
         <div className="flex h-full flex-col overflow-y-auto px-6 py-4">
-          <MobileAccordion label={t.solutions}>
-            {solutionsData.map((item) => (
-              <MobileSubLink key={item.href} href={item.href} label={item.label} onClick={closeAll} />
-            ))}
-          </MobileAccordion>
+          <div className={`transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? '100ms' : '0ms' }}>
+            <MobileAccordion label={t.solutions}>
+              {solutionsData.map((item) => (
+                <MobileSubLink key={item.href} href={item.href} label={item.label} onClick={closeAll} />
+              ))}
+            </MobileAccordion>
+          </div>
 
-          <MobileAccordion label={t.pensado}>
-            <p className="pl-4 pt-1 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
-              {t.profesionales}
-            </p>
-            {professionalsData.map((item) => (
-              <MobileSubLink key={item.href} href={item.href} label={item.label} onClick={closeAll} />
-            ))}
-            <p className="pl-4 pt-3 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
-              {t.canales}
-            </p>
-            {channelsData.map((item) => (
-              <MobileSubLink key={item.href} href={item.href} label={item.label} onClick={closeAll} />
-            ))}
-          </MobileAccordion>
+          <div className={`transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? '150ms' : '0ms' }}>
+            <MobileAccordion label={t.pensado}>
+              <p className="pl-4 pt-1 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
+                {t.profesionales}
+              </p>
+              {professionalsData.map((item) => (
+                <MobileSubLink key={item.href} href={item.href} label={item.label} onClick={closeAll} />
+              ))}
+              <p className="pl-4 pt-3 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
+                {t.canales}
+              </p>
+              {channelsData.map((item) => (
+                <MobileSubLink key={item.href} href={item.href} label={item.label} onClick={closeAll} />
+              ))}
+            </MobileAccordion>
+          </div>
 
-          <Link
-            href={iaHref}
-            onClick={closeAll}
-            className="block border-b border-white/[0.06] py-4 text-[16px] font-medium text-white"
-          >
-            {t.ia}
-          </Link>
+          <div className={`transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? '200ms' : '0ms' }}>
+            <Link
+              href={iaHref}
+              onClick={closeAll}
+              className="block border-b border-white/[0.06] py-4 text-[16px] font-medium text-white"
+            >
+              {t.ia}
+            </Link>
+          </div>
 
-          <Link
-            href={preciosHref}
-            onClick={closeAll}
-            className="block border-b border-white/[0.06] py-4 text-[16px] font-medium text-white"
-          >
-            {t.precios}
-          </Link>
+          <div className={`transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? '250ms' : '0ms' }}>
+            <Link
+              href={preciosHref}
+              onClick={closeAll}
+              className="block border-b border-white/[0.06] py-4 text-[16px] font-medium text-white"
+            >
+              {t.precios}
+            </Link>
+          </div>
 
-          <div className="mt-auto pt-6">
+          <div className={`mt-auto pt-6 transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? '300ms' : '0ms' }}>
             <Link
               href={loginHref}
               onClick={closeAll}

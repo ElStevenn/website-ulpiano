@@ -108,8 +108,8 @@ export default function HeroVideoBackground() {
   );
 
   return (
-    <div className="hero-video-root">
-      <div className="absolute inset-0 z-0">
+    <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden bg-[#0A0F28]">
+      <div className="absolute top-0 left-0 w-full h-full z-0">
         <video
           ref={ref0}
           muted
@@ -117,7 +117,7 @@ export default function HeroVideoBackground() {
           preload="auto"
           onEnded={() => handleEnded(0)}
           onTransitionEnd={frontLayer === 0 ? onFrontTransitionEnd : undefined}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
+          className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
             frontLayer === 0 ? 'z-[2]' : 'z-[1]'
           }`}
           style={frontLayer === 0 ? { opacity: frontOpacity } : { opacity: 1 }}
@@ -129,13 +129,13 @@ export default function HeroVideoBackground() {
           preload="auto"
           onEnded={() => handleEnded(1)}
           onTransitionEnd={frontLayer === 1 ? onFrontTransitionEnd : undefined}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
+          className={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
             frontLayer === 1 ? 'z-[2]' : 'z-[1]'
           }`}
           style={frontLayer === 1 ? { opacity: frontOpacity } : { opacity: 1 }}
         />
       </div>
-      <div className="hero-video-scrim" aria-hidden />
+      <div className="pointer-events-none absolute top-0 left-0 w-full h-full z-[3] bg-gradient-to-r from-[#0A0F28]/90 via-[#0A0F28]/70 to-[#0A0F28]/30 md:from-[#0A0F28]/75 md:via-[#0A0F28]/60 md:to-[#0A0F28]/45" aria-hidden />
     </div>
   );
 }
