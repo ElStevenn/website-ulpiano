@@ -108,7 +108,7 @@ export default function HeroVideoBackground() {
   );
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-[#0A0F28]">
+    <div className="hero-video-root">
       <div className="absolute inset-0 z-0">
         <video
           ref={ref0}
@@ -135,7 +135,7 @@ export default function HeroVideoBackground() {
           style={frontLayer === 1 ? { opacity: frontOpacity } : { opacity: 1 }}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-r from-[#0A0F28]/90 via-[#0A0F28]/70 to-[#0A0F28]/30 md:from-[#0A0F28]/75 md:via-[#0A0F28]/60 md:to-[#0A0F28]/45" />
+      <div className="hero-video-scrim" aria-hidden />
     </div>
   );
 }
