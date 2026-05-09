@@ -177,39 +177,42 @@ export default function CookieBanner() {
       {/* ─── Bottom bar ─── */}
       {visible && !showModal && (
         <div
-          className="fixed inset-x-0 bottom-0 z-[9999] border-t border-white/10 bg-night/[0.98] backdrop-blur-xl"
+          className="fixed z-[9999] w-[calc(100%-48px)] max-w-[560px] left-1/2 bottom-6 -translate-x-1/2 rounded-[12px] bg-[#0d1117] border border-[rgba(255,255,255,0.10)] px-[24px] py-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
           role="region"
           aria-label="Banner de cookies"
         >
-          <div className="mx-auto flex max-w-[1200px] flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm leading-relaxed text-white/70">
-              Usamos cookies para analizar el tráfico y mejorar tu experiencia.{" "}
-              <Link
-                href={POLICY_URL}
-                className="underline underline-offset-2 text-white/90 hover:text-white transition-colors"
-              >
-                Política de cookies
-              </Link>
-            </p>
-            <div className="flex shrink-0 items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setShowModal(true)}
-                className="rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/40 hover:text-white"
-              >
-                Ajustes
-              </button>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-1">
+              <p className="text-[15px] font-semibold text-white m-0">Usamos cookies</p>
+              <p className="text-[13px] text-[rgba(255,255,255,0.5)] m-0 leading-relaxed">
+                Usamos cookies para analizar el tráfico y mejorar tu experiencia.{" "}
+                <Link
+                  href={POLICY_URL}
+                  className="text-white underline underline-offset-2 hover:text-white/80 transition-colors"
+                >
+                  Política de cookies
+                </Link>
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={rejectAll}
-                className="rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white/40 hover:text-white"
+                className="rounded-[6px] border border-[rgba(255,255,255,0.2)] bg-transparent px-[16px] py-[8px] text-[13px] text-white transition-colors hover:bg-white/5"
               >
                 Rechazar
               </button>
               <button
                 type="button"
+                onClick={() => setShowModal(true)}
+                className="rounded-[6px] border border-[rgba(255,255,255,0.2)] bg-transparent px-[16px] py-[8px] text-[13px] text-white transition-colors hover:bg-white/5"
+              >
+                Ajustes
+              </button>
+              <button
+                type="button"
                 onClick={acceptAll}
-                className="rounded-lg bg-ulpiano-green px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-green-light hover:shadow-md"
+                className="rounded-[6px] bg-white px-[16px] py-[8px] text-[13px] font-semibold text-[#0a0a0a] transition-all hover:bg-white/90 ml-auto"
               >
                 Aceptar
               </button>

@@ -12,23 +12,17 @@ import LangSwitch from "./LangSwitch";
 /* ─── Dropdown item ─── */
 
 function DropdownLink({ item, onClick }: { item: NavDropdownItem; onClick: () => void }) {
-  const { Icon } = item;
   return (
     <Link
       href={item.href}
       onClick={onClick}
-      className="group flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors duration-150 hover:bg-white/[0.06]"
+      className="group block rounded-[6px] px-[12px] py-[10px] transition-colors hover:bg-[rgba(255,255,255,0.06)]"
     >
-      <span className="mt-0.5 flex-shrink-0 text-white/40 transition-colors duration-150 group-hover:text-[var(--ulpiano-green)]">
-        <Icon size={18} strokeWidth={1.5} />
+      <span className="block text-[14px] font-medium text-white transition-colors">
+        {item.label}
       </span>
-      <span>
-        <span className="block text-[14px] font-medium leading-tight text-white/90">
-          {item.label}
-        </span>
-        <span className="mt-0.5 block text-[13px] leading-snug text-white/45">
-          {item.description}
-        </span>
+      <span className="block text-[12px] text-[rgba(255,255,255,0.45)] leading-tight">
+        {item.description}
       </span>
     </Link>
   );
@@ -72,7 +66,7 @@ function DesktopDropdown({
 
   return (
     <div
-      className="relative"
+      className="relative flex items-center"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -81,29 +75,26 @@ function DesktopDropdown({
         onClick={() => (isOpen ? onClose() : onOpen())}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        className={`cursor-pointer group inline-flex items-center gap-1 rounded-lg px-4 py-2 text-[14px] font-medium transition-all duration-150 ${
-          isOpen || isActive
-            ? "text-white bg-white/[0.06]"
-            : "text-white/60 hover:text-white hover:bg-white/[0.06]"
+        className={`cursor-pointer inline-flex items-center gap-1 text-[14px] transition-colors ${
+          isOpen || isActive ? "text-white" : "text-white/85 hover:text-white"
         }`}
       >
         {label}
         <ChevronDown
           size={14}
           strokeWidth={2}
-          className={`text-white/40 transition-transform duration-200 ${
+          className={`opacity-50 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
 
       <div
-        className={`absolute left-1/2 top-full pt-2 -translate-x-1/2 transition-all duration-200 ${
+        className={`absolute left-0 top-full pt-[24px] transition-all duration-150 ease-out ${
           isOpen
-            ? "pointer-events-auto opacity-100 translate-y-0 scale-100"
-            : "pointer-events-none opacity-0 -translate-y-1 scale-[0.98]"
+            ? "pointer-events-auto opacity-100 translate-y-0"
+            : "pointer-events-none opacity-0 -translate-y-1"
         }`}
-        style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
       >
         {children}
       </div>
@@ -286,13 +277,52 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden lg:flex flex-1 items-center justify-center gap-8" role="navigation" aria-label={t.nav}>
-          <Link href={solutionsPrefix} className="text-white/85 text-[14px] hover:text-white transition-colors">
-            {t.solutions}
-          </Link>
-          <Link href={pensadoPrefix} className="text-white/85 text-[14px] hover:text-white transition-colors">
-            {t.pensado}
-          </Link>
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-8 h-full" role="navigation" aria-label={t.nav}>
+          <DesktopDropdown
+            label={t.solutions}
+            isActive={isSolucionesActive}
+            isOpen={openDropdown === "soluciones"}
+            onOpen={() => setOpenDropdown("soluciones")}
+            onClose={() => setOpenDropdown(null)}
+          >
+            <div className="min-w-[480px] rounded-[10px] border border-[rgba(255,255,255,0.08)] bg-[#0d1117] p-[16px] shadow-2xl">
+              <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                {solutionsData.map((item) => (
+                  <DropdownLink key={item.href} item={item} onClick={closeAll} />
+                ))}
+              </div>
+            </div>
+          </DesktopDropdown>
+
+          <DesktopDropdown
+            label={t.pensado}
+            isActive={isPensadoActive}
+            isOpen={openDropdown === "pensado"}
+            onOpen={() => setOpenDropdown("pensado")}
+            onClose={() => setOpenDropdown(null)}
+          >
+            <div className="min-w-[480px] rounded-[10px] border border-[rgba(255,255,255,0.08)] bg-[#0d1117] p-[16px] shadow-2xl">
+              <div className="grid grid-cols-2 gap-x-2">
+                <div className="flex flex-col gap-0.5">
+                  <p className="px-3 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
+                    {t.profesionales}
+                  </p>
+                  {professionalsData.map((item) => (
+                    <DropdownLink key={item.href} item={item} onClick={closeAll} />
+                  ))}
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <p className="px-3 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/30">
+                    {t.canales}
+                  </p>
+                  {channelsData.map((item) => (
+                    <DropdownLink key={item.href} item={item} onClick={closeAll} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </DesktopDropdown>
+
           <Link href={iaHref} className="text-white/85 text-[14px] hover:text-white transition-colors">
             {t.ia}
           </Link>
