@@ -22,7 +22,6 @@ export default function HomePage() {
     <>
       <ScrollRevealInit />
       <Hero />
-      <SocialProof />
       <Outputs />
       <ParaQuien />
       <ComoFunciona />

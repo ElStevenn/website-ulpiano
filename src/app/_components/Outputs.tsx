@@ -63,13 +63,27 @@ const outputs = [
 
 export default function Outputs() {
   return (
-    <section className="outputs" id="outputs">
+    <section className="outputs bg-white" id="outputs">
       <div className="container">
-        <div className="outputs__header reveal">
-          <p className="eyebrow outputs__eyebrow">Resultados</p>
+        
+        {/* Nueva introducción estilo Harvey */}
+        <div className="max-w-[1000px] reveal mb-24 md:mb-32 pt-12 md:pt-24">
+          <h2 className="font-dm-sans text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[1.05] tracking-[-0.02em] font-medium text-ink">
+            Ulpiano es el motor normativo diseñado para la gestión sucesoria.{' '}
+            <span className="text-ink/40">
+              Estructura el patrimonio, automatiza el cálculo fiscal y genera la documentación en una plataforma segura que te permite centrarte en el asesoramiento de alto valor.
+            </span>
+          </h2>
+        </div>
+
+        {/* Transición a lo que había antes */}
+        <div className="outputs__header reveal border-t border-ink/10 pt-16 md:pt-24">
+          <p className="eyebrow outputs__eyebrow">Capacidades</p>
           <h2 className="outputs__title">Lo que sale de Ulpiano</h2>
           <p className="outputs__subtitle">No herramientas. Resultados.</p>
         </div>
+        
+        {/* Las tarjetas originales */}
         <div className="outputs__grid">
           {outputs.map((o) => (
             <div key={o.id} className="card output-card reveal">
