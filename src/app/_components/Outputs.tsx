@@ -76,7 +76,7 @@ export default function Outputs() {
           </h2>
         </div>
 
-        {/* Transición a lo que había antes */}
+        {/* Transición a lo que habia antes */}
         <div className="outputs__header reveal border-t border-ink/10 pt-16 md:pt-24">
           <p className="eyebrow outputs__eyebrow">Capacidades</p>
           <h2 className="outputs__title">Lo que sale de Ulpiano</h2>
