@@ -8,7 +8,7 @@ export default function Hero() {
   const marqueeItems = [...marqueeNames, ...marqueeNames];
 
   return (
-    <section className="hero bg-night relative overflow-hidden" id="hero">
+    <section className="hero bg-night relative overflow-hidden shrink-0" id="hero">
       <HeroVideoBackground />
       <div className="hero__orb relative z-10" />
       <div className="container relative z-10">

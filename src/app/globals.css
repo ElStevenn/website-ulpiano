@@ -329,16 +329,14 @@ h3 {
   padding-bottom: 140px;
   position: relative;
   overflow: hidden;
+  /* Full viewport: stack fallbacks so flex parents cannot collapse the section */
+  min-height: 100vh;
+  min-height: 100svh;
   min-height: 100dvh;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-@supports not (min-height: 100dvh) {
-  .hero {
-    min-height: 100vh;
-  }
 }
 
 .hero__orb {
