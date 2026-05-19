@@ -1,67 +1,38 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { PreusClientCa } from "./PreusClientCa";
 
 export const metadata: Metadata = {
-  title: "Preus | Ulpiano",
+  title: "Preus i plans",
   description:
-    "Plans i preus d'Ulpiano, la plataforma integral de gestió successòria per a despatxos, assessories i notaries.",
-  robots: {
-    index: false,
-    follow: true,
-  },
+    "Plans d'Ulpiano: Free, Esencial, Avançat i Pro. Subscripció SaaS amb generació de models AEAT i motor fiscal de l'ISD integrat. Preus públics, sense permanència.",
   alternates: {
     canonical: "https://ulpiano.es/ca/preus",
+    languages: {
+      es: "https://ulpiano.es/precios",
+      ca: "https://ulpiano.es/ca/preus",
+    },
+  },
+  openGraph: {
+    title: "Preus i plans | Ulpiano",
+    description:
+      "Free, Esencial, Avançat i Pro. La plataforma de gestió successòria amb motor normatiu integrat. Preus públics i transparents.",
+    url: "https://ulpiano.es/ca/preus",
+    locale: "ca_ES",
+    type: "website",
   },
 };
 
 export default function PreusPage() {
   return (
-    <article>
-      {/* Hero Section */}
-      <section
-        style={{
-          backgroundColor: "var(--night)",
-          color: "var(--white)",
-          paddingTop: "var(--space-xl)",
-          paddingBottom: "var(--space-xl)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "60vh",
-        }}
-      >
-        <div className="container" style={{ textAlign: "center" }}>
-          <h1 className="h1" style={{ marginBottom: "var(--space-md)" }}>
-            Preus
-          </h1>
-          <p className="body-lg" style={{ color: "var(--mist)" }}>
-            Pròximament
-          </p>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section
-        style={{
-          backgroundColor: "var(--surface)",
-          paddingTop: "var(--space-lg)",
-          paddingBottom: "var(--space-lg)",
-        }}
-      >
-        <div className="container" style={{ maxWidth: "680px", textAlign: "center" }}>
-          <Link
-            href="/ca"
-            style={{
-              color: "var(--ulpiano-green)",
-              textDecoration: "none",
-              fontWeight: "600",
-              fontSize: "14px",
-            }}
-          >
-            ← Torna a l'inici
-          </Link>
-        </div>
-      </section>
-    </article>
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inici", href: "/ca" },
+          { name: "Preus", href: "/ca/preus" },
+        ]}
+      />
+      <PreusClientCa />
+    </>
   );
 }
