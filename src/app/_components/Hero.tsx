@@ -19,7 +19,7 @@ export default function Hero() {
               sin margen de error.
             </h1>
             <p className="hero__subtitle text-base md:text-lg text-white/60 mt-6 max-w-2xl animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              Motor jurídico y fiscal para despachos profesionales.
+              Motor jurídico y fiscal para despachos profesionales. (prueba de push — se restaura)
             </p>
             <div className="flex flex-wrap items-center gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               <Link href="#cta-final" className="btn-primary shadow-[0_0_20px_rgba(45,106,79,0.4)] hover:shadow-[0_0_30px_rgba(45,106,79,0.6)]">
