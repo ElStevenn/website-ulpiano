@@ -64,7 +64,7 @@ export default function ComoFunciona() {
             <div key={step.num} className="step reveal">
               <span className="step__number">{step.num}</span>
               <div className="step__icon">{step.icon}</div>
-              <h4 className="step__title">{step.title}</h4>
+              <h3 className="step__title">{step.title}</h3>
               <p className="step__desc">{step.desc}</p>
             </div>
           ))}
