@@ -140,7 +140,7 @@ export default function BlogIndex() {
             Derecho sucesorio, práctica profesional y tecnología explicados con
             claridad para trabajar mejor cada expediente.
           </p>
-          <div className="mx-auto mt-10 flex max-w-md items-center justify-center gap-6 border-t border-white/10 pt-5 text-xs font-medium uppercase tracking-[0.16em] text-white/50">
+          <div className="mx-auto mt-10 flex max-w-md items-center justify-center gap-3 border-t border-white/10 pt-5 text-[11px] font-medium uppercase tracking-[0.12em] text-white/50 sm:gap-6 sm:text-xs sm:tracking-[0.16em]">
             <span>Derecho</span>
             <span className="h-1 w-1 rounded-full bg-green-light" />
             <span>Proceso</span>

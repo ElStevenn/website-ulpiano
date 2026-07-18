@@ -194,7 +194,7 @@ export default function CookieBanner() {
                 </Link>
               </p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center">
               <button
                 type="button"
                 onClick={rejectAll}
@@ -212,7 +212,7 @@ export default function CookieBanner() {
               <button
                 type="button"
                 onClick={acceptAll}
-                className="rounded-[6px] bg-white px-[16px] py-[8px] text-[13px] font-semibold text-[#0a0a0a] transition-all hover:bg-white/90 ml-auto"
+                className="col-span-2 w-full rounded-[6px] bg-white px-[16px] py-[8px] text-[13px] font-semibold text-[#0a0a0a] transition-all hover:bg-white/90 sm:ml-auto sm:w-auto"
               >
                 Aceptar
               </button>
