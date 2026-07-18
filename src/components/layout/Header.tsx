@@ -167,6 +167,7 @@ const labels = {
     solutions: "Soluciones",
     pensado: "Pensado para",
     ia: "IA",
+    blog: "Blog",
     precios: "Precios",
     login: "Iniciar sesión",
     demo: "Reserva tu Demo",
@@ -180,6 +181,7 @@ const labels = {
     solutions: "Solucions",
     pensado: "Pensat per",
     ia: "IA",
+    blog: "Blog",
     precios: "Preus",
     login: "Inicia sessió",
     demo: "Reserva la teva Demo",
@@ -209,6 +211,7 @@ export default function Header() {
   const solutionsPrefix = isCa ? "/ca/solucions" : "/soluciones";
   const pensadoPrefix = isCa ? "/ca/pensat-per" : "/pensado-para";
   const iaHref = isCa ? "/ca/ia" : "/ia";
+  const blogHref = "/recursos/blog";
   const preciosHref = isCa ? "/ca/preus" : "/precios";
   const loginHref = "/login";
   const demoHref = isCa ? "/ca/demo" : "/demo";
@@ -222,6 +225,7 @@ export default function Header() {
   const isSolucionesActive = pathname.startsWith(solutionsPrefix);
   const isPensadoActive = pathname.startsWith(pensadoPrefix);
   const isIaActive = pathname === iaHref;
+  const isBlogActive = pathname.startsWith(blogHref);
   const isPreciosActive = pathname === preciosHref;
 
   const closeAll = useCallback(() => {
@@ -271,7 +275,7 @@ export default function Header() {
       }`}
     >
       <div
-        className={`mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 transition-all duration-300 ${
+        className={`mx-auto flex w-full max-w-[1280px] items-center justify-between px-6 transition-all duration-300 ${
           isScrolled ? "h-16" : "h-24"
         }`}
       >
@@ -284,7 +288,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden lg:flex flex-1 items-center justify-center gap-8 h-full" role="navigation" aria-label={t.nav}>
+        <nav className="hidden lg:flex flex-none items-center justify-center gap-6 whitespace-nowrap xl:gap-8 h-full" role="navigation" aria-label={t.nav}>
           <DesktopDropdown
             label={t.solutions}
             isActive={isSolucionesActive}
@@ -333,6 +337,17 @@ export default function Header() {
           <Link href={iaHref} className="text-white/85 text-[14px] hover:text-white transition-colors">
             {t.ia}
           </Link>
+          {!isCa && (
+            <Link
+              href={blogHref}
+              aria-current={isBlogActive ? "page" : undefined}
+              className={`text-[14px] transition-colors ${
+                isBlogActive ? "font-medium text-white" : "text-white/85 hover:text-white"
+              }`}
+            >
+              {t.blog}
+            </Link>
+          )}
           <Link href={preciosHref} className="text-white/85 text-[14px] hover:text-white transition-colors">
             {t.precios}
           </Link>
@@ -416,6 +431,21 @@ export default function Header() {
               {t.precios}
             </Link>
           </div>
+
+          {!isCa && (
+            <div className={`transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? "275ms" : "0ms" }}>
+              <Link
+                href={blogHref}
+                onClick={closeAll}
+                aria-current={isBlogActive ? "page" : undefined}
+                className={`block border-b border-white/[0.06] py-4 text-[16px] font-medium transition-colors ${
+                  isBlogActive ? "text-white" : "text-white/80 hover:text-white"
+                }`}
+              >
+                {t.blog}
+              </Link>
+            </div>
+          )}
 
           <div className={`mt-auto pt-6 transition-all duration-500 ease-out ${isMobileOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`} style={{ transitionDelay: isMobileOpen ? '300ms' : '0ms' }}>
             <Link

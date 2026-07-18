@@ -60,5 +60,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  entries.push({
+    url: `${BASE_URL}/recursos/blog`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.7,
+    alternates: {
+      languages: {
+        es: `${BASE_URL}/recursos/blog`,
+        "x-default": `${BASE_URL}/recursos/blog`,
+      },
+    },
+  });
+
   return entries;
 }

@@ -13,6 +13,7 @@ const columns = [
       { label: "Fiscalidad", href: "/soluciones/fiscalidad-sucesoria" },
       { label: "Activos digitales", href: "/soluciones/activos-digitales" },
       { label: "Precios", href: "/precios" },
+      { label: "Blog", href: "/recursos/blog" },
     ],
   },
   {
@@ -74,7 +75,7 @@ export default function Footer() {
 
           {columns.map((col) => (
             <div key={col.header}>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-4">
                 {col.header}
               </h4>
               <ul className="space-y-2 text-sm">
@@ -103,7 +104,7 @@ export default function Footer() {
             onClick={() =>
               window.dispatchEvent(new CustomEvent("open-cookie-settings"))
             }
-            className="text-xs text-white/40 hover:text-white/70 transition-colors underline underline-offset-2 cursor-pointer"
+            className="text-xs text-white/50 hover:text-white/70 transition-colors underline underline-offset-2 cursor-pointer"
           >
             Ajustes de cookies
           </button>
