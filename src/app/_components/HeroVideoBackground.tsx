@@ -24,11 +24,18 @@ export default function HeroVideoBackground() {
     v0.setAttribute('data-clip-index', '0');
     v0.load();
 
-    v1.src = VIDEOS[1];
-    v1.setAttribute('data-clip-index', '1');
-    v1.load();
+    // Defer downloading the second clip until the first one is actually
+    // playing, so it does not compete with above-the-fold resources.
+    const loadNextClip = () => {
+      v1.src = VIDEOS[1];
+      v1.setAttribute('data-clip-index', '1');
+      v1.load();
+    };
+    v0.addEventListener('playing', loadNextClip, { once: true });
 
     v0.play().catch((e) => console.error('Autoplay prevented:', e));
+
+    return () => v0.removeEventListener('playing', loadNextClip);
   }, []);
 
   const finishCrossfade = useCallback(

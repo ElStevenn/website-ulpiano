@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const CheckIcon = () => (
   <svg viewBox="0 0 16 16">
@@ -93,7 +93,28 @@ const tabs: Tab[] = [
 
 export default function ParaQuien() {
   const [active, setActive] = useState(0)
+  const [isNearViewport, setIsNearViewport] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
   const tab = tabs[active]
+
+  // Only download the demo video once the section approaches the viewport.
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNearViewport(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '400px 0px' }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     if (e.key === 'ArrowRight') setActive((index + 1) % tabs.length)
@@ -101,7 +122,7 @@ export default function ParaQuien() {
   }
 
   return (
-    <section className="para-quien" id="para-quien">
+    <section className="para-quien" id="para-quien" ref={sectionRef}>
       <div className="container">
         <div className="para-quien__header reveal">
           <p className="eyebrow para-quien__eyebrow">Segmentos</p>
@@ -158,7 +179,7 @@ export default function ParaQuien() {
                 <span className="segment-stage__framelabel">{tab.mockupLabel}</span>
               </div>
               <div className="segment-stage__frameview">
-                {tab.mockupVideo ? (
+                {tab.mockupVideo && isNearViewport ? (
                   <video
                     src={tab.mockupVideo}
                     aria-label={tab.mockupLabel}
