@@ -70,6 +70,7 @@ export default function RootLayout({
       className={`${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* Consent Mode v2 — MUST load before GTM */}
         <script
           dangerouslySetInnerHTML={{
