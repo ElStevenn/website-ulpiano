@@ -11,6 +11,15 @@ export const blogPosts: BlogPost[] = [
     status: "published",
   },
   {
+    slug: "gestion-herencias-despacho",
+    title: "Gestión de herencias en un despacho: del caos documental al proceso estructurado",
+    category: "Despachos",
+    excerpt:
+      "Un expediente sucesorio típico genera más de 40 gestiones entre herederos, documentos y administraciones. No es el derecho lo que consume tiempo: es la coordinación entre Excel, Word, PDFs, correo y WhatsApp.",
+    readingTime: "9 min de lectura",
+    status: "published",
+  },
+  {
     slug: "ordenar-expediente-sucesorio",
     title: "Cómo ordenar un expediente sucesorio de principio a fin",
     category: "Procesos",
