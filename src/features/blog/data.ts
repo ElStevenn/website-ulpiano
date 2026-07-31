@@ -30,12 +30,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "retencion-fidelizacion-cliente-asesorias",
-    title: "Retención y fidelización del cliente en asesorías",
+    title: "Retener al heredero: la métrica que tu asesoría no mira",
     category: "Despachos",
     excerpt:
-      "La continuidad del cliente se construye con información clara, expectativas bien gestionadas y seguimiento tras los hitos relevantes. En sucesiones, explicar el proceso es también una parte esencial del servicio.",
-    readingTime: "5 min de lectura",
-    status: "coming-soon",
+      "El 61% de los herederos confía en su abogado y el 49% en su contable para lo sucesorio. Aun así, la mayoría de las asesorías pierden a la familia entera cuando muere el cliente histórico. La diferencia es la infraestructura de visibilidad, no el criterio técnico.",
+    readingTime: "6 min de lectura",
+    status: "published",
   },
   {
     slug: "digitalizacion-derecho-sucesorio",
