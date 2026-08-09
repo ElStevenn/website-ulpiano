@@ -4,7 +4,7 @@ import { CrossLink } from "@/components/CrossLink";
 import { ProcessamentDocumentalClientCa } from "./ProcessamentDocumentalClientCa";
 
 export const metadata: Metadata = {
-  title: "Processament Intel·ligent de Documents | Digitalitza la gestió documental successòria | Ulpiano",
+  title: "Processament Intel·ligent de Documents de l'Expedient Successori",
   description:
     "Digitalitza, classifica i extreu informació clau de certificats de defunció, testaments, escriptures i més. Tecnologia OCR i IA per agilitzar la tramitació d'herències.",
   alternates: {

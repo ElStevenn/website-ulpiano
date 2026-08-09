@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Términos y Condiciones",
   description:
-    "Términos y condiciones de uso de la plataforma Ulpiano para la gestión sucesoria profesional.",
+    "Términos y condiciones de uso de la plataforma Ulpiano para la gestión sucesoria profesional: alcance, obligaciones del usuario y responsabilidades.",
   alternates: {
     canonical: "https://ulpiano.es/legal/terminos",
   },

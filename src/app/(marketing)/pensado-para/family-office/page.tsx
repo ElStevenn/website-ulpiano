@@ -3,7 +3,7 @@ import { FamilyOfficeClient } from "./FamilyOfficeClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Planificación Sucesoria para Family Office | Ulpiano",
+  title: "Planificación Sucesoria para Family Office",
   description:
     "Planificación sucesoria pre-mortem para family offices. Escenarios fiscales comparados, patrimonio complejo inventariado, empresa familiar distribuida con impacto fiscal calculado.",
   alternates: {

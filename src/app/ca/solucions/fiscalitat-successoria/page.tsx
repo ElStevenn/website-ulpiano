@@ -5,7 +5,7 @@ import { CrossLink } from "@/components/CrossLink";
 import { FiscalitatClientCa } from "./FiscalitatClientCa";
 
 export const metadata: Metadata = {
-  title: "Fiscalitat Successòria | Autoliquidació de Models 650, 651, 660 | Ulpiano",
+  title: "Fiscalitat Successòria | Autoliquidació de Models 650, 651, 660",
   description:
     "Calcula, presenta i liquida els impostos successoris dels teus clients de manera automatitzada. Models 650, 651, 652, 653 i 660 amb normativa estatal i autonòmica actualitzada.",
   alternates: {

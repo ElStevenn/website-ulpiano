@@ -5,9 +5,9 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import { Modelo650InteractiveShells } from "./Modelo650Client";
 
 export const metadata: Metadata = {
-  title: "Modelo 650 Cataluña: Guía Completa del Impuesto sobre Sucesiones | Ulpiano",
+  title: "Modelo 650 Cataluña: Guía Completa del Impuesto sobre Sucesiones",
   description:
-    "Guía completa del Modelo 650: qué es, quién lo presenta, plazo de 6 meses, reducciones catalanas (Llei 19/2010), cálculo de la cuota y cómo Ulpiano lo genera automáticamente desde el expediente sucesorio.",
+    "Modelo 650: qué es, quién lo presenta, plazo de 6 meses, reducciones catalanas (Llei 19/2010) y cálculo de la cuota del impuesto de sucesiones.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-650",
     languages: {

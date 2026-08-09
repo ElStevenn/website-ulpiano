@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { NotariesClientCa } from "./NotariesClientCa";
 
 export const metadata: Metadata = {
-  title: "Gestió Digital d'Herències per a Notaries | Ulpiano",
+  title: "Gestió Digital d'Herències per a Notaries",
   description:
     "L'expedient post-testament actiu, la documentació centralitzada i xifrada, la generació d'escriptures des de dades estructurades. Ulpiano per a notaries.",
   alternates: {

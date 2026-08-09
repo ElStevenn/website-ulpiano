@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de Cookies | Ulpiano",
+  title: "Política de Cookies",
   description:
-    "Informació sobre les cookies utilitzades a la plataforma Ulpiano i com gestionar-les.",
+    "Informació sobre les cookies utilitzades a la plataforma Ulpiano: tipus, finalitat, durada i com acceptar-les, rebutjar-les o gestionar-les en qualsevol moment.",
   alternates: {
     canonical: "https://ulpiano.es/ca/legal/cookies",
     languages: {

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title:
     "Ulpiano IA | Agente inteligente dentro del expediente sucesorio",
   description:
-    "Lectura de documentos, redacción asistida, consulta normativa con cita y validación de coherencia. Ulpiano IA se aplica donde la inteligencia artificial aporta valor. El cálculo fiscal y las legítimas se resuelven con motores deterministas auditables.",
+    "Lectura de documentos, redacción asistida y consulta normativa con cita. Ulpiano IA se aplica donde aporta valor; el cálculo fiscal, con motores deterministas.",
   alternates: {
     canonical: "https://ulpiano.es/ia",
     languages: {

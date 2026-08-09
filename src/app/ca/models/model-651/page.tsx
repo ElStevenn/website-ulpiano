@@ -6,9 +6,9 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title:
-    "Model 651 Catalunya: Guia Completa de l'Impost de Donacions | Ulpiano",
+    "Model 651 Catalunya: Guia Completa de l'Impost de Donacions",
   description:
-    "Guia completa del Model 651: què és, qui el presenta, termini de 30 dies hàbils, reduccions catalanes per a donacions (Llei 19/2010, Arts. 15-23), comparativa donació vs herència i com Ulpiano calcula la quota automàticament.",
+    "Model 651: què és, qui el presenta, termini de 30 dies hàbils i reduccions catalanes per a donacions (Llei 19/2010). Donació vs herència comparades.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models/model-651",
     languages: {

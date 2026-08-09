@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { AsseguradoresClientCa } from "./AsseguradoresClientCa";
 
 export const metadata: Metadata = {
-  title: "Gestió Successòria per a Asseguradores i Pòlisses de Vida | Ulpiano",
+  title: "Gestió Successòria per a Asseguradores i Pòlisses de Vida",
   description:
     "Complementa les teves pòlisses de vida i decessos amb la gestió successòria digital. Expedients estructurats, fiscalitat calculada, fidelització real. Ulpiano per a asseguradores.",
   alternates: {

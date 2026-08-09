@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contacte | Ulpiano",
+  title: "Contacte",
   description:
     "Contacta amb l'equip d'Ulpiano. Resolem els teus dubtes sobre la plataforma de gestió successòria integral per a despatxos, assessories i notaries.",
   alternates: {

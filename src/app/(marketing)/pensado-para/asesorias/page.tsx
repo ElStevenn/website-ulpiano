@@ -3,7 +3,7 @@ import { AsesoriasClient } from "./AsesoriasClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Asesoría Fiscal de Herencias: Modelo 650 Automatizado | Ulpiano",
+  title: "Asesoría Fiscal de Herencias: Modelo 650 Automatizado",
   description:
     "Recálculo automático del ISD ante cambios normativos, alertas de plazo, trazabilidad auditable ante la AEAT y Modelo 650 autocompletado. Ulpiano para asesores fiscales.",
   alternates: {

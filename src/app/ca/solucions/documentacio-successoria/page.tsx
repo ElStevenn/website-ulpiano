@@ -4,7 +4,7 @@ import { CrossLink } from "@/components/CrossLink";
 import { DocumentacionClientCa } from "./DocumentacionClientCa";
 
 export const metadata: Metadata = {
-  title: "Documentació Successòria | Quadern Particional i Models Fiscals | Ulpiano",
+  title: "Documentació Successòria | Quadern Particional i Models Fiscals",
   description:
     "Genera el quadern particional, l'escriptura de partició, l'inventari formal i els Models 650 i 660 des de les dades de l'expedient successori. Sense copiar. Sense transcriure.",
   alternates: {

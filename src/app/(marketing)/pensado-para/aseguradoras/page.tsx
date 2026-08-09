@@ -3,7 +3,7 @@ import { AseguradorasClient } from "./AseguradorasClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Gestión Sucesoria para Aseguradoras y Pólizas de Vida | Ulpiano",
+  title: "Gestión Sucesoria para Aseguradoras y Pólizas de Vida",
   description:
     "Complementa tus pólizas de vida y decesos con la gestión sucesoria digital. Expedientes estructurados, fiscalidad calculada, fidelización real. Ulpiano para aseguradoras.",
   alternates: {

@@ -3,7 +3,7 @@ import { NotariasClient } from "./NotariasClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Gestión Digital de Herencias para Notarías | Ulpiano",
+  title: "Gestión Digital de Herencias para Notarías",
   description:
     "El expediente post-testamento activo, la documentación centralizada y cifrada, la generación de escrituras desde datos estructurados. Ulpiano para notarías.",
   alternates: {

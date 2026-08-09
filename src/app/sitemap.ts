@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/features/blog/data";
 
 const BASE_URL = "https://ulpiano.es";
 
@@ -72,6 +73,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
   });
+
+  // Artículos de blog publicados (status === "published"); los draft/coming-soon quedan fuera
+  for (const post of blogPosts) {
+    if (post.status !== "published") continue;
+    const url = `${BASE_URL}/recursos/blog/${post.slug}`;
+    entries.push({
+      url,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+      alternates: { languages: { es: url, "x-default": url } },
+    });
+  }
 
   return entries;
 }

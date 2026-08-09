@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { FunerariesClientCa } from "./FunerariesClientCa";
 
 export const metadata: Metadata = {
-  title: "Tramitació d'Herències per a Funeràries | Ulpiano",
+  title: "Tramitació d'Herències per a Funeràries",
   description:
     "Amplia el teu servei funerari amb la tramitació successòria digital. Expedients estructurats, documentació processada, ISD calculat. Ulpiano per a funeràries.",
   alternates: {

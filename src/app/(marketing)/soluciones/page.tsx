@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Soluciones de Gestión Sucesoria | Ulpiano",
+  title: "Soluciones de Gestión Sucesoria",
   description:
     "Todas las soluciones de Ulpiano: planificación sucesoria, fiscalidad automatizada, documentación y procesamiento documental para abogados, asesores y notarías.",
   alternates: {

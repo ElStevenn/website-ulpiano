@@ -5,8 +5,8 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import { Modelo660InteractiveShells } from "./Modelo660Client";
 
 export const metadata: Metadata = {
-  title: "Modelo 660 Cataluña: Declaración de Sucesiones e Inventario de Bienes | Ulpiano",
-  description: "Guía completa del Modelo 660: declaración del inventario de bienes, derechos y deudas del causante. Qué incluye, documentación necesaria, plazo de 6 meses y cómo Ulpiano lo genera automáticamente desde el expediente sucesorio.",
+  title: "Modelo 660 Cataluña: Declaración de Sucesiones e Inventario de Bienes",
+  description: "Modelo 660: declaración del inventario de bienes, derechos y deudas del causante. Qué incluye, documentación necesaria y plazo de 6 meses.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-660",
     languages: {

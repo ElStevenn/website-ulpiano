@@ -4,7 +4,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
-  title: "Software Herencias para Despachos de Abogados | Ulpiano",
+  title: "Software Herencias para Despachos de Abogados",
   description:
     "Digitaliza la gestión de herencias en tu despacho. Expedientes sucesorios estructurados, diagramas interactivos, simulaciones fiscales y documentos generados automáticamente.",
   alternates: {

@@ -4,7 +4,7 @@ import { CrossLink } from "@/components/CrossLink";
 import { DespatxosClientCa } from "./DespatxosClientCa";
 
 export const metadata: Metadata = {
-  title: "Programari d'Herències per a Despatxos d'Advocats | Ulpiano",
+  title: "Programari d'Herències per a Despatxos d'Advocats",
   description:
     "Digitalitza la gestió d'herències al teu despatx. Expedients successoris estructurats, diagrames interactius, simulacions fiscals i documents generats automàticament.",
   alternates: {

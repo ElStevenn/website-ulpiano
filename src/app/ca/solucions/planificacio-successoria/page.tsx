@@ -5,7 +5,7 @@ import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
   title:
-    "Planificació Successòria | Consolidació patrimonial i escenaris successoris | Ulpiano",
+    "Planificació Successòria | Consolidació patrimonial i escenaris successoris",
   description:
     "Consolida béns, drets i deutes del causant en un únic lloc. Calcula llegítimes segons el CCCat, compara escenaris de distribució i genera la documentació de l'expedient.",
   alternates: {

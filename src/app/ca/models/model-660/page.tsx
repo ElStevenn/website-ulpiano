@@ -5,8 +5,8 @@ import { ModelNavCa } from "@/components/modelos/ModelNavCa";
 import { Model660InteractiveShellsCa } from "./Model660Client";
 
 export const metadata: Metadata = {
-  title: "Model 660 Catalunya: Declaració de Successions i Inventari de Béns | Ulpiano",
-  description: "Guia completa del Model 660: declaració de l'inventari de béns, drets i deutes del causant. Què inclou, documentació necessària, termini de 6 mesos i com Ulpiano el genera automàticament des de l'expedient successori.",
+  title: "Model 660 Catalunya: Declaració de Successions i Inventari de Béns",
+  description: "Model 660: declaració de l'inventari de béns, drets i deutes del causant. Què inclou, documentació necessària i termini de 6 mesos.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models/model-660",
     languages: {

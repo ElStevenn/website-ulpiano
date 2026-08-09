@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { FamilyOfficeClientCa } from "./FamilyOfficeClientCa";
 
 export const metadata: Metadata = {
-  title: "Planificació Successòria per a Family Office | Ulpiano",
+  title: "Planificació Successòria per a Family Office",
   description:
     "Planificació successòria pre-mortem per a family offices. Escenaris fiscals comparats, patrimoni complex inventariat, empresa familiar distribuïda amb impacte fiscal calculat.",
   alternates: {

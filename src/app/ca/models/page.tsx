@@ -4,7 +4,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title:
-    "Models de l'Impost sobre Successions i Donacions | Guia Completa | Ulpiano",
+    "Models de l'Impost sobre Successions i Donacions | Guia Completa",
   description:
     "Guia dels Models 650, 651, 652, 653 i 660 de l'Impost sobre Successions i Donacions. Què són, quan es presenten i com Ulpiano els genera automàticament des de l'expedient successori.",
   alternates: {

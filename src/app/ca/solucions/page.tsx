@@ -3,7 +3,7 @@ import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Solucions de Gestió Successòria | Ulpiano",
+  title: "Solucions de Gestió Successòria",
   description:
     "Totes les solucions d'Ulpiano: planificació successòria, fiscalitat automatitzada, documentació i processament documental per a advocats, assessors i notaries.",
   alternates: {

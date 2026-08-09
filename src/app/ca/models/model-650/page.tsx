@@ -5,9 +5,9 @@ import { ModelNavCa } from "@/components/modelos/ModelNavCa";
 import { Model650InteractiveShellsCa } from "./Model650Client";
 
 export const metadata: Metadata = {
-  title: "Model 650 Catalunya: Guia Completa de l'Impost sobre Successions | Ulpiano",
+  title: "Model 650 Catalunya: Guia Completa de l'Impost sobre Successions",
   description:
-    "Guia completa del Model 650: què és, qui el presenta, termini de 6 mesos, reduccions catalanes (Llei 19/2010), càlcul de la quota i com Ulpiano el genera automàticament des de l'expedient successori.",
+    "Model 650: què és, qui el presenta, termini de 6 mesos, reduccions catalanes (Llei 19/2010) i càlcul de la quota de l'impost de successions.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models/model-650",
     languages: {
