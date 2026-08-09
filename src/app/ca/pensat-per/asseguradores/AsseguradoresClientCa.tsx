@@ -346,7 +346,7 @@ export function AsseguradoresClientCa() {
             <Link href="/ca/demo" className="btn-primary px-8 py-3.5 shadow-[0_0_20px_rgba(45,106,79,0.4)]">
               Sol·licita la teva demo gratis
             </Link>
-            <Link href="/ca/registre" className="btn-ghost text-white/80 hover:text-white px-6 border border-white/20">
+            <Link href="/login" className="btn-ghost text-white/80 hover:text-white px-6 border border-white/20">
               Crear compte ara <ArrowRight size={18} className="ml-2 inline" />
             </Link>
           </div>

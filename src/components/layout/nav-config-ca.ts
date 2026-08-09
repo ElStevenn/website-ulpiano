@@ -1,5 +1,4 @@
 import {
-  Bitcoin,
   Briefcase,
   Building2,
   Calculator,
@@ -37,12 +36,6 @@ export const solucionsItemsCa: NavDropdownItem[] = [
     label: "Processament documental",
     description: "Les dades de l'expedient, extretes del PDF",
     Icon: ScanSearch,
-  },
-  {
-    href: "/ca/solucions/actius-digitals",
-    label: "Actius digitals",
-    description: "Criptomonedes i wallets, inventariats",
-    Icon: Bitcoin,
   },
 ];
 
@@ -99,7 +92,6 @@ export const esToCaMap: Record<string, string> = {
   "/soluciones/documentacion-sucesoria": "/ca/solucions/documentacio-successoria",
   "/soluciones/fiscalidad-sucesoria": "/ca/solucions/fiscalitat-successoria",
   "/soluciones/procesamiento-documental": "/ca/solucions/processament-documental",
-  "/soluciones/activos-digitales": "/ca/solucions/actius-digitals",
   "/modelos": "/ca/models",
   "/modelos/modelo-650": "/ca/models/model-650",
   "/modelos/modelo-651": "/ca/models/model-651",
