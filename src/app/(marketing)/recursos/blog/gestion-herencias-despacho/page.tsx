@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://ulpiano.es/recursos/blog/gestion-herencias-despacho",
     languages: {
       es: "https://ulpiano.es/recursos/blog/gestion-herencias-despacho",
+      ca: "https://ulpiano.es/ca/recursos/blog/gestio-herencies-despatx",
     },
   },
   openGraph: {

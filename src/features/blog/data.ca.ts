@@ -25,12 +25,12 @@ export type BlogPostCa = {
 export const blogPostsCa: BlogPostCa[] = [
   {
     slug: "la-legitima-catalana",
-    title: "La legítima catalana",
+    title: "La llegítima catalana",
     category: "Catalunya",
     excerpt:
-      "La legítima a Catalunya és un dret de crèdit i equival a una quarta part de la base legitimària. Entendre qui pot reclamar-la i com es calcula és clau per ordenar qualsevol partició.",
+      "La llegítima a Catalunya és un dret de crèdit i equival a una quarta part de la base legitimària. Entendre qui pot reclamar-la i com es calcula és clau per ordenar qualsevol partició.",
     readingTime: "12 min de lectura",
-    status: "coming-soon",
+    status: "published",
   },
   {
     slug: "gestio-herencies-despatx",
@@ -39,7 +39,7 @@ export const blogPostsCa: BlogPostCa[] = [
     excerpt:
       "Un expedient successori típic genera més de 40 gestions entre hereus, documents i administracions. No és el dret el que consumeix temps: és la coordinació entre Excel, Word, PDF, correu i WhatsApp.",
     readingTime: "9 min de lectura",
-    status: "coming-soon",
+    status: "published",
   },
   {
     slug: "ordenar-expedient-successori",
@@ -57,7 +57,7 @@ export const blogPostsCa: BlogPostCa[] = [
     excerpt:
       "El 61% dels hereus confia en el seu advocat i el 49% en el seu comptable per al successori. Tot i així, la majoria d'assessories perden la família sencera quan mor el client històric. La diferència és la infraestructura de visibilitat, no el criteri tècnic.",
     readingTime: "6 min de lectura",
-    status: "coming-soon",
+    status: "published",
   },
   {
     slug: "digitalitzacio-dret-successori",

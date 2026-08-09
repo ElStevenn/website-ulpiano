@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://ulpiano.es/recursos/blog/retencion-fidelizacion-cliente-asesorias",
     languages: {
       es: "https://ulpiano.es/recursos/blog/retencion-fidelizacion-cliente-asesorias",
+      ca: "https://ulpiano.es/ca/recursos/blog/retencio-fidelitzacio-client-assessories",
     },
   },
   openGraph: {

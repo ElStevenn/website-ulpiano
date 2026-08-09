@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://ulpiano.es/recursos/blog/la-legitima-catalana",
     languages: {
       es: "https://ulpiano.es/recursos/blog/la-legitima-catalana",
+      ca: "https://ulpiano.es/ca/recursos/blog/la-legitima-catalana",
     },
   },
   openGraph: {

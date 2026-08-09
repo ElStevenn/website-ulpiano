@@ -24,6 +24,9 @@ const pairs: Array<{ es: string; ca: string; priority: number; freq: "weekly" | 
   { es: "/modelos/modelo-660",                            ca: "/ca/models/model-660",                             priority: 0.7, freq: "monthly" },
   { es: "/recursos/checklist-expediente-sucesorio",       ca: "/ca/recursos/checklist-expedient-successori",      priority: 0.8, freq: "monthly" },
   { es: "/recursos/blog",                                 ca: "/ca/recursos/blog",                                priority: 0.7, freq: "weekly"  },
+  { es: "/recursos/blog/la-legitima-catalana",            ca: "/ca/recursos/blog/la-legitima-catalana",           priority: 0.6, freq: "monthly" },
+  { es: "/recursos/blog/gestion-herencias-despacho",      ca: "/ca/recursos/blog/gestio-herencies-despatx",       priority: 0.6, freq: "monthly" },
+  { es: "/recursos/blog/retencion-fidelizacion-cliente-asesorias", ca: "/ca/recursos/blog/retencio-fidelitzacio-client-assessories", priority: 0.6, freq: "monthly" },
   { es: "/recursos/blog/digitalizacion-derecho-sucesorio", ca: "/ca/recursos/blog/digitalitzacio-dret-successori", priority: 0.6, freq: "monthly" },
   { es: "/recursos/blog/ia-abogados-sucesiones",          ca: "/ca/recursos/blog/ia-advocats-successions",        priority: 0.6, freq: "monthly" },
   { es: "/demo",                                          ca: "/ca/demo",                                         priority: 0.9, freq: "monthly" },
@@ -60,28 +63,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: freq,
       priority,
       alternates,
-    });
-  }
-
-  // Artículos de blog publicados solo en español (sin versión CA por ahora).
-  const esOnlyBlogPosts = [
-    "/recursos/blog/la-legitima-catalana",
-    "/recursos/blog/gestion-herencias-despacho",
-    "/recursos/blog/retencion-fidelizacion-cliente-asesorias",
-  ];
-  for (const path of esOnlyBlogPosts) {
-    const url = `${BASE_URL}${path}`;
-    entries.push({
-      url,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: {
-        languages: {
-          es: url,
-          "x-default": url,
-        },
-      },
     });
   }
 
