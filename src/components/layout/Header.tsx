@@ -211,7 +211,7 @@ export default function Header() {
   const solutionsPrefix = isCa ? "/ca/solucions" : "/soluciones";
   const pensadoPrefix = isCa ? "/ca/pensat-per" : "/pensado-para";
   const iaHref = isCa ? "/ca/ia" : "/ia";
-  const blogHref = "/recursos/blog";
+  const blogHref = isCa ? "/ca/recursos/blog" : "/recursos/blog";
   const preciosHref = isCa ? "/ca/preus" : "/precios";
   const loginHref = "/login";
   const demoHref = isCa ? "/ca/demo" : "/demo";

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     canonical: "https://ulpiano.es/recursos/blog",
     languages: {
       es: "https://ulpiano.es/recursos/blog",
+      ca: "https://ulpiano.es/ca/recursos/blog",
     },
   },
   openGraph: {

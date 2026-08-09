@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Digitalizar no consiste solo en escanear documentos: exige estructurar datos, mantener trazabilidad y preservar las comprobaciones jurídicas. Así, el expediente resulta más revisable y más fácil de continuar.",
     readingTime: "7 min de lectura",
-    status: "coming-soon",
+    status: "published",
   },
   {
     slug: "ia-abogados-sucesiones",
@@ -52,8 +52,8 @@ export const blogPosts: BlogPost[] = [
     category: "IA",
     excerpt:
       "La IA puede acelerar la lectura, clasificación y redacción asistida de documentos. Las conclusiones jurídicas, los cálculos y las decisiones con efectos patrimoniales deben seguir siendo verificables y supervisados.",
-    readingTime: "6 min de lectura",
-    status: "coming-soon",
+    readingTime: "9 min de lectura",
+    status: "published",
   },
   {
     slug: "por-que-existe-ulpiano",
