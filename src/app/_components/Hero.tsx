@@ -15,7 +15,8 @@ export default function Hero() {
         <div className="hero__grid">
           <div className="hero__content">
             <h1 className="hero__title text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance animate-fade-in-up leading-tight text-white" style={{ animationDelay: '100ms' }}>
-              Ulpiano
+              La sucesión,<br />
+              sin margen de error.
             </h1>
             <p className="hero__subtitle text-base md:text-lg text-white/60 mt-6 max-w-2xl animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               Motor jurídico y fiscal para despachos profesionales.
