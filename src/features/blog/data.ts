@@ -66,20 +66,20 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "quarta-falcidia",
-    title: "La quarta falcidia: el derecho del heredero frente a los legados",
+    title: "Quarta falcídia: la trampa más cara del testamento",
     category: "Derecho Civil",
     excerpt:
-      "La cuarta falcidia permite al heredero gravado con legados conservar una parte mínima de la herencia en los supuestos previstos por el Derecho civil catalán. Su aplicación requiere revisar el testamento, el caudal y las cargas.",
-    readingTime: "7 min de lectura",
-    status: "coming-soon",
+      "La quarta falcídia permite al heredero gravado con legados conservar una cuarta parte del caudal líquido. Su aplicación exige revisar el testamento, el inventario y las cargas antes de pagar.",
+    readingTime: "8 min de lectura",
+    status: "published",
   },
   {
     slug: "quadern-particional-cataluna",
-    title: "El quadern particional en Cataluña",
+    title: "Cómo redactar un quadern particional sin errores",
     category: "Cataluña",
     excerpt:
-      "El cuaderno particional traduce el inventario, avalúo, deudas y adjudicaciones en un documento coherente con el título sucesorio. Una buena preparación evita inconsistencias antes de la firma y la liquidación.",
+      "El cuaderno particional traduce inventario, deudas y adjudicaciones en un documento coherente con el título sucesorio. Cinco pasos para que el 660 y el 650 cuenten la misma historia.",
     readingTime: "8 min de lectura",
-    status: "coming-soon",
+    status: "published",
   },
 ];

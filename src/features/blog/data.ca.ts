@@ -88,20 +88,20 @@ export const blogPostsCa: BlogPostCa[] = [
   },
   {
     slug: "quarta-falcidia",
-    title: "La quarta falcídia: el dret de l'hereu davant dels llegats",
+    title: "Quarta falcídia: el parany més car del testament",
     category: "Dret Civil",
     excerpt:
-      "La quarta falcídia permet a l'hereu gravat amb llegats conservar una part mínima de l'herència en els supòsits previstos pel Dret civil català. La seva aplicació requereix revisar el testament, el cabal i les càrregues.",
-    readingTime: "7 min de lectura",
-    status: "coming-soon",
+      "La quarta falcídia permet a l'hereu gravat amb llegats conservar una quarta part del cabal líquid. La seva aplicació exigeix revisar el testament, l'inventari i les càrregues abans de pagar.",
+    readingTime: "8 min de lectura",
+    status: "published",
   },
   {
     slug: "quadern-particional-catalunya",
-    title: "El quadern particional a Catalunya",
+    title: "Com redactar un quadern particional sense errors",
     category: "Catalunya",
     excerpt:
-      "El quadern particional tradueix l'inventari, l'avaluació, els deutes i les adjudicacions en un document coherent amb el títol successori. Una bona preparació evita inconsistències abans de la signatura i la liquidació.",
+      "El quadern particional tradueix inventari, deutes i adjudicacions en un document coherent amb el títol successori. Cinc passos perquè el 660 i el 650 expliquin la mateixa història.",
     readingTime: "8 min de lectura",
-    status: "coming-soon",
+    status: "published",
   },
 ];
