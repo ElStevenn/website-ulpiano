@@ -60,9 +60,9 @@ export const blogPosts: BlogPost[] = [
     title: "Por qué existe Ulpiano",
     category: "Visión",
     excerpt:
-      "Ulpiano nace para transformar un proceso sucesorio disperso en un expediente comprensible, trazable y documentado. La tecnología debe devolver tiempo al criterio profesional, no sustituirlo.",
-    readingTime: "4 min de lectura",
-    status: "coming-soon",
+      "Ulpiano nace de una pregunta de cliente: qué estoy pagando y dónde lo veo. La tecnología debe devolver visibilidad al expediente, no sustituir el criterio del abogado.",
+    readingTime: "5 min de lectura",
+    status: "published",
   },
   {
     slug: "quarta-falcidia",

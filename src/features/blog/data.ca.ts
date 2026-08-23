@@ -82,9 +82,9 @@ export const blogPostsCa: BlogPostCa[] = [
     title: "Per què existeix Ulpiano",
     category: "Visió",
     excerpt:
-      "Ulpiano neix per transformar un procés successori dispers en un expedient comprensible, traçable i documentat. La tecnologia ha de retornar temps al criteri professional, no substituir-lo.",
-    readingTime: "4 min de lectura",
-    status: "coming-soon",
+      "Ulpiano neix d'una pregunta de client: què estic pagant i on ho veig. La tecnologia ha de tornar visibilitat a l'expedient, no substituir el criteri de l'advocat.",
+    readingTime: "5 min de lectura",
+    status: "published",
   },
   {
     slug: "quarta-falcidia",

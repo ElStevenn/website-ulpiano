@@ -32,6 +32,7 @@ const pairs: Array<{ es: string; ca: string; priority: number; freq: "weekly" | 
   { es: "/recursos/blog/retencion-fidelizacion-cliente-asesorias", ca: "/ca/recursos/blog/retencio-fidelitzacio-client-assessories", priority: 0.6, freq: "monthly" },
   { es: "/recursos/blog/digitalizacion-derecho-sucesorio", ca: "/ca/recursos/blog/digitalitzacio-dret-successori", priority: 0.6, freq: "monthly" },
   { es: "/recursos/blog/ia-abogados-sucesiones",          ca: "/ca/recursos/blog/ia-advocats-successions",        priority: 0.6, freq: "monthly" },
+  { es: "/recursos/blog/por-que-existe-ulpiano",          ca: "/ca/recursos/blog/per-que-existeix-ulpiano",       priority: 0.6, freq: "monthly" },
   { es: "/recursos/blog/quarta-falcidia",                 ca: "/ca/recursos/blog/quarta-falcidia",                priority: 0.6, freq: "monthly" },
   { es: "/recursos/blog/quadern-particional-cataluna",    ca: "/ca/recursos/blog/quadern-particional-catalunya",  priority: 0.6, freq: "monthly" },
   { es: "/demo",                                          ca: "/ca/demo",                                         priority: 0.9, freq: "monthly" },
