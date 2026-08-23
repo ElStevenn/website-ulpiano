@@ -4,13 +4,22 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
-  title:
-    "Fiscalidad Sucesoria | Autoliquidación de Modelos 650, 651, 660",
+  title: "Fiscalidad sucesoria y modelos ISD",
   description:
-    "Calcula, presenta y liquida los impuestos sucesorios de tus clientes de forma automatizada. Modelos 650, 651, 652, 653 y 660 con normativa estatal y autonómica actualizada.",
+    "Autoliquidación de los modelos 650, 651, 652, 653 y 660 con normativa estatal y autonómica. ISD calculado dentro del expediente.",
   alternates: {
     canonical: "https://ulpiano.es/soluciones/fiscalidad-sucesoria",
+    languages: {
+      es: "https://ulpiano.es/soluciones/fiscalidad-sucesoria",
+      ca: "https://ulpiano.es/ca/solucions/fiscalitat-successoria",
+      "x-default": "https://ulpiano.es/soluciones/fiscalidad-sucesoria",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es/soluciones/fiscalidad-sucesoria",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function FiscalidadSucesoriaPage() {

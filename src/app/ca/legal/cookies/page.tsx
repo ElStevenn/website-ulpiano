@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de Cookies | Ulpiano",
+  title: "Política de Cookies",
   description:
-    "Informació sobre les cookies utilitzades a la plataforma Ulpiano i com gestionar-les.",
+    "Política de cookies d'ulpiano.es: cookies tècniques i analítiques, com gestionar-les al navegador i com exercir els teus drets.",
   alternates: {
     canonical: "https://ulpiano.es/ca/legal/cookies",
     languages: {
       es: "https://ulpiano.es/legal/cookies",
       ca: "https://ulpiano.es/ca/legal/cookies",
+      "x-default": "https://ulpiano.es/legal/cookies",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/legal/cookies",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function CookiesPage() {

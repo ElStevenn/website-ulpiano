@@ -3,9 +3,10 @@ import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
+import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
-  title: "Quarta falcídia: la trampa más cara del testamento",
+  title: "Quarta falcídia: la trampa más cara",
   description:
     "Qué es la quarta falcídia (arts. 427-40 y ss. CCCat): cuándo salta, cómo se calcula y el checklist para detectarla antes de aceptar el encargo.",
   alternates: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
-    title: "Quarta falcídia: la trampa más cara del testamento",
+    title: "Quarta falcídia: la trampa más cara",
     description:
       "Cuándo salta, cómo se calcula y qué debe revisar el profesional antes de pagar legados en una sucesión catalana.",
     url: "https://ulpiano.es/recursos/blog/quarta-falcidia",
@@ -403,6 +404,11 @@ export default function QuartaFalcidiaArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/recursos/blog/quadern-particional-cataluna"
+        label="Quadern particional en Cataluña"
+        description="Inventario, caudal relicto y adjudicaciones coherentes con los modelos 660 y 650."
+      />
     </>
   );
 }

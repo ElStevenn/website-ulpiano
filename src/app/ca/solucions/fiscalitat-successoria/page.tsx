@@ -5,16 +5,22 @@ import { CrossLink } from "@/components/CrossLink";
 import { FiscalitatClientCa } from "./FiscalitatClientCa";
 
 export const metadata: Metadata = {
-  title: "Fiscalitat Successòria | Autoliquidació de Models 650, 651, 660 | Ulpiano",
+  title: "Fiscalitat successòria i models ISD",
   description:
-    "Calcula, presenta i liquida els impostos successoris dels teus clients de manera automatitzada. Models 650, 651, 652, 653 i 660 amb normativa estatal i autonòmica actualitzada.",
+    "Autoliquidació dels models 650, 651, 652, 653 i 660 amb normativa estatal i autonòmica. ISD calculat dins de l'expedient.",
   alternates: {
     canonical: "https://ulpiano.es/ca/solucions/fiscalitat-successoria",
     languages: {
       es: "https://ulpiano.es/soluciones/fiscalidad-sucesoria",
       ca: "https://ulpiano.es/ca/solucions/fiscalitat-successoria",
+      "x-default": "https://ulpiano.es/soluciones/fiscalidad-sucesoria",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/solucions/fiscalitat-successoria",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function FiscalitatSuccessoriaPage() {

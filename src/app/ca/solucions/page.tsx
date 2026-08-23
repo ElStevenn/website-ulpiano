@@ -3,7 +3,7 @@ import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Solucions de Gestió Successòria | Ulpiano",
+  title: "Solucions de gestió successòria",
   description:
     "Totes les solucions d'Ulpiano: planificació successòria, fiscalitat automatitzada, documentació i processament documental per a advocats, assessors i notaries.",
   alternates: {
@@ -11,8 +11,14 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/soluciones",
       ca: "https://ulpiano.es/ca/solucions",
+      "x-default": "https://ulpiano.es/soluciones",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/solucions",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const solucions = [
@@ -39,6 +45,12 @@ const solucions = [
     title: "Processament Documental",
     desc: "OCR i IA per digitalitzar, classificar i extreure dades de certificats de defunció, testaments i escriptures.",
     tag: "OCR · IA · Digitalització",
+  },
+  {
+    href: "/ca/solucions/actius-digitals",
+    title: "Actius digitals",
+    desc: "Criptomonedes, wallets i patrimoni digital del causant, inventariats al mateix expedient successori.",
+    tag: "Cripto · Wallets · Inventari",
   },
 ];
 

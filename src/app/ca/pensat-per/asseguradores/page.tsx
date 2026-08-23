@@ -3,16 +3,22 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { AsseguradoresClientCa } from "./AsseguradoresClientCa";
 
 export const metadata: Metadata = {
-  title: "Gestió Successòria per a Asseguradores i Pòlisses de Vida | Ulpiano",
+  title: "Gestió successòria per a asseguradores",
   description:
-    "Complementa les teves pòlisses de vida i decessos amb la gestió successòria digital. Expedients estructurats, fiscalitat calculada, fidelització real. Ulpiano per a asseguradores.",
+    "Complement a pòlisses de vida i decessos: expedient estructurat, fiscalitat calculada i seguiment del beneficiari.",
   alternates: {
     canonical: "https://ulpiano.es/ca/pensat-per/asseguradores",
     languages: {
       es: "https://ulpiano.es/pensado-para/aseguradoras",
       ca: "https://ulpiano.es/ca/pensat-per/asseguradores",
+      "x-default": "https://ulpiano.es/pensado-para/aseguradoras",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/pensat-per/asseguradores",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function AsseguradoresPage() {

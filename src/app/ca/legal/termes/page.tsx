@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Termes i Condicions | Ulpiano",
+  title: "Termes i Condicions",
   description:
-    "Termes i condicions d'ús de la plataforma Ulpiano per a la gestió successòria professional.",
+    "Termes i condicions d'ús d'Ulpiano, la plataforma de gestió successòria per a despatxos, assessories i notaries professionals.",
   alternates: {
     canonical: "https://ulpiano.es/ca/legal/termes",
     languages: {
       es: "https://ulpiano.es/legal/terminos",
       ca: "https://ulpiano.es/ca/legal/termes",
+      "x-default": "https://ulpiano.es/legal/terminos",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/legal/termes",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function TermesPage() {

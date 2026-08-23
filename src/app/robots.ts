@@ -5,7 +5,12 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/login", "/api/"],
+      disallow: [
+        "/login",
+        "/api/",
+        "/recursos/checklist-expediente-sucesorio/gracias",
+        "/ca/recursos/checklist-expedient-successori/gracias",
+      ],
     },
     sitemap: "https://ulpiano.es/sitemap.xml",
   };

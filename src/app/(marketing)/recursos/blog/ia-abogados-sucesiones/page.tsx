@@ -2,20 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "IA para abogados de sucesiones: hasta dónde llega y dónde no",
   description:
-    "La IA acelera la lectura y la redacción, pero calcular una legítima o liquidar el ISD exige un motor determinista con norma citada y rastro auditable. La frontera entre lo decidible y lo auditable.",
+    "La IA acelera lectura y redacción; liquidar el ISD exige un motor determinista con norma citada. Dónde aporta y dónde no.",
   alternates: {
     canonical: "https://ulpiano.es/recursos/blog/ia-abogados-sucesiones",
     languages: {
       es: "https://ulpiano.es/recursos/blog/ia-abogados-sucesiones",
       ca: "https://ulpiano.es/ca/recursos/blog/ia-advocats-successions",
+      "x-default": "https://ulpiano.es/recursos/blog/ia-abogados-sucesiones",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "IA para abogados de sucesiones: hasta dónde llega y dónde no",
     description:
       "IA donde aporta —lectura, redacción, búsqueda—. Motor determinista donde es crítico —cálculo, norma, trazabilidad—. Cómo se ve una arquitectura defendible ante Hacienda.",
@@ -438,6 +441,11 @@ export default function IaAbogadosSucesionesArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/recursos/blog/la-legitima-catalana"
+        label="La legítima catalana"
+        description="El cuarto del caudal computable, no el tercio del Código Civil."
+      />
     </>
   );
 }

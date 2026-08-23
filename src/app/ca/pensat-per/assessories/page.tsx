@@ -3,16 +3,22 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { AssessoriesClientCa } from "./AssessoriesClientCa";
 
 export const metadata: Metadata = {
-  title: "Assessoria Fiscal d'Herències: Model 650 Automatitzat | Ulpiano",
+  title: "Assessoria fiscal: model 650 automàtic",
   description:
-    "Recàlcul automàtic de l'ISD davant canvis normatius, alertes de termini, traçabilitat auditable davant l'ATC i Model 650 autocomplet. Ulpiano per a assessors fiscals.",
+    "ISD recalculat davant canvis normatius, alertes de termini i Model 650 autocomplet. Ulpiano per a assessors fiscals.",
   alternates: {
     canonical: "https://ulpiano.es/ca/pensat-per/assessories",
     languages: {
       es: "https://ulpiano.es/pensado-para/asesorias",
       ca: "https://ulpiano.es/ca/pensat-per/assessories",
+      "x-default": "https://ulpiano.es/pensado-para/asesorias",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/pensat-per/assessories",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function AssessoriasPage() {

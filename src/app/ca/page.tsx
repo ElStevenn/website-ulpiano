@@ -5,14 +5,20 @@ import HeroCa from "./_components/HeroCa";
 export const metadata: Metadata = {
   title: "Plataforma Integral de Gestió Successòria",
   description:
-    "D'inventari a quadern particional sense errors de càlcul ni revisió manual de la norma. Ulpiano estructura, valida i documenta el procés successori complet per a advocats, assessors i notaries.",
+    "D'inventari a quadern particional: Ulpiano estructura, valida i documenta el procés successori per a advocats, assessors i notaries.",
   alternates: {
     canonical: "https://ulpiano.es/ca",
     languages: {
       es: "https://ulpiano.es",
       ca: "https://ulpiano.es/ca",
+      "x-default": "https://ulpiano.es",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const soluciones = [

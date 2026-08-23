@@ -4,16 +4,22 @@ import { CrossLink } from "@/components/CrossLink";
 import { ProcessamentDocumentalClientCa } from "./ProcessamentDocumentalClientCa";
 
 export const metadata: Metadata = {
-  title: "Processament Intel·ligent de Documents | Digitalitza la gestió documental successòria | Ulpiano",
+  title: "Processament documental successori",
   description:
-    "Digitalitza, classifica i extreu informació clau de certificats de defunció, testaments, escriptures i més. Tecnologia OCR i IA per agilitzar la tramitació d'herències.",
+    "OCR i IA per classificar certificats, testaments i escriptures i extreure dades a l'expedient successori, sense tornar-ho a teclejar.",
   alternates: {
     canonical: "https://ulpiano.es/ca/solucions/processament-documental",
     languages: {
       es: "https://ulpiano.es/soluciones/procesamiento-documental",
       ca: "https://ulpiano.es/ca/solucions/processament-documental",
+      "x-default": "https://ulpiano.es/soluciones/procesamiento-documental",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/solucions/processament-documental",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function ProcessamentDocumentalPage() {

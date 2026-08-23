@@ -3,18 +3,19 @@ import IaClientCa from "./IaClientCa";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title:
-    "Ulpiano IA | Agent intel·ligent dins de l'expedient successori",
+  title: "Ulpiano IA a l'expedient successori",
   description:
-    "Lectura de documents, redacció assistida, consulta normativa amb citació i validació de coherència. Ulpiano IA s'aplica on la intel·ligència artificial aporta valor. El càlcul fiscal i les legítimes es resolen amb motors deterministes auditables.",
+    "Lectura, redacció assistida i consulta normativa amb citació. L'ISD i les llegítimes es calculen amb motors deterministes auditables.",
   alternates: {
     canonical: "https://ulpiano.es/ca/ia",
     languages: {
       es: "https://ulpiano.es/ia",
       ca: "https://ulpiano.es/ca/ia",
+      "x-default": "https://ulpiano.es/ia",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Ulpiano IA | Intel·ligència artificial aplicada a l'expedient",
     description:
       "IA on aporta valor. Motor determinista on l'error no es perdona.",

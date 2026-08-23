@@ -4,16 +4,22 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
-  title: "Software Herencias para Despachos de Abogados | Ulpiano",
+  title: "Software de herencias para despachos",
   description:
-    "Digitaliza la gestión de herencias en tu despacho. Expedientes sucesorios estructurados, diagramas interactivos, simulaciones fiscales y documentos generados automáticamente.",
+    "Expedientes sucesorios estructurados, simulaciones fiscales y documentos generados. Ulpiano para despachos de abogados.",
   alternates: {
     canonical: "https://ulpiano.es/pensado-para/despachos",
     languages: {
       es: "https://ulpiano.es/pensado-para/despachos",
       ca: "https://ulpiano.es/ca/pensat-per/despatxos",
+      "x-default": "https://ulpiano.es/pensado-para/despachos",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/pensado-para/despachos",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function DespachosPage() {

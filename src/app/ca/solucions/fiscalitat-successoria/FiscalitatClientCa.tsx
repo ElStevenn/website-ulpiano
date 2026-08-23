@@ -184,7 +184,7 @@ export function FiscalitatClientCa() {
                 <Link href="/ca/demo" className="btn-primary shadow-[0_0_20px_rgba(45,106,79,0.4)] hover:shadow-[0_0_30px_rgba(45,106,79,0.6)] px-8 py-3.5 text-base">
                   Reserva una Demo
                 </Link>
-                <Link href="/ca/registre" className="btn-ghost group text-white/80 hover:text-white px-6">
+                <Link href="/ca/demo" className="btn-ghost group text-white/80 hover:text-white px-6">
                   Crear Compte Gratuït
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1 ml-2" />
                 </Link>

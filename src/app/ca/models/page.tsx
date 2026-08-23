@@ -3,17 +3,22 @@ import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title:
-    "Models de l'Impost sobre Successions i Donacions | Guia Completa | Ulpiano",
+  title: "Models 650, 651, 652, 653 i 660",
   description:
-    "Guia dels Models 650, 651, 652, 653 i 660 de l'Impost sobre Successions i Donacions. Què són, quan es presenten i com Ulpiano els genera automàticament des de l'expedient successori.",
+    "Guia dels models de l'ISD: 650, 651, 652, 653 i 660. Quan es presenten i com Ulpiano els genera des de l'expedient successori.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models",
     languages: {
       es: "https://ulpiano.es/modelos",
       ca: "https://ulpiano.es/ca/models",
+      "x-default": "https://ulpiano.es/modelos",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/models",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function ModelsPage() {

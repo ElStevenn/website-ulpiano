@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/recursos/blog/la-legitima-catalana",
       ca: "https://ulpiano.es/ca/recursos/blog/la-legitima-catalana",
+      "x-default": "https://ulpiano.es/recursos/blog/la-legitima-catalana",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Llegítima catalana: què és, quant és i l'error del terç",
     description:
       "Una guia pràctica sobre l'article 451-5 CCCat, el càlcul de la llegítima i els errors que arriben a quaderns signats.",
@@ -105,7 +108,14 @@ export default function CatalanForcedHeirshipArticlePageCa() {
                   cotitular dels béns de l&rsquo;herència. Té dret a exigir un
                   valor, que l&rsquo;hereu pot pagar en diners o en béns de la
                   mateixa herència. Això simplifica la partició, però obliga a
-                  liquidar el crèdit amb precisió en el quadern particional.
+                  liquidar el crèdit amb precisió en el{" "}
+                  <Link
+                    href="/ca/recursos/blog/quadern-particional-catalunya"
+                    className="font-medium text-ulpiano-green underline underline-offset-2 hover:text-green-light"
+                  >
+                    quadern particional
+                  </Link>
+                  .
                 </li>
                 <li className="pl-2">
                   <strong>És curta.</strong> La quarta part de la base de càlcul,
@@ -340,6 +350,11 @@ export default function CatalanForcedHeirshipArticlePageCa() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/recursos/blog/gestio-herencies-despatx"
+        label="Gestió d'herències al despatx"
+        description="De l'inventari a un expedient que es pot signar."
+      />
     </>
   );
 }

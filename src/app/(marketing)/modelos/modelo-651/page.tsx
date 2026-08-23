@@ -5,16 +5,22 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Modelo 651 Catalunya: Guía Completa del Impuesto de Donaciones | Ulpiano",
+  title: "Modelo 651: autoliquidación de donaciones",
   description:
-    "Guía completa del Modelo 651: qué es, quién lo presenta, plazo de 30 días hábiles, reducciones catalanas para donaciones (Llei 19/2010), comparativa donación vs herencia y cómo Ulpiano calcula la cuota automáticamente.",
+    "Guía del Modelo 651: plazo de 30 días hábiles, reducciones catalanas a donaciones y comparativa con la herencia. Ulpiano calcula la cuota.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-651",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-651",
       ca: "https://ulpiano.es/ca/models/model-651",
+      "x-default": "https://ulpiano.es/modelos/modelo-651",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/modelos/modelo-651",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const summaryTable = [

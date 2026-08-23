@@ -4,15 +4,22 @@ import { ModelNavCa } from "@/components/modelos/ModelNavCa";
 import { Model652InteractiveShellsCa } from "./Model652Client";
 
 export const metadata: Metadata = {
-  title: "Model 652 Catalunya: Tributació d'Assegurances de Vida en Successions | Ulpiano",
-  description: "Guia completa del Model 652: tributació del capital d'assegurances de vida quan el beneficiari no és el prenedor, termini de 6 mesos, reduccions catalanes (Llei 19/2010, Art. 10) i com Ulpiano el genera automàticament des de l'expedient.",
+  title: "Model 652: assegurances de vida en successions",
+  description:
+    "Model 652: tributació de l'assegurança de vida si el beneficiari no és el prenedor. Termini de 6 mesos, reduccions catalanes i generació automàtica.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models/model-652",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-652",
       ca: "https://ulpiano.es/ca/models/model-652",
+      "x-default": "https://ulpiano.es/modelos/modelo-652",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/models/model-652",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const summaryTable = [

@@ -123,7 +123,7 @@ export function ProcesamientoDocumentalClient() {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-10 reveal" style={{ animationDelay: '300ms' }}>
-                <Link href="/registro" className="btn-primary shadow-[0_0_20px_rgba(45,106,79,0.4)] hover:shadow-[0_0_30px_rgba(45,106,79,0.6)] px-8 py-3.5 text-base">
+                <Link href="/demo" className="btn-primary shadow-[0_0_20px_rgba(45,106,79,0.4)] hover:shadow-[0_0_30px_rgba(45,106,79,0.6)] px-8 py-3.5 text-base">
                   Crear Cuenta Gratis
                 </Link>
                 <Link href="/demo" className="btn-ghost group text-white/80 hover:text-white px-6">
@@ -346,7 +346,7 @@ export function ProcesamientoDocumentalClient() {
             <Link href="/demo" className="btn-primary px-8 py-3.5 shadow-[0_0_20px_rgba(45,106,79,0.4)]">
               Solicita tu demo gratis
             </Link>
-            <Link href="/registro" className="btn-ghost text-white/80 hover:text-white px-6 border border-white/20">
+            <Link href="/demo" className="btn-ghost text-white/80 hover:text-white px-6 border border-white/20">
               Crear cuenta ahora <ArrowRight size={18} className="ml-2 inline" />
             </Link>
           </div>

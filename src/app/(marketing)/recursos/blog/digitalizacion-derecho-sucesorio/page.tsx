@@ -2,20 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "La digitalización del derecho sucesorio: la ola que viene",
   description:
-    "Por qué en España la gestión sucesoria sigue siendo manual, por qué la infraestructura no vendrá de fuera y qué cambia cuando el expediente vive sobre un sistema con el CCCat integrado.",
+    "Por qué la gestión sucesoria en España sigue siendo manual y qué cambia cuando el expediente vive sobre el CCCat integrado.",
   alternates: {
     canonical: "https://ulpiano.es/recursos/blog/digitalizacion-derecho-sucesorio",
     languages: {
       es: "https://ulpiano.es/recursos/blog/digitalizacion-derecho-sucesorio",
       ca: "https://ulpiano.es/ca/recursos/blog/digitalitzacio-dret-successori",
+      "x-default": "https://ulpiano.es/recursos/blog/digitalizacion-derecho-sucesorio",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "La digitalización del derecho sucesorio: la ola que viene",
     description:
       "3 billones de euros se transferirán en España en tres décadas. La infraestructura para gestionarlos tiene que construirse aquí, sobre el derecho civil catalán.",
@@ -113,9 +116,15 @@ export default function DigitalizacionDerechoSucesorioArticlePage() {
                   cuarta parte
                 </Link>
                 , pactos sucesorios (heredamientos), figuras como la cuarta
-                viudal y la quarta falcídia, institución de heredero obligatoria
-                (con la salvedad histórica del derecho de Tortosa, art. 423-1
-                CCCat).
+                viudal y la{" "}
+                <Link
+                  href="/recursos/blog/quarta-falcidia"
+                  className="font-medium text-ulpiano-green underline underline-offset-2 hover:text-green-light"
+                >
+                  quarta falcídia
+                </Link>
+                , institución de heredero obligatoria (con la salvedad histórica
+                del derecho de Tortosa, art. 423-1 CCCat).
               </p>
               <p className="mt-5">
                 Eso significa que una herramienta genérica construida en Nueva
@@ -391,6 +400,11 @@ export default function DigitalizacionDerechoSucesorioArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/soluciones/documentacion-sucesoria"
+        label="Cuaderno particional y documentación"
+        description="De los datos del expediente al documento que se firma."
+      />
     </>
   );
 }

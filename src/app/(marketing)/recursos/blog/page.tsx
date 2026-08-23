@@ -11,10 +11,12 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/recursos/blog",
       ca: "https://ulpiano.es/ca/recursos/blog",
+      "x-default": "https://ulpiano.es/recursos/blog",
     },
   },
   openGraph: {
-    title: "Blog | Ulpiano",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+    title: "Blog",
     description:
       "Ideas y criterio para gestionar herencias: derecho sucesorio, práctica profesional y tecnología.",
     url: "https://ulpiano.es/recursos/blog",

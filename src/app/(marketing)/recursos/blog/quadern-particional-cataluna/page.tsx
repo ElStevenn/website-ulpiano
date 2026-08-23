@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
+import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
   title: "Quadern particional: cómo redactarlo sin errores",
   description:
-    "Guía paso a paso del cuaderno particional en Cataluña: inventario, caudal relicto, legítima (art. 451-5 CCCat), adjudicaciones y coherencia con los modelos 660 y 650.",
+    "Guía del cuaderno particional en Cataluña: inventario, caudal relicto, legítima, adjudicaciones y coherencia con los modelos 660 y 650.",
   alternates: {
     canonical: "https://ulpiano.es/recursos/blog/quadern-particional-cataluna",
     languages: {
@@ -411,6 +412,11 @@ export default function QuadernParticionalArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/recursos/blog/quarta-falcidia"
+        label="Quarta falcídia"
+        description="La trampa más cara del testamento catalán, y cómo detectarla antes de aceptar el encargo."
+      />
     </>
   );
 }

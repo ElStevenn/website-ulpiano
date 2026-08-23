@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/recursos/blog/gestion-herencias-despacho",
       ca: "https://ulpiano.es/ca/recursos/blog/gestio-herencies-despatx",
+      "x-default": "https://ulpiano.es/recursos/blog/gestion-herencias-despacho",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Gestión de herencias en un despacho: del caos al proceso",
     description:
       "Por qué un expediente sucesorio disperso en Excel, Word, PDFs, email y WhatsApp cuesta tiempo, y qué debe tener un sistema de gestión para evitarlo.",
@@ -438,6 +441,11 @@ export default function GestionHerenciasDespachoArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/recursos/blog/retencion-fidelizacion-cliente-asesorias"
+        label="Retener al heredero"
+        description="El expediente bien resuelto es la métrica que la asesoría no mira."
+      />
     </>
   );
 }

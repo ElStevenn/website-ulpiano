@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/recursos/blog/retencion-fidelizacion-cliente-asesorias",
       ca: "https://ulpiano.es/ca/recursos/blog/retencio-fidelitzacio-client-assessories",
+      "x-default": "https://ulpiano.es/recursos/blog/retencion-fidelizacion-cliente-asesorias",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Retenir l'hereu: la mètrica que la teva assessoria no mira",
     description:
       "El 61% dels hereus confia en el seu advocat i el 49% en el seu comptable per al successori. Tot i així, la majoria d'assessories perden la família sencera quan mor el client històric.",
@@ -325,6 +328,11 @@ export default function RetencioClientsAssessoriesArticlePageCa() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/recursos/blog/ia-advocats-successions"
+        label="IA per a advocats de successions"
+        description="On aporta la IA i on cal un motor determinista."
+      />
     </>
   );
 }

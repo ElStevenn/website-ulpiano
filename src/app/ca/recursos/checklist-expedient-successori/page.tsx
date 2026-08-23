@@ -3,17 +3,19 @@ import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Checklist de l'Expedient Successori a Catalunya — 47 Punts de Control",
+  title: "Checklist de l'expedient successori (47 punts)",
   description:
-    "Descarrega gratis el checklist que utilitzen els despatxos per no deixar caps per lligar a la gestió successòria. 47 punts de control amb normativa catalana actualitzada (CCCat · Llei 19/2010).",
+    "Checklist gratuïta de 47 punts per no deixar caps per lligar a la successió catalana. CCCat i Llei 19/2010 actualitzats.",
   alternates: {
     canonical: "https://ulpiano.es/ca/recursos/checklist-expedient-successori",
     languages: {
       es: "https://ulpiano.es/recursos/checklist-expediente-sucesorio",
       ca: "https://ulpiano.es/ca/recursos/checklist-expedient-successori",
+      "x-default": "https://ulpiano.es/recursos/checklist-expediente-sucesorio",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Checklist de l'Expedient Successori a Catalunya — 47 Punts de Control",
     description:
       "El checklist professional per gestionar herències a Catalunya sense deixar caps per lligar. Normativa actualitzada.",

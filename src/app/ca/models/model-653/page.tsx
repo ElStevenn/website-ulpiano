@@ -4,15 +4,22 @@ import { ModelNavCa } from "@/components/modelos/ModelNavCa";
 import { Model653InteractiveShellsCa } from "./Model653Client";
 
 export const metadata: Metadata = {
-  title: "Model 653 Catalunya: Consolidació de Domini i Extinció d'Usdefruit | Ulpiano",
-  description: "Guia completa del Model 653: què és, quan es presenta, causes d'extinció de l'usdefruit, càlcul de la quota complementària (Art. 26.c LISD) i com Ulpiano simula la consolidació abans de constituir l'usdefruit.",
+  title: "Model 653: consolidació de domini",
+  description:
+    "Model 653: extinció d'usdefruit i quota complementària (art. 26.c LISD). Simula la consolidació abans de constituir l'usdefruit.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models/model-653",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-653",
       ca: "https://ulpiano.es/ca/models/model-653",
+      "x-default": "https://ulpiano.es/modelos/modelo-653",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/models/model-653",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const summaryTable = [

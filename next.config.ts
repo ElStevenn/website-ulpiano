@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         destination: "/soluciones/planificacion-sucesoria",
         permanent: true,
       },
+      {
+        source: "/registro",
+        destination: "/demo",
+        permanent: true,
+      },
+      {
+        source: "/ca/registre",
+        destination: "/ca/demo",
+        permanent: true,
+      },
     ];
   },
   async headers() {

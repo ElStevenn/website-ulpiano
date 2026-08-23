@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de Privacitat | Ulpiano",
+  title: "Política de Privacitat",
   description:
-    "Política de privacitat d'Ulpiano. Informació sobre el tractament de dades personals conforme al RGPD.",
+    "Política de privacitat d'Ulpiano: quines dades tractem, amb quina finalitat, terminis de conservació i com exercir els teus drets.",
   alternates: {
     canonical: "https://ulpiano.es/ca/legal/privacitat",
     languages: {
       es: "https://ulpiano.es/legal/privacidad",
       ca: "https://ulpiano.es/ca/legal/privacitat",
+      "x-default": "https://ulpiano.es/legal/privacidad",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/legal/privacitat",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function PrivacitatPage() {

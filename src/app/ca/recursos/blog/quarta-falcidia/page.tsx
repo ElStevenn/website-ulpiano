@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
+import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
   title: "Quarta falcídia: el parany més car del testament",
@@ -403,6 +404,11 @@ export default function QuartaFalcidiaArticlePageCa() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/recursos/blog/quadern-particional-catalunya"
+        label="Quadern particional a Catalunya"
+        description="Inventari, cabal relicte i adjudicacions coherents amb els models 660 i 650."
+      />
     </>
   );
 }

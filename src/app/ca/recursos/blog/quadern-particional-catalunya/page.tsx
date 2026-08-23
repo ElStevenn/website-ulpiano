@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
+import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
   title: "Quadern particional: com redactar-lo sense errors",
@@ -408,6 +409,11 @@ export default function QuadernParticionalArticlePageCa() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/recursos/blog/quarta-falcidia"
+        label="Quarta falcídia"
+        description="El parany més car del testament català, i com detectar-lo abans d'acceptar l'encàrrec."
+      />
     </>
   );
 }

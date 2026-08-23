@@ -5,16 +5,22 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import { Modelo650InteractiveShells } from "./Modelo650Client";
 
 export const metadata: Metadata = {
-  title: "Modelo 650 Cataluña: Guía Completa del Impuesto sobre Sucesiones | Ulpiano",
+  title: "Modelo 650: autoliquidación del ISD",
   description:
-    "Guía completa del Modelo 650: qué es, quién lo presenta, plazo de 6 meses, reducciones catalanas (Llei 19/2010), cálculo de la cuota y cómo Ulpiano lo genera automáticamente desde el expediente sucesorio.",
+    "Guía del Modelo 650 en Cataluña: quién lo presenta, plazo de 6 meses, reducciones de la Llei 19/2010 y generación automática desde el expediente.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-650",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-650",
       ca: "https://ulpiano.es/ca/models/model-650",
+      "x-default": "https://ulpiano.es/modelos/modelo-650",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/modelos/modelo-650",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 /* ─── Static data ─── */

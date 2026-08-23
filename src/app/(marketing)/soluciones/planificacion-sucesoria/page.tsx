@@ -4,13 +4,22 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { CrossLink } from "@/components/CrossLink";
 
 export const metadata: Metadata = {
-  title:
-    "Planificador de Herencias | Inventario patrimonial y escenarios sucesorios",
+  title: "Planificador de herencias e inventario",
   description:
-    "Consolida bienes, derechos y deudas del causante en un único inventario. Calcula legítimas según el CCCat, compara escenarios de distribución y genera la documentación del expediente.",
+    "Inventario único del causante, legítimas según el CCCat y escenarios de distribución. La base del expediente sucesorio en Ulpiano.",
   alternates: {
     canonical: "https://ulpiano.es/soluciones/planificacion-sucesoria",
+    languages: {
+      es: "https://ulpiano.es/soluciones/planificacion-sucesoria",
+      ca: "https://ulpiano.es/ca/solucions/planificacio-successoria",
+      "x-default": "https://ulpiano.es/soluciones/planificacion-sucesoria",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es/soluciones/planificacion-sucesoria",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function PlanificacionSucesoriaPage() {

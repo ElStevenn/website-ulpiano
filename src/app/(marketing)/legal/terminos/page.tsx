@@ -3,10 +3,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Términos y Condiciones",
   description:
-    "Términos y condiciones de uso de la plataforma Ulpiano para la gestión sucesoria profesional.",
+    "Términos y condiciones de uso de Ulpiano, la plataforma de gestión sucesoria para despachos, asesorías y notarías profesionales.",
   alternates: {
     canonical: "https://ulpiano.es/legal/terminos",
+    languages: {
+      es: "https://ulpiano.es/legal/terminos",
+      ca: "https://ulpiano.es/ca/legal/termes",
+      "x-default": "https://ulpiano.es/legal/terminos",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es/legal/terminos",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function TerminosPage() {

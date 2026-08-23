@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/recursos/blog/retencion-fidelizacion-cliente-asesorias",
       ca: "https://ulpiano.es/ca/recursos/blog/retencio-fidelitzacio-client-assessories",
+      "x-default": "https://ulpiano.es/recursos/blog/retencion-fidelizacion-cliente-asesorias",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Retener al heredero: la métrica que tu asesoría no mira",
     description:
       "El 61% de los herederos confía en su abogado y el 49% en su contable para lo sucesorio. Aun así, la mayoría de las asesorías pierden a la familia entera cuando muere el cliente histórico.",
@@ -337,6 +340,11 @@ export default function RetencionClientesAsesoriasArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/recursos/blog/ia-abogados-sucesiones"
+        label="IA para abogados de sucesiones"
+        description="Dónde aporta la IA y dónde hace falta un motor determinista."
+      />
     </>
   );
 }

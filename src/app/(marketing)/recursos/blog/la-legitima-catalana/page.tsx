@@ -2,20 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignup from "@/features/blog/NewsletterSignup";
 
 export const metadata: Metadata = {
   title: "Legítima catalana: qué es, cuánto es y el error del tercio",
   description:
-    "La legítima catalana es la cuarta parte del caudal computable conforme al artículo 451-5 del CCCat. Guía práctica sobre cálculo, legitimarios y errores de proceso.",
+    "La legítima catalana es un cuarto del caudal computable (art. 451-5 CCCat). Cálculo, legitimarios y el error de aplicar el tercio.",
   alternates: {
     canonical: "https://ulpiano.es/recursos/blog/la-legitima-catalana",
     languages: {
       es: "https://ulpiano.es/recursos/blog/la-legitima-catalana",
       ca: "https://ulpiano.es/ca/recursos/blog/la-legitima-catalana",
+      "x-default": "https://ulpiano.es/recursos/blog/la-legitima-catalana",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Legítima catalana: qué es, cuánto es y el error del tercio",
     description:
       "Una guía práctica sobre el artículo 451-5 CCCat, el cálculo de la legítima y los errores que llegan a cuadernos firmados.",
@@ -103,7 +106,14 @@ export default function CatalanForcedHeirshipArticlePage() {
                   cotitular de los bienes de la herencia. Tiene derecho a exigir un
                   valor, que el heredero puede pagar en dinero o en bienes de la propia
                   herencia. Esto simplifica la partición, pero obliga a liquidar el
-                  crédito con precisión en el cuaderno particional.
+                  crédito con precisión en el{" "}
+                  <Link
+                    href="/recursos/blog/quadern-particional-cataluna"
+                    className="font-medium text-ulpiano-green underline underline-offset-2 hover:text-green-light"
+                  >
+                    cuaderno particional
+                  </Link>
+                  .
                 </li>
                 <li className="pl-2">
                   <strong>Es corta.</strong> La cuarta parte de la base de cálculo,
@@ -325,6 +335,11 @@ export default function CatalanForcedHeirshipArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/recursos/blog/gestion-herencias-despacho"
+        label="Gestión de herencias en el despacho"
+        description="Del inventario a un expediente que se puede firmar."
+      />
     </>
   );
 }

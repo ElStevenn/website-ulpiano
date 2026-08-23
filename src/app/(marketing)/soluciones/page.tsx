@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Soluciones de Gestión Sucesoria | Ulpiano",
+  title: "Soluciones de gestión sucesoria",
   description:
     "Todas las soluciones de Ulpiano: planificación sucesoria, fiscalidad automatizada, documentación y procesamiento documental para abogados, asesores y notarías.",
   alternates: {
@@ -10,8 +10,14 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/soluciones",
       ca: "https://ulpiano.es/ca/solucions",
+      "x-default": "https://ulpiano.es/soluciones",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/soluciones",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const soluciones = [
@@ -38,6 +44,12 @@ const soluciones = [
     title: "Procesamiento Documental",
     desc: "OCR e IA para digitalizar, clasificar y extraer datos de certificados de defunción, testamentos y escrituras.",
     tag: "OCR · IA · Digitalización",
+  },
+  {
+    href: "/soluciones/activos-digitales",
+    title: "Activos Digitales",
+    desc: "Criptomonedas, wallets y patrimonio digital del causante, inventariados en el mismo expediente sucesorio.",
+    tag: "Cripto · Wallets · Inventario",
   },
 ];
 

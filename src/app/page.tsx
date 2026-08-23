@@ -11,10 +11,20 @@ import ScrollRevealInit from './_components/ScrollRevealInit'
 export const metadata: Metadata = {
   title: "Plataforma Integral de Gestión Sucesoria",
   description:
-    "De inventario a cuaderno particional sin errores de cálculo ni revisión manual de la norma. Ulpiano estructura, valida y documenta el proceso sucesorio completo para abogados, asesores y notarías.",
+    "De inventario a cuaderno particional: Ulpiano estructura, valida y documenta el proceso sucesorio para abogados, asesores y notarías.",
   alternates: {
     canonical: "https://ulpiano.es",
+    languages: {
+      es: "https://ulpiano.es",
+      ca: "https://ulpiano.es/ca",
+      "x-default": "https://ulpiano.es",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function HomePage() {

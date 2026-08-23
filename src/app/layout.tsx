@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import DataLayerRouteTracker from "@/components/DataLayerRouteTracker";
+import { OG_IMAGE } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,28 +46,28 @@ export const metadata: Metadata = {
     "despachos abogados",
   ],
   openGraph: {
-    title: "Ulpiano | Plataforma Integral de Gestión Sucesoria",
-    description: "El sistema operativo de las herencias.",
-    url: "https://ulpiano.es",
     siteName: "Ulpiano",
     locale: "es_ES",
     type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ulpiano | Plataforma Integral de Gestión Sucesoria",
-    description: "El sistema operativo de las herencias.",
+    images: [OG_IMAGE.url],
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = (await headers()).get("x-pathname") ?? "";
+  const lang = pathname === "/ca" || pathname.startsWith("/ca/") ? "ca" : "es";
+
   return (
     <html
-      lang="es"
+      lang={lang}
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
@@ -125,7 +127,7 @@ gtag('set','url_passthrough',true);
                     "@type": "ContactPoint",
                     email: "soporte@ulpiano.es",
                     contactType: "customer support",
-                    availableLanguage: "Spanish",
+                    availableLanguage: ["Spanish", "Catalan"],
                   },
                 },
                 {
@@ -136,7 +138,7 @@ gtag('set','url_passthrough',true);
                   publisher: {
                     "@id": "https://ulpiano.es/#organization",
                   },
-                  inLanguage: "es",
+                  inLanguage: lang,
                 },
               ],
             }),

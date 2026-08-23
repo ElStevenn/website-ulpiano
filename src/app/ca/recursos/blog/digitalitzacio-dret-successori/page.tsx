@@ -2,20 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
 
 export const metadata: Metadata = {
   title: "La digitalització del dret successori: l'onada que ve",
   description:
-    "Per què a Espanya la gestió successòria continua sent manual, per què la infraestructura no vindrà de fora i què canvia quan l'expedient viu sobre un sistema amb el CCCat integrat.",
+    "Per què la gestió successòria a Espanya continua sent manual i què canvia quan l'expedient viu sobre el CCCat integrat.",
   alternates: {
     canonical: "https://ulpiano.es/ca/recursos/blog/digitalitzacio-dret-successori",
     languages: {
       es: "https://ulpiano.es/recursos/blog/digitalizacion-derecho-sucesorio",
       ca: "https://ulpiano.es/ca/recursos/blog/digitalitzacio-dret-successori",
+      "x-default": "https://ulpiano.es/recursos/blog/digitalizacion-derecho-sucesorio",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "La digitalització del dret successori: l'onada que ve",
     description:
       "3 bilions d'euros es transferiran a Espanya en tres dècades. La infraestructura per gestionar-los s'ha de construir aquí, sobre el dret civil català.",
@@ -113,7 +116,14 @@ export default function DigitalitzacioDretSuccessoriArticlePage() {
                   quarta part
                 </Link>
                 , pactes successoris (heretaments), figures com la quarta viudal
-                i la quarta falcídia, institució d’hereu obligatòria (amb la
+                i la{" "}
+                <Link
+                  href="/ca/recursos/blog/quarta-falcidia"
+                  className="font-medium text-ulpiano-green underline underline-offset-2 hover:text-green-light"
+                >
+                  quarta falcídia
+                </Link>
+                , institució d’hereu obligatòria (amb la
                 excepció històrica del dret de Tortosa, art. 423-1 CCCat).
               </p>
               <p className="mt-5">
@@ -385,6 +395,11 @@ export default function DigitalitzacioDretSuccessoriArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/solucions/documentacio-successoria"
+        label="Quadern particional i documentació"
+        description="De les dades de l'expedient al document que es signa."
+      />
     </>
   );
 }

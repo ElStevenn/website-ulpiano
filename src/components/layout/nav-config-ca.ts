@@ -123,6 +123,8 @@ export const esToCaMap: Record<string, string> = {
   "/recursos/blog/retencion-fidelizacion-cliente-asesorias": "/ca/recursos/blog/retencio-fidelitzacio-client-assessories",
   "/recursos/blog/digitalizacion-derecho-sucesorio": "/ca/recursos/blog/digitalitzacio-dret-successori",
   "/recursos/blog/ia-abogados-sucesiones": "/ca/recursos/blog/ia-advocats-successions",
+  "/recursos/blog/quarta-falcidia": "/ca/recursos/blog/quarta-falcidia",
+  "/recursos/blog/quadern-particional-cataluna": "/ca/recursos/blog/quadern-particional-catalunya",
   "/legal/privacidad": "/ca/legal/privacitat",
   "/legal/terminos": "/ca/legal/termes",
   "/legal/cookies": "/ca/legal/cookies",

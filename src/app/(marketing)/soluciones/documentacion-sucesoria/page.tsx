@@ -3,13 +3,22 @@ import { DocumentacionClient } from "./DocumentacionClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title:
-    "Documentación Sucesoria | Cuaderno Particional y Modelos Fiscales",
+  title: "Cuaderno particional y documentación",
   description:
-    "Genera el cuaderno particional, la escritura de partición, el inventario formal y los Modelos 650 y 660 desde los datos del expediente sucesorio. Sin copiar. Sin transcribir.",
+    "Cuaderno particional, escritura de partición e inventario formal desde los datos del expediente. Sin copiar ni transcribir.",
   alternates: {
     canonical: "https://ulpiano.es/soluciones/documentacion-sucesoria",
+    languages: {
+      es: "https://ulpiano.es/soluciones/documentacion-sucesoria",
+      ca: "https://ulpiano.es/ca/solucions/documentacio-successoria",
+      "x-default": "https://ulpiano.es/soluciones/documentacion-sucesoria",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es/soluciones/documentacion-sucesoria",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function DocumentacionSucesoriaPage() {

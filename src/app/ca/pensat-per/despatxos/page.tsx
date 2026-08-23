@@ -4,7 +4,7 @@ import { CrossLink } from "@/components/CrossLink";
 import { DespatxosClientCa } from "./DespatxosClientCa";
 
 export const metadata: Metadata = {
-  title: "Programari d'Herències per a Despatxos d'Advocats | Ulpiano",
+  title: "Programari d'herències per a despatxos",
   description:
     "Digitalitza la gestió d'herències al teu despatx. Expedients successoris estructurats, diagrames interactius, simulacions fiscals i documents generats automàticament.",
   alternates: {
@@ -12,8 +12,14 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/pensado-para/despachos",
       ca: "https://ulpiano.es/ca/pensat-per/despatxos",
+      "x-default": "https://ulpiano.es/pensado-para/despachos",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/pensat-per/despatxos",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function DespatxosPage() {

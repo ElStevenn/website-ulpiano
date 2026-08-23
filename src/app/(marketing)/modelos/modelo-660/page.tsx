@@ -5,15 +5,22 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import { Modelo660InteractiveShells } from "./Modelo660Client";
 
 export const metadata: Metadata = {
-  title: "Modelo 660 Cataluña: Declaración de Sucesiones e Inventario de Bienes | Ulpiano",
-  description: "Guía completa del Modelo 660: declaración del inventario de bienes, derechos y deudas del causante. Qué incluye, documentación necesaria, plazo de 6 meses y cómo Ulpiano lo genera automáticamente desde el expediente sucesorio.",
+  title: "Modelo 660: inventario de bienes",
+  description:
+    "Modelo 660: inventario de bienes, derechos y deudas del causante. Documentación, plazo de 6 meses y generación automática desde el expediente.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-660",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-660",
       ca: "https://ulpiano.es/ca/models/model-660",
+      "x-default": "https://ulpiano.es/modelos/modelo-660",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/modelos/modelo-660",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 /* ─── Static data ─── */

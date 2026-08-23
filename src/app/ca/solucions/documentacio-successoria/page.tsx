@@ -4,16 +4,22 @@ import { CrossLink } from "@/components/CrossLink";
 import { DocumentacionClientCa } from "./DocumentacionClientCa";
 
 export const metadata: Metadata = {
-  title: "Documentació Successòria | Quadern Particional i Models Fiscals | Ulpiano",
+  title: "Quadern particional i documentació",
   description:
-    "Genera el quadern particional, l'escriptura de partició, l'inventari formal i els Models 650 i 660 des de les dades de l'expedient successori. Sense copiar. Sense transcriure.",
+    "Quadern particional, escriptura de partició i inventari formal des de les dades de l'expedient. Sense copiar ni transcriure.",
   alternates: {
     canonical: "https://ulpiano.es/ca/solucions/documentacio-successoria",
     languages: {
       es: "https://ulpiano.es/soluciones/documentacion-sucesoria",
       ca: "https://ulpiano.es/ca/solucions/documentacio-successoria",
+      "x-default": "https://ulpiano.es/soluciones/documentacion-sucesoria",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/solucions/documentacio-successoria",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function DocumentacioSuccessoriaPage() {

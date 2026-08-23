@@ -5,16 +5,18 @@ import { PreusClientCa } from "./PreusClientCa";
 export const metadata: Metadata = {
   title: "Preus i plans",
   description:
-    "Plans d'Ulpiano: Free, Esencial, Avançat i Pro. Subscripció SaaS amb generació de models AEAT i motor fiscal de l'ISD integrat. Preus públics, sense permanència.",
+    "Plans Free, Esencial, Avançat i Pro. SaaS de gestió successòria amb motor de l'ISD i models AEAT. Preus públics, sense permanència.",
   alternates: {
     canonical: "https://ulpiano.es/ca/preus",
     languages: {
       es: "https://ulpiano.es/precios",
       ca: "https://ulpiano.es/ca/preus",
+      "x-default": "https://ulpiano.es/precios",
     },
   },
   openGraph: {
-    title: "Preus i plans | Ulpiano",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+    title: "Preus i plans",
     description:
       "Free, Esencial, Avançat i Pro. La plataforma de gestió successòria amb motor normatiu integrat. Preus públics i transparents.",
     url: "https://ulpiano.es/ca/preus",

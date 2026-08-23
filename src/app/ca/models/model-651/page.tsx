@@ -5,17 +5,22 @@ import { ModelNavCa } from "@/components/modelos/ModelNavCa";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title:
-    "Model 651 Catalunya: Guia Completa de l'Impost de Donacions | Ulpiano",
+  title: "Model 651: autoliquidació de donacions",
   description:
-    "Guia completa del Model 651: què és, qui el presenta, termini de 30 dies hàbils, reduccions catalanes per a donacions (Llei 19/2010, Arts. 15-23), comparativa donació vs herència i com Ulpiano calcula la quota automàticament.",
+    "Guia del Model 651: termini de 30 dies hàbils, reduccions catalanes a donacions i comparativa amb l'herència. Ulpiano calcula la quota.",
   alternates: {
     canonical: "https://ulpiano.es/ca/models/model-651",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-651",
       ca: "https://ulpiano.es/ca/models/model-651",
+      "x-default": "https://ulpiano.es/modelos/modelo-651",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/models/model-651",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const summaryTable = [

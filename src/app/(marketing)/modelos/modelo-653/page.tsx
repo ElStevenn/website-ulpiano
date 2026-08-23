@@ -4,15 +4,22 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import { Modelo653InteractiveShells } from "./Modelo653Client";
 
 export const metadata: Metadata = {
-  title: "Modelo 653 Cataluña: Consolidación de Dominio y Extinción de Usufructo | Ulpiano",
-  description: "Guía completa del Modelo 653: qué es, cuándo se presenta, causas de extinción del usufructo, cálculo de la cuota complementaria (Art. 26.c LISD) y cómo Ulpiano simula la consolidación antes de constituir el usufructo.",
+  title: "Modelo 653: consolidación de dominio",
+  description:
+    "Modelo 653: extinción de usufructo y cuota complementaria (art. 26.c LISD). Simula la consolidación antes de constituir el usufructo.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-653",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-653",
       ca: "https://ulpiano.es/ca/models/model-653",
+      "x-default": "https://ulpiano.es/modelos/modelo-653",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/modelos/modelo-653",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const summaryTable = [

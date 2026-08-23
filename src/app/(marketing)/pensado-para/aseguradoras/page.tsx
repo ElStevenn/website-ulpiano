@@ -3,16 +3,22 @@ import { AseguradorasClient } from "./AseguradorasClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Gestión Sucesoria para Aseguradoras y Pólizas de Vida | Ulpiano",
+  title: "Gestión sucesoria para aseguradoras",
   description:
-    "Complementa tus pólizas de vida y decesos con la gestión sucesoria digital. Expedientes estructurados, fiscalidad calculada, fidelización real. Ulpiano para aseguradoras.",
+    "Complemento a pólizas de vida y decesos: expediente estructurado, fiscalidad calculada y seguimiento del beneficiario.",
   alternates: {
     canonical: "https://ulpiano.es/pensado-para/aseguradoras",
     languages: {
       es: "https://ulpiano.es/pensado-para/aseguradoras",
       ca: "https://ulpiano.es/ca/pensat-per/asseguradores",
+      "x-default": "https://ulpiano.es/pensado-para/aseguradoras",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/pensado-para/aseguradoras",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function AseguradorasPage() {

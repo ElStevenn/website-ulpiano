@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { NotariesClientCa } from "./NotariesClientCa";
 
 export const metadata: Metadata = {
-  title: "Gestió Digital d'Herències per a Notaries | Ulpiano",
+  title: "Gestió digital d'herències per a notaries",
   description:
     "L'expedient post-testament actiu, la documentació centralitzada i xifrada, la generació d'escriptures des de dades estructurades. Ulpiano per a notaries.",
   alternates: {
@@ -11,8 +11,14 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/pensado-para/notarias",
       ca: "https://ulpiano.es/ca/pensat-per/notaries",
+      "x-default": "https://ulpiano.es/pensado-para/notarias",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/ca/pensat-per/notaries",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function NotariesPage() {

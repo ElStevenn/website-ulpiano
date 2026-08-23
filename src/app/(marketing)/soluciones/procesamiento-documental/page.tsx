@@ -3,13 +3,22 @@ import { ProcesamientoDocumentalClient } from "./ProcesamientoDocumentalClient";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title:
-    "Procesamiento Inteligente de Documentos | Digitaliza la gestión documental sucesoria",
+  title: "Procesamiento documental sucesorio",
   description:
-    "Digitaliza, clasifica y extrae información clave de certificados de defunción, testamentos, escrituras y más. Tecnología OCR e IA para agilizar la tramitación de herencias.",
+    "OCR e IA para clasificar certificados, testamentos y escrituras y extraer datos al expediente sucesorio, sin teclear de nuevo.",
   alternates: {
     canonical: "https://ulpiano.es/soluciones/procesamiento-documental",
+    languages: {
+      es: "https://ulpiano.es/soluciones/procesamiento-documental",
+      ca: "https://ulpiano.es/ca/solucions/processament-documental",
+      "x-default": "https://ulpiano.es/soluciones/procesamiento-documental",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es/soluciones/procesamiento-documental",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function ProcesamientoDocumentalPage() {

@@ -2,20 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
 
 export const metadata: Metadata = {
   title: "IA per a advocats de successions: fins on arriba i on no",
   description:
-    "La IA accelera la lectura i la redacció, però calcular una legítima o liquidar l'ISD exigeix un motor determinista amb norma citada i rastre auditable. La frontera entre el decidible i l'auditable.",
+    "La IA accelera lectura i redacció; liquidar l'ISD exigeix un motor determinista amb norma citada. On aporta i on no.",
   alternates: {
     canonical: "https://ulpiano.es/ca/recursos/blog/ia-advocats-successions",
     languages: {
       es: "https://ulpiano.es/recursos/blog/ia-abogados-sucesiones",
       ca: "https://ulpiano.es/ca/recursos/blog/ia-advocats-successions",
+      "x-default": "https://ulpiano.es/recursos/blog/ia-abogados-sucesiones",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "IA per a advocats de successions: fins on arriba i on no",
     description:
       "IA on aporta —lectura, redacció, cerca—. Motor determinista on és crític —càlcul, norma, traçabilitat—. Com es veu una arquitectura defensable davant d'Hisenda.",
@@ -431,6 +434,11 @@ export default function IaAdvocatsSuccessionsArticlePage() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/recursos/blog/la-legitima-catalana"
+        label="La llegítima catalana"
+        description="El quart del cabal computable, no el terç del Codi Civil."
+      />
     </>
   );
 }

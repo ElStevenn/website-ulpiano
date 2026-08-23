@@ -4,15 +4,22 @@ import { ModelNav } from "@/components/modelos/ModelNav";
 import { Modelo652InteractiveShells } from "./Modelo652Client";
 
 export const metadata: Metadata = {
-  title: "Modelo 652 Cataluña: Tributación de Seguros de Vida en Sucesiones | Ulpiano",
-  description: "Guía completa del Modelo 652: tributación del capital de seguros de vida cuando el beneficiario no es el tomador, plazo de 6 meses, reducciones catalanas (Llei 19/2010) y cómo Ulpiano lo genera automáticamente desde el expediente.",
+  title: "Modelo 652: seguros de vida en sucesiones",
+  description:
+    "Modelo 652: tributación del seguro de vida si el beneficiario no es el tomador. Plazo de 6 meses, reducciones catalanas y generación automática.",
   alternates: {
     canonical: "https://ulpiano.es/modelos/modelo-652",
     languages: {
       es: "https://ulpiano.es/modelos/modelo-652",
       ca: "https://ulpiano.es/ca/models/model-652",
+      "x-default": "https://ulpiano.es/modelos/modelo-652",
     },
   },
+  openGraph: {
+    url: "https://ulpiano.es/modelos/modelo-652",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 const summaryTable = [

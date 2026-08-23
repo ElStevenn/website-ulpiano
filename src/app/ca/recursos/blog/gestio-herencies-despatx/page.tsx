@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Clock3, Download } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { CrossLink } from "@/components/CrossLink";
 import NewsletterSignupCa from "@/features/blog/NewsletterSignupCa";
 
 export const metadata: Metadata = {
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
     languages: {
       es: "https://ulpiano.es/recursos/blog/gestion-herencias-despacho",
       ca: "https://ulpiano.es/ca/recursos/blog/gestio-herencies-despatx",
+      "x-default": "https://ulpiano.es/recursos/blog/gestion-herencias-despacho",
     },
   },
   openGraph: {
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
     title: "Gestió d'herències en un despatx: del caos al procés",
     description:
       "Per què un expedient successori dispers en Excel, Word, PDF, correu i WhatsApp costa temps, i què ha de tenir un sistema de gestió per evitar-ho.",
@@ -420,6 +423,11 @@ export default function GestioHerenciesDespatxArticlePageCa() {
           </div>
         </article>
       </main>
+      <CrossLink
+        href="/ca/recursos/blog/retencio-fidelitzacio-client-assessories"
+        label="Retenir l'hereu"
+        description="L'expedient ben resolt és la mètrica que l'assessoria no mira."
+      />
     </>
   );
 }

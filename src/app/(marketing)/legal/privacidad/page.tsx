@@ -3,10 +3,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Política de Privacidad",
   description:
-    "Política de privacidad de Ulpiano. Información sobre el tratamiento de datos personales conforme al RGPD.",
+    "Política de privacidad de Ulpiano: qué datos tratamos, con qué finalidad, plazos de conservación y cómo ejercer tus derechos ARCO+.",
   alternates: {
     canonical: "https://ulpiano.es/legal/privacidad",
+    languages: {
+      es: "https://ulpiano.es/legal/privacidad",
+      ca: "https://ulpiano.es/ca/legal/privacitat",
+      "x-default": "https://ulpiano.es/legal/privacidad",
+    },
   },
+  openGraph: {
+    url: "https://ulpiano.es/legal/privacidad",
+    images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
+  },
+
 };
 
 export default function PrivacidadPage() {
