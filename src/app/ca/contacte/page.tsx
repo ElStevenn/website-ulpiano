@@ -66,6 +66,7 @@ export default function ContactePage() {
             <p style={{ marginBottom: "var(--space-md)", color: "var(--slate)" }}>
               Envia'ns un correu electrònic i et respondrem en les properes 24 hores.
             </p>
+            {/* TODO: privacidad@ulpiano.es debe existir como alias antes de publicar. */}
             <a
               href="mailto:hola@ulpiano.es"
               style={{

@@ -53,6 +53,7 @@ const columnsEs = [
   {
     header: "Legal",
     links: [
+      { label: "Aviso legal", href: "/legal/aviso-legal" },
       { label: "Privacidad", href: "/legal/privacidad" },
       { label: "Términos", href: "/legal/terminos" },
       { label: "Cookies", href: "/legal/cookies" },
@@ -117,6 +118,7 @@ const columnsCa = [
   {
     header: "Legal",
     links: [
+      { label: "Avís legal", href: "/ca/legal/avis-legal" },
       { label: "Privacitat", href: "/ca/legal/privacitat" },
       { label: "Termes", href: "/ca/legal/termes" },
       { label: "Cookies", href: "/ca/legal/cookies" },
@@ -133,9 +135,27 @@ const columnsCa = [
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname === "/login") return null;
-
   const isCa = pathname === "/ca" || pathname.startsWith("/ca/");
+  const cookieLabel = isCa ? "Ajustos de cookies" : "Ajustes de cookies";
+  const cookieButton = (
+    <button
+      type="button"
+      id="open-cookie-settings"
+      onClick={() => window.dispatchEvent(new CustomEvent("open-cookie-settings"))}
+      className="text-xs text-white/50 hover:text-white/70 transition-colors underline underline-offset-2 cursor-pointer"
+    >
+      {cookieLabel}
+    </button>
+  );
+
+  if (pathname === "/login") {
+    return (
+      <footer className="bg-ink text-white border-t border-mist/10">
+        <div className="max-w-4xl mx-auto px-6 py-6 flex justify-center">{cookieButton}</div>
+      </footer>
+    );
+  }
+
   const columns = isCa ? columnsCa : columnsEs;
 
   return (
@@ -183,16 +203,7 @@ export default function Footer() {
               ? "Ulpiano © 2026. Plataforma Integral de Gestió Successòria"
               : "Ulpiano © 2026. Plataforma Integral de Gestión Sucesoria"}
           </p>
-          <button
-            type="button"
-            id="open-cookie-settings"
-            onClick={() =>
-              window.dispatchEvent(new CustomEvent("open-cookie-settings"))
-            }
-            className="text-xs text-white/50 hover:text-white/70 transition-colors underline underline-offset-2 cursor-pointer"
-          >
-            {isCa ? "Ajustos de cookies" : "Ajustes de cookies"}
-          </button>
+          {cookieButton}
         </div>
       </div>
     </footer>
