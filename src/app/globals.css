@@ -1120,3 +1120,83 @@ h3 {
 .child-stagger > *:nth-child(3) { animation-delay: 300ms; }
 .child-stagger > *:nth-child(4) { animation-delay: 400ms; }
 .child-stagger > *:nth-child(5) { animation-delay: 500ms; }
+
+/* ============================================
+   LEGAL PAGES — tables and long-form body
+   Scoped to .legal-page so marketing styles stay intact.
+   ============================================ */
+.legal-page .legal-prose {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legal-page .legal-prose h1 {
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page .legal-prose h2 {
+  font-size: 22px;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-page .legal-prose h3 {
+  font-size: 18px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page .legal-prose p {
+  margin: 0.85em 0;
+}
+
+.legal-page .legal-prose ul,
+.legal-page .legal-prose ol {
+  margin: 0.85em 0;
+  padding-left: 1.35em;
+}
+
+.legal-page .legal-prose li {
+  margin: 0.35em 0;
+}
+
+.legal-page .legal-prose a {
+  color: var(--ulpiano-green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-page .legal-prose .legal-table-wrap {
+  overflow-x: auto;
+  width: 100%;
+  margin: 1.25em 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-page .legal-prose table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.legal-page .legal-prose th,
+.legal-page .legal-prose td {
+  border: 1px solid var(--mist);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal-page .legal-prose th {
+  background: var(--surface);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.legal-page .legal-identidad ul {
+  list-style: disc;
+}
