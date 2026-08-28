@@ -2,7 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { CheckCircle2, Calendar, Monitor, Clock, ShieldCheck, ChevronDown, ArrowRight, Shield } from "lucide-react";
+import ConsentCheckbox from "@/components/forms/ConsentCheckbox";
+import { localeFromPathname } from "@/lib/legal/consent-texts";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -130,7 +133,11 @@ export function DemoClient() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
+  const [consentProcessing, setConsentProcessing] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const formStartedRef = useRef(false);
+  const locale = localeFromPathname(usePathname() ?? "");
 
   const dl = useRef(
     () => (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer,
@@ -144,14 +151,24 @@ export function DemoClient() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!consentProcessing) {
+      setConsentError(true);
+      return;
+    }
     setSending(true);
     setFormError("");
+    setConsentError(false);
 
     const form = e.currentTarget;
     const data = {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      consentProcessing,
+      consentMarketing,
+      locale,
+      formId: "demo" as const,
+      sourceUrl: window.location.href,
     };
 
     try {
@@ -400,6 +417,18 @@ export function DemoClient() {
                         />
                       </div>
                       
+                      <ConsentCheckbox
+                        locale={locale}
+                        formId="demo"
+                        consentProcessing={consentProcessing}
+                        consentMarketing={consentMarketing}
+                        onProcessingChange={(v) => {
+                          setConsentProcessing(v);
+                          if (v) setConsentError(false);
+                        }}
+                        onMarketingChange={setConsentMarketing}
+                        processingError={consentError}
+                      />
                       {formError && (
                         <p className="text-[14px] text-red-600 bg-red-50 p-3 rounded-lg border border-red-100">
                           {formError}

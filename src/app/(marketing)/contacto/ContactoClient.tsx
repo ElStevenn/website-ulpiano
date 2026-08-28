@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ConsentCheckbox from "@/components/forms/ConsentCheckbox";
+import { localeFromPathname } from "@/lib/legal/consent-texts";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -113,7 +116,11 @@ export function ContactoClient() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
+  const [consentProcessing, setConsentProcessing] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const formStartedRef = useRef(false);
+  const locale = localeFromPathname(usePathname() ?? "");
 
   const dl = useRef(
     () => (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer,
@@ -127,8 +134,13 @@ export function ContactoClient() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!consentProcessing) {
+      setConsentError(true);
+      return;
+    }
     setSending(true);
     setFormError("");
+    setConsentError(false);
 
     const form = e.currentTarget;
     const data = {
@@ -137,6 +149,11 @@ export function ContactoClient() {
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       subject: (form.elements.namedItem("subject") as HTMLSelectElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      consentProcessing,
+      consentMarketing,
+      locale,
+      formId: "contact" as const,
+      sourceUrl: window.location.href,
     };
 
     try {
@@ -395,6 +412,18 @@ export function ContactoClient() {
                         }}
                       />
                     </div>
+                    <ConsentCheckbox
+                      locale={locale}
+                      formId="contact"
+                      consentProcessing={consentProcessing}
+                      consentMarketing={consentMarketing}
+                      onProcessingChange={(v) => {
+                        setConsentProcessing(v);
+                        if (v) setConsentError(false);
+                      }}
+                      onMarketingChange={setConsentMarketing}
+                      processingError={consentError}
+                    />
                     {formError && (
                       <p style={{ fontSize: 13, color: "var(--error)", lineHeight: 1.4 }}>
                         {formError}

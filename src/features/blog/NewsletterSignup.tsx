@@ -1,19 +1,31 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { usePathname } from "next/navigation";
+import ConsentCheckbox from "@/components/forms/ConsentCheckbox";
+import { localeFromPathname } from "@/lib/legal/consent-texts";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function NewsletterSignup() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
+  const [consentProcessing, setConsentProcessing] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
+  const [consentError, setConsentError] = useState(false);
+  const locale = localeFromPathname(usePathname() ?? "");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!consentProcessing) {
+      setConsentError(true);
+      return;
+    }
     const formData = new FormData(event.currentTarget);
 
     setStatus("submitting");
     setMessage("");
+    setConsentError(false);
 
     try {
       const response = await fetch("/api/lead-capture", {
@@ -23,6 +35,11 @@ export default function NewsletterSignup() {
           name: formData.get("name"),
           email: formData.get("email"),
           source: "blog-la-legitima-catalana-newsletter",
+          consentProcessing,
+          consentMarketing,
+          locale,
+          formId: "newsletter",
+          sourceUrl: window.location.href,
         }),
       });
       const result = await response.json();
@@ -71,6 +88,20 @@ export default function NewsletterSignup() {
           autoComplete="email"
           required
           className="mt-2 min-h-11 w-full rounded-md border border-mist bg-surface px-3 text-base text-ink outline-none transition-colors placeholder:text-fog focus:border-ulpiano-green focus:bg-white focus:ring-2 focus:ring-green-bg"
+        />
+      </div>
+      <div className="sm:col-span-2">
+        <ConsentCheckbox
+          locale={locale}
+          formId="newsletter"
+          consentProcessing={consentProcessing}
+          consentMarketing={consentMarketing}
+          onProcessingChange={(v) => {
+            setConsentProcessing(v);
+            if (v) setConsentError(false);
+          }}
+          onMarketingChange={setConsentMarketing}
+          processingError={consentError}
         />
       </div>
       <div className="sm:col-span-2">
