@@ -29,67 +29,210 @@ function useReveal() {
   return ref;
 }
 
-/* ─── Data ─── */
+/* ─── Copy ─── */
 
-const demoTopics = [
-  {
-    title: "Inventario patrimonial estructurado",
-    desc: "Inmuebles, financieros, participaciones — en un panel con caudal relicto neto calculado automáticamente.",
+const COPY = {
+  es: {
+    eyebrow: "Descubre Ulpiano",
+    heroHighlight: "25 minutos",
+    heroTitle: "El expediente que hoy te cuesta 6 horas, resuelto en",
+    heroBody:
+      "Reserva una sesión personalizada. Verás la plataforma funcionando con un caso real del sector sucesorio catalán: inventario, cálculo del ISD y generación del cuaderno particional.",
+    reserveCta: "Reservar mi sesión",
+    seeIncludes: "Ver qué incluye",
+    stats: [
+      { number: "25", unit: "min", label: "Sin diapositivas. Directamente sobre el producto." },
+      { number: "35%", unit: "", label: "Reducción media en tiempo de gestión por expediente." },
+      { number: "100%", unit: "", label: "Derecho foral catalán integrado (CCCat, Llei 19/2010)." },
+    ],
+    whatEyebrow: "Qué verás en la sesión",
+    whatTitle: "Un caso real, de principio a fin",
+    whatBody:
+      "Trabajamos sobre la plataforma desde el primer minuto. Sin presentaciones comerciales aburridas, sin diapositivas.",
+    topics: [
+      {
+        title: "Inventario patrimonial estructurado",
+        desc: "Inmuebles, financieros, participaciones — en un panel con caudal relicto neto calculado automáticamente.",
+      },
+      {
+        title: "Cálculo del ISD con norma citada",
+        desc: "La cuota de cada heredero según la Llei 19/2010, con reducciones y bonificaciones aplicadas.",
+      },
+      {
+        title: "Cuaderno particional generado",
+        desc: "En Word, con los datos reales del expediente. Listo para tu revisión.",
+      },
+      {
+        title: "Comparación de escenarios fiscales",
+        desc: "Herencia directa vs. donación vs. usufructo al cónyuge — impacto fiscal en paralelo.",
+      },
+    ],
+    howStrip: [
+      "Tú eliges fecha y hora",
+      "Por videoconferencia",
+      "25 min, sin compromiso",
+    ],
+    successTitle: "Sesión solicitada",
+    successBody:
+      "Recibirás un email en menos de 24h con los horarios disponibles para elegir el que mejor te convenga.",
+    meanwhileTitle: "¿Mientras tanto?",
+    meanwhileBody: "Explora en detalle todas las soluciones que verás durante la sesión.",
+    seeSolutions: "Ver soluciones",
+    formTitle: "Reserva tu sesión",
+    formIntro: "3 campos — menos de 30 segundos.",
+    name: "Nombre completo",
+    namePlaceholder: "María García López",
+    email: "Email profesional",
+    company: "Despacho / Empresa",
+    companyPlaceholder: "Nombre del despacho",
+    sending: "Procesando...",
+    submit: "Ver Ulpiano en acción",
+    noCommitment: "Sin compromiso · No pedimos datos de pago",
+    formError: "Ha ocurrido un error. Inténtalo de nuevo.",
+    quote1:
+      "Desde que usamos Ulpiano, la preparación de un expediente sucesorio nos lleva la mitad de tiempo. Y el cliente entiende perfectamente lo que paga.",
+    quote1Author: "— Marta R., Abogada | Despacho en Girona",
+    quote2:
+      "La visualización del árbol familiar y las simulaciones fiscales cambiaron la forma en que presentamos las herencias a nuestros clientes.",
+    quote2Author: "— Jordi P., Abogado Civilista | Barcelona",
+    howEyebrow: "Cómo funciona",
+    howTitle: "De formulario a sesión en 3 pasos",
+    nextSteps: [
+      { step: 1, title: "Completa el formulario", desc: "Solo nombre, email y despacho. En menos de 30 segundos." },
+      { step: 2, title: "Recibes el enlace de agenda", desc: "En menos de 24h, con horarios disponibles que se ajusten a ti." },
+      { step: 3, title: "Sesión de 25 minutos", desc: "Directamente sobre la plataforma con un expediente real del sector." },
+    ],
+    wantReserve: "Quiero reservar mi sesión",
+    faqEyebrow: "Preguntas Frecuentes",
+    faqTitle: "Antes de reservar",
+    faqs: [
+      {
+        q: "¿Qué necesito preparar para la sesión?",
+        a: "Nada. Nosotros proporcionamos un caso real del sector sucesorio catalán para que veas la plataforma en acción con datos representativos.",
+      },
+      {
+        q: "¿Es realmente sin compromiso?",
+        a: "Sí. La sesión es puramente informativa. No cerramos con precio ni pedimos datos de pago. Si quieres probar por tu cuenta después, puedes empezar gratis.",
+      },
+      {
+        q: "¿Puedo traer a un compañero del despacho?",
+        a: "Por supuesto. De hecho, lo recomendamos. Cuantos más perfiles vean la plataforma, mejor evaluación podéis hacer.",
+      },
+      {
+        q: "¿La demo cubre la normativa de mi comunidad?",
+        a: "Actualmente la plataforma cubre el derecho foral catalán (CCCat, Llei 19/2010). La demo se centra en un expediente con domicilio en Catalunya.",
+      },
+      {
+        q: "¿Cuánto tarda la respuesta?",
+        a: "Menos de 24 horas laborables. Normalmente respondemos el mismo día.",
+      },
+    ],
+    tryFirst: "¿Prefieres probar por tu cuenta primero?",
+    startFree: "Empieza gratis sin tarjeta",
+    solutionsHref: "/soluciones",
+    pricesHref: "/precios",
   },
-  {
-    title: "Cálculo del ISD con norma citada",
-    desc: "La cuota de cada heredero según la Llei 19/2010, con reducciones y bonificaciones aplicadas.",
+  ca: {
+    eyebrow: "Descobreix Ulpiano",
+    heroHighlight: "25 minuts",
+    heroTitle: "L'expedient que avui et costa 6 hores, resolt en",
+    heroBody:
+      "Reserva una sessió personalitzada. Veuràs la plataforma funcionant amb un cas real del sector successori català: inventari, càlcul de l'ISD i generació del quadern particional.",
+    reserveCta: "Reservar la meva sessió",
+    seeIncludes: "Veure què inclou",
+    stats: [
+      { number: "25", unit: "min", label: "Sense diapositives. Directament sobre el producte." },
+      { number: "35%", unit: "", label: "Reducció mitjana en temps de gestió per expedient." },
+      { number: "100%", unit: "", label: "Dret foral català integrat (CCCat, Llei 19/2010)." },
+    ],
+    whatEyebrow: "Què veuràs a la sessió",
+    whatTitle: "Un cas real, de principi a fi",
+    whatBody:
+      "Treballem sobre la plataforma des del primer minut. Sense presentacions comercials avorrides, sense diapositives.",
+    topics: [
+      {
+        title: "Inventari patrimonial estructurat",
+        desc: "Immobles, financers, participacions — en un panell amb el cabal relict net calculat automàticament.",
+      },
+      {
+        title: "Càlcul de l'ISD amb norma citada",
+        desc: "La quota de cada hereu segons la Llei 19/2010, amb reduccions i bonificacions aplicades.",
+      },
+      {
+        title: "Quadern particional generat",
+        desc: "En Word, amb les dades reals de l'expedient. Llest per a la teva revisió.",
+      },
+      {
+        title: "Comparació d'escenaris fiscals",
+        desc: "Herència directa vs. donació vs. usdefruit al cònjuge — impacte fiscal en paral·lel.",
+      },
+    ],
+    howStrip: [
+      "Tries tu la data i l'hora",
+      "Per videoconferència",
+      "25 min, sense compromís",
+    ],
+    successTitle: "Sessió sol·licitada",
+    successBody:
+      "Rebràs un correu en menys de 24 h amb els horaris disponibles per triar el que millor et vagi.",
+    meanwhileTitle: "Mentrestant?",
+    meanwhileBody: "Explora en detall totes les solucions que veuràs durant la sessió.",
+    seeSolutions: "Veure solucions",
+    formTitle: "Reserva la teva sessió",
+    formIntro: "3 camps — menys de 30 segons.",
+    name: "Nom complet",
+    namePlaceholder: "Maria García López",
+    email: "Correu professional",
+    company: "Despatx / Empresa",
+    companyPlaceholder: "Nom del despatx",
+    sending: "Processant...",
+    submit: "Veure Ulpiano en acció",
+    noCommitment: "Sense compromís · No demanem dades de pagament",
+    formError: "S'ha produït un error. Torna-ho a provar.",
+    quote1:
+      "Des que fem servir Ulpiano, la preparació d'un expedient successori ens porta la meitat de temps. I el client entén perfectament el que paga.",
+    quote1Author: "— Marta R., Advocada | Despatx a Girona",
+    quote2:
+      "La visualització de l'arbre familiar i les simulacions fiscals van canviar la manera com presentem les herències als nostres clients.",
+    quote2Author: "— Jordi P., Advocat civilista | Barcelona",
+    howEyebrow: "Com funciona",
+    howTitle: "Del formulari a la sessió en 3 passos",
+    nextSteps: [
+      { step: 1, title: "Omple el formulari", desc: "Només nom, correu i despatx. En menys de 30 segons." },
+      { step: 2, title: "Rebs l'enllaç d'agenda", desc: "En menys de 24 h, amb horaris disponibles que s'ajustin a tu." },
+      { step: 3, title: "Sessió de 25 minuts", desc: "Directament sobre la plataforma, amb un expedient real del sector." },
+    ],
+    wantReserve: "Vull reservar la meva sessió",
+    faqEyebrow: "Preguntes freqüents",
+    faqTitle: "Abans de reservar",
+    faqs: [
+      {
+        q: "Què he de preparar per a la sessió?",
+        a: "Res. Nosaltres portem un cas real del sector successori català perquè vegis la plataforma en acció amb dades representatives.",
+      },
+      {
+        q: "És realment sense compromís?",
+        a: "Sí. La sessió és purament informativa. No tanquem amb preu ni demanem dades de pagament. Si després vols provar pel teu compte, pots començar de franc.",
+      },
+      {
+        q: "Puc portar un company del despatx?",
+        a: "I tant. De fet, ho recomanem. Com més perfils vegin la plataforma, millor avaluació en podreu fer.",
+      },
+      {
+        q: "La demo cobreix la normativa de la meva comunitat?",
+        a: "Ara mateix la plataforma cobreix el dret foral català (CCCat, Llei 19/2010). La demo se centra en un expedient amb domicili a Catalunya.",
+      },
+      {
+        q: "Quant triga la resposta?",
+        a: "Menys de 24 hores laborables. Habitualment respondem el mateix dia.",
+      },
+    ],
+    tryFirst: "Prefereixes provar pel teu compte primer?",
+    startFree: "Comença de franc, sense targeta",
+    solutionsHref: "/ca/solucions",
+    pricesHref: "/ca/preus",
   },
-  {
-    title: "Cuaderno particional generado",
-    desc: "En Word, con los datos reales del expediente. Listo para tu revisión.",
-  },
-  {
-    title: "Comparación de escenarios fiscales",
-    desc: "Herencia directa vs. donación vs. usufructo al cónyuge — impacto fiscal en paralelo.",
-  },
-];
-
-const nextSteps = [
-  {
-    step: 1,
-    title: "Completa el formulario",
-    desc: "Solo nombre, email y despacho. En menos de 30 segundos.",
-  },
-  {
-    step: 2,
-    title: "Recibes el enlace de agenda",
-    desc: "En menos de 24h, con horarios disponibles que se ajusten a ti.",
-  },
-  {
-    step: 3,
-    title: "Sesión de 25 minutos",
-    desc: "Directamente sobre la plataforma con un expediente real del sector.",
-  },
-];
-
-const faqs = [
-  {
-    q: "¿Qué necesito preparar para la sesión?",
-    a: "Nada. Nosotros proporcionamos un caso real del sector sucesorio catalán para que veas la plataforma en acción con datos representativos.",
-  },
-  {
-    q: "¿Es realmente sin compromiso?",
-    a: "Sí. La sesión es puramente informativa. No cerramos con precio ni pedimos datos de pago. Si quieres probar por tu cuenta después, puedes empezar gratis.",
-  },
-  {
-    q: "¿Puedo traer a un compañero del despacho?",
-    a: "Por supuesto. De hecho, lo recomendamos. Cuantos más perfiles vean la plataforma, mejor evaluación podéis hacer.",
-  },
-  {
-    q: "¿La demo cubre la normativa de mi comunidad?",
-    a: "Actualmente la plataforma cubre el derecho foral catalán (CCCat, Llei 19/2010). La demo se centra en un expediente con domicilio en Catalunya.",
-  },
-  {
-    q: "¿Cuánto tarda la respuesta?",
-    a: "Menos de 24 horas laborables. Normalmente respondemos el mismo día.",
-  },
-];
+} as const;
 
 /* ─── FAQ Component ─── */
 
@@ -138,6 +281,7 @@ export function DemoClient() {
   const [consentError, setConsentError] = useState(false);
   const formStartedRef = useRef(false);
   const locale = localeFromPathname(usePathname() ?? "");
+  const t = COPY[locale];
 
   const dl = useRef(
     () => (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer,
@@ -177,7 +321,7 @@ export function DemoClient() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Error al enviar");
+      if (!res.ok) throw new Error(t.formError);
       setSubmitted(true);
 
       dl.current()?.push({
@@ -191,7 +335,7 @@ export function DemoClient() {
         value: 150,
       });
     } catch {
-      setFormError("Ha ocurrido un error. Inténtalo de nuevo.");
+      setFormError(t.formError);
       dl.current()?.push({
         event: "form_error",
         form_name: "demo",
@@ -223,25 +367,26 @@ export function DemoClient() {
           <div className="reveal flex items-center justify-center gap-3 mb-6">
             <div className="h-[1px] w-8 bg-emerald-500/50" />
             <span className="text-emerald-400/90 text-xs font-bold tracking-[0.2em] uppercase">
-              Descubre Ulpiano
+              {t.eyebrow}
             </span>
             <div className="h-[1px] w-8 bg-emerald-500/50" />
           </div>
 
           <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance text-white leading-tight max-w-[900px] mx-auto" style={{ animationDelay: '100ms' }}>
-            El expediente que hoy te cuesta 6 horas, resuelto en <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-[var(--ulpiano-green)]">25 minutos</span>
+            {t.heroTitle}{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-[var(--ulpiano-green)]">{t.heroHighlight}</span>
           </h1>
           
           <p className="reveal text-lg text-white/60 max-w-[660px] mx-auto mt-6 leading-relaxed" style={{ animationDelay: '200ms' }}>
-            Reserva una sesión personalizada. Verás la plataforma funcionando con un caso real del sector sucesorio catalán: inventario, cálculo del ISD y generación del cuaderno particional.
+            {t.heroBody}
           </p>
 
           <div className="reveal flex flex-wrap gap-4 justify-center mt-10" style={{ animationDelay: '300ms' }}>
             <a href="#reservar" className="btn-primary shadow-[0_0_20px_rgba(45,106,79,0.4)] hover:shadow-[0_0_30px_rgba(45,106,79,0.6)] px-8 py-3.5 text-base">
-              Reservar mi sesión
+              {t.reserveCta}
             </a>
             <a href="#que-veras" className="btn-ghost group text-white/80 hover:text-white px-6">
-              Ver qué incluye 
+              {t.seeIncludes}{" "}
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>
@@ -252,23 +397,7 @@ export function DemoClient() {
       <section className="bg-white border-b border-slate-100 py-10 relative z-20 shadow-sm">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 reveal">
-            {[
-              {
-                number: "25",
-                unit: "min",
-                label: "Sin diapositivas. Directamente sobre el producto.",
-              },
-              {
-                number: "35%",
-                unit: "",
-                label: "Reducción media en tiempo de gestión por expediente.",
-              },
-              {
-                number: "100%",
-                unit: "",
-                label: "Derecho foral catalán integrado (CCCat, Llei 19/2010).",
-              },
-            ].map((s, i) => (
+            {t.stats.map((s, i) => (
               <div key={i} className="flex items-start gap-4">
                 <span className="font-mono text-3xl font-bold text-emerald-600 leading-none flex-shrink-0 min-w-[70px]">
                   {s.number}
@@ -291,17 +420,17 @@ export function DemoClient() {
             {/* Left: what you'll see */}
             <div className="reveal">
               <span className="text-emerald-600 font-bold tracking-wider text-xs uppercase mb-3 block">
-                Qué verás en la sesión
+                {t.whatEyebrow}
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-ink leading-tight max-w-[480px]">
-                Un caso real, de principio a fin
+                {t.whatTitle}
               </h2>
               <p className="text-[17px] text-slate-600 mt-4 max-w-[460px] leading-relaxed">
-                Trabajamos sobre la plataforma desde el primer minuto. Sin presentaciones comerciales aburridas, sin diapositivas.
+                {t.whatBody}
               </p>
 
               <div className="flex flex-col gap-6 mt-10">
-                {demoTopics.map((topic, i) => (
+                {t.topics.map((topic, i) => (
                   <div key={i} className="reveal flex items-start gap-4 p-4 rounded-xl hover:bg-white border border-transparent hover:border-slate-200 transition-all shadow-sm hover:shadow-md" style={{ animationDelay: `${i * 100}ms` }}>
                     <div className="flex-shrink-0 mt-1 text-emerald-500 bg-emerald-50 p-1.5 rounded-lg">
                       <CheckCircle2 size={22} strokeWidth={2} />
@@ -321,9 +450,9 @@ export function DemoClient() {
               {/* How it works strip */}
               <div className="flex flex-wrap gap-6 mt-12 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                 {[
-                  { icon: <Calendar size={20} />, text: "Tú eliges fecha y hora" },
-                  { icon: <Monitor size={20} />, text: "Por videoconferencia" },
-                  { icon: <Clock size={20} />, text: "25 min, sin compromiso" },
+                  { icon: <Calendar size={20} />, text: t.howStrip[0] },
+                  { icon: <Monitor size={20} />, text: t.howStrip[1] },
+                  { icon: <Clock size={20} />, text: t.howStrip[2] },
                 ].map((step, i) => (
                   <div key={i} className="reveal flex items-center gap-3" style={{ animationDelay: `${(i+3) * 100}ms` }}>
                     <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
@@ -348,51 +477,51 @@ export function DemoClient() {
                       <ShieldCheck size={32} strokeWidth={2} />
                     </div>
                     <h3 className="text-2xl font-bold text-ink mb-3">
-                      Sesión solicitada
+                      {t.successTitle}
                     </h3>
                     <p className="text-[15px] text-slate-600 leading-relaxed mb-8">
-                      Recibirás un email en menos de 24h con los horarios disponibles para elegir el que mejor te convenga.
+                      {t.successBody}
                     </p>
                     <div className="bg-slate-50 rounded-xl p-5 text-sm text-slate-600 border border-slate-100 text-left">
-                      <strong className="text-ink block mb-1">¿Mientras tanto?</strong>
-                      Explora en detalle todas las soluciones que verás durante la sesión.
+                      <strong className="text-ink block mb-1">{t.meanwhileTitle}</strong>
+                      {t.meanwhileBody}
                     </div>
                     <Link
-                      href="/soluciones"
+                      href={t.solutionsHref}
                       className="btn-ghost w-full justify-center mt-6 border border-slate-200 hover:bg-slate-50"
                     >
-                      Ver soluciones <ArrowRight size={16} />
+                      {t.seeSolutions} <ArrowRight size={16} />
                     </Link>
                   </div>
                 ) : (
                   <>
                     <div className="mb-8">
                       <h3 className="text-2xl font-bold text-ink mb-2">
-                        Reserva tu sesión
+                        {t.formTitle}
                       </h3>
                       <p className="text-[15px] text-slate-500">
-                        3 campos — menos de 30 segundos.
+                        {t.formIntro}
                       </p>
                     </div>
                     
                     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                       <div>
                         <label htmlFor="name" className="block text-[14px] font-semibold text-ink mb-2">
-                          Nombre completo
+                          {t.name}
                         </label>
                         <input
                           type="text"
                           id="name"
                           name="name"
                           required
-                          placeholder="María García López"
+                          placeholder={t.namePlaceholder}
                           onFocus={handleFormStarted}
                           className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-[15px] text-ink placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
                         />
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-[14px] font-semibold text-ink mb-2">
-                          Email profesional
+                          {t.email}
                         </label>
                         <input
                           type="email"
@@ -405,14 +534,14 @@ export function DemoClient() {
                       </div>
                       <div>
                         <label htmlFor="company" className="block text-[14px] font-semibold text-ink mb-2">
-                          Despacho / Empresa
+                          {t.company}
                         </label>
                         <input
                           type="text"
                           id="company"
                           name="company"
                           required
-                          placeholder="Nombre del despacho"
+                          placeholder={t.companyPlaceholder}
                           className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-[15px] text-ink placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
                         />
                       </div>
@@ -440,12 +569,12 @@ export function DemoClient() {
                         disabled={sending}
                         className="btn-primary w-full py-4 text-[16px] shadow-[0_8px_20px_rgba(45,106,79,0.3)] hover:shadow-[0_10px_25px_rgba(45,106,79,0.4)] hover:-translate-y-0.5 mt-2"
                       >
-                        {sending ? "Procesando..." : "Ver Ulpiano en acción"} <ArrowRight size={18} className="ml-1" />
+                        {sending ? t.sending : t.submit} <ArrowRight size={18} className="ml-1" />
                       </button>
                       
                       <div className="flex items-center justify-center gap-2 text-[13px] text-slate-400 mt-2 font-medium">
                         <Shield size={14} className="text-emerald-500" />
-                        <span>Sin compromiso · No pedimos datos de pago</span>
+                        <span>{t.noCommitment}</span>
                       </div>
                     </form>
                   </>
@@ -464,20 +593,20 @@ export function DemoClient() {
             <div className="reveal">
               <blockquote className="border-l-4 border-emerald-500 pl-6 m-0">
                 <p className="text-xl text-white leading-relaxed font-medium italic">
-                  &ldquo;Desde que usamos Ulpiano, la preparación de un expediente sucesorio nos lleva la mitad de tiempo. Y el cliente entiende perfectamente lo que paga.&rdquo;
+                  &ldquo;{t.quote1}&rdquo;
                 </p>
                 <footer className="text-[15px] text-white/50 mt-5 font-medium">
-                  — Marta R., Abogada | Despacho en Girona
+                  {t.quote1Author}
                 </footer>
               </blockquote>
             </div>
             <div className="reveal" style={{ animationDelay: "150ms" }}>
               <blockquote className="border-l-4 border-emerald-500 pl-6 m-0">
                 <p className="text-xl text-white leading-relaxed font-medium italic">
-                  &ldquo;La visualización del árbol familiar y las simulaciones fiscales cambiaron la forma en que presentamos las herencias a nuestros clientes.&rdquo;
+                  &ldquo;{t.quote2}&rdquo;
                 </p>
                 <footer className="text-[15px] text-white/50 mt-5 font-medium">
-                  — Jordi P., Abogado Civilista | Barcelona
+                  {t.quote2Author}
                 </footer>
               </blockquote>
             </div>
@@ -490,15 +619,15 @@ export function DemoClient() {
         <div className="container max-w-[720px]">
           <div className="reveal text-center mb-16">
             <span className="text-emerald-600 font-bold tracking-wider text-xs uppercase mb-3 block">
-              Cómo funciona
+              {t.howEyebrow}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-ink">
-              De formulario a sesión en 3 pasos
+              {t.howTitle}
             </h2>
           </div>
           
           <div className="flex flex-col gap-10">
-            {nextSteps.map((s, i) => (
+            {t.nextSteps.map((s, i) => (
               <div key={s.step} className="reveal flex items-start gap-6" style={{ animationDelay: `${i * 150}ms` }}>
                 <div className="w-12 h-12 rounded-full border-2 border-emerald-500 text-emerald-600 flex items-center justify-center font-mono text-xl font-bold flex-shrink-0 bg-emerald-50 shadow-sm">
                   {s.step}
@@ -517,7 +646,7 @@ export function DemoClient() {
           
           <div className="reveal text-center mt-16 pt-10 border-t border-slate-100">
             <a href="#reservar" className="btn-primary px-8 py-3.5 shadow-[0_0_20px_rgba(45,106,79,0.3)] hover:shadow-[0_0_30px_rgba(45,106,79,0.5)]">
-              Quiero reservar mi sesión
+              {t.wantReserve}
             </a>
           </div>
         </div>
@@ -528,14 +657,14 @@ export function DemoClient() {
         <div className="container max-w-[760px]">
           <div className="reveal mb-12 text-center">
             <span className="text-emerald-600 font-bold tracking-wider text-xs uppercase mb-3 block">
-              Preguntas Frecuentes
+              {t.faqEyebrow}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-ink">
-              Antes de reservar
+              {t.faqTitle}
             </h2>
           </div>
           <div className="reveal bg-white rounded-2xl shadow-sm border border-slate-200 px-6 sm:px-8 py-2">
-            {faqs.map((faq, i) => (
+            {t.faqs.map((faq, i) => (
               <FaqItem key={i} q={faq.q} a={faq.a} />
             ))}
           </div>
@@ -546,10 +675,10 @@ export function DemoClient() {
       <section className="bg-white py-16 border-t border-slate-200">
         <div className="container reveal flex items-center justify-center gap-6 flex-wrap text-center">
           <p className="text-lg font-medium text-ink">
-            ¿Prefieres probar por tu cuenta primero?
+            {t.tryFirst}
           </p>
-          <Link href="/precios" className="btn-ghost border border-slate-200 hover:bg-slate-50">
-            Empieza gratis sin tarjeta <ArrowRight size={18} className="ml-1" />
+          <Link href={t.pricesHref} className="btn-ghost border border-slate-200 hover:bg-slate-50">
+            {t.startFree} <ArrowRight size={18} className="ml-1" />
           </Link>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ContactoClient } from "@/app/(marketing)/contacto/ContactoClient";
 
 export const metadata: Metadata = {
   title: "Contacte",
@@ -17,120 +17,8 @@ export const metadata: Metadata = {
     url: "https://ulpiano.es/ca/contacte",
     images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
   },
-
 };
 
 export default function ContactePage() {
-  return (
-    <article>
-      {/* Hero Section */}
-      <section
-        style={{
-          backgroundColor: "var(--night)",
-          color: "var(--white)",
-          paddingTop: "var(--space-xl)",
-          paddingBottom: "var(--space-xl)",
-        }}
-      >
-        <div className="container">
-          <div style={{ maxWidth: "680px" }}>
-            <h1 className="h1">Contacta amb nosaltres</h1>
-            <p className="body-lg">
-              Tenim aquí per resoldre els teus dubtes sobre la plataforma de
-              gestió successòria d'Ulpiano.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Info Section */}
-      <section
-        style={{
-          backgroundColor: "var(--white)",
-          paddingTop: "var(--space-xl)",
-          paddingBottom: "var(--space-xl)",
-        }}
-      >
-        <div className="container" style={{ maxWidth: "680px" }}>
-          <div
-            style={{
-              padding: "var(--space-lg)",
-              backgroundColor: "var(--surface)",
-              borderRadius: "8px",
-              marginBottom: "var(--space-lg)",
-            }}
-          >
-            <h2 className="h3" style={{ marginBottom: "var(--space-md)" }}>
-              Contacte directe
-            </h2>
-            <p style={{ marginBottom: "var(--space-md)", color: "var(--slate)" }}>
-              Envia'ns un correu electrònic i et respondrem en les properes 24 hores.
-            </p>
-            {/* TODO: privacidad@ulpiano.es debe existir como alias antes de publicar. */}
-            <a
-              href="mailto:hola@ulpiano.es"
-              style={{
-                fontSize: "18px",
-                fontWeight: "600",
-                color: "var(--ulpiano-green)",
-                textDecoration: "none",
-              }}
-            >
-              hola@ulpiano.es
-            </a>
-          </div>
-
-          <div
-            style={{
-              padding: "var(--space-lg)",
-              backgroundColor: "var(--surface)",
-              borderRadius: "8px",
-            }}
-          >
-            <h3 className="h3" style={{ marginBottom: "var(--space-md)" }}>
-              Per suport tècnic
-            </h3>
-            <p style={{ marginBottom: "var(--space-md)", color: "var(--slate)" }}>
-              Si tens dubtes sobre l'ús de la plataforma, contacta amb el nostre
-              equip de suport:
-            </p>
-            <a
-              href="mailto:suport@ulpiano.es"
-              style={{
-                fontSize: "18px",
-                fontWeight: "600",
-                color: "var(--ulpiano-green)",
-                textDecoration: "none",
-              }}
-            >
-              suport@ulpiano.es
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section
-        style={{
-          backgroundColor: "var(--surface)",
-          paddingTop: "var(--space-lg)",
-          paddingBottom: "var(--space-lg)",
-        }}
-      >
-        <div className="container" style={{ maxWidth: "680px", textAlign: "center" }}>
-          <Link
-            href="/ca"
-            style={{
-              color: "var(--ulpiano-green)",
-              textDecoration: "none",
-              fontWeight: "600",
-              fontSize: "14px",
-            }}
-          >
-            ← Torna a l'inici
-          </Link>
-        </div>
-      </section>
-    </article>
-  );
+  return <ContactoClient />;
 }

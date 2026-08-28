@@ -20,6 +20,7 @@ type BannerLocale = "es" | "ca";
 const COOKIE_NAME = "gt_consent";
 const COOKIE_DAYS = 182;
 const GA_COOKIES = ["_ga", "_ga_FW9TKGSK59"] as const;
+const MARKETING_COOKIES = ["_gcl_au", "hubspotutk"] as const;
 
 const DEFAULT_CONSENT: ConsentState = {
   necessary: true,
@@ -135,14 +136,22 @@ function deleteCookie(name: string, domain?: string) {
   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domainPart}; SameSite=Lax; Secure`;
 }
 
-function deleteAnalyticsCookies() {
+function deleteCookiesByName(names: readonly string[]) {
   const host = window.location.hostname;
   const domains = [undefined, host, `.${host}`, ".ulpiano.es"];
-  for (const name of GA_COOKIES) {
+  for (const name of names) {
     for (const domain of domains) {
       deleteCookie(name, domain);
     }
   }
+}
+
+function deleteAnalyticsCookies() {
+  deleteCookiesByName(GA_COOKIES);
+}
+
+function deleteMarketingCookies() {
+  deleteCookiesByName(MARKETING_COOKIES);
 }
 
 /* ─── Consent Mode bridge ─── */
@@ -251,6 +260,9 @@ export default function CookieBanner() {
     pushConsent(final);
     if (previous?.analytics && !final.analytics) {
       deleteAnalyticsCookies();
+    }
+    if (previous?.marketing && !final.marketing) {
+      deleteMarketingCookies();
     }
     setVisible(false);
     setShowModal(false);

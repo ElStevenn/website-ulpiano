@@ -48,9 +48,13 @@ export default function NewsletterSignupCa() {
         throw new Error(result.error ?? "No hem pogut completar la subscripció.");
       }
 
+      // TODO: implementar el flujo real de doble opt-in (correo de confirmación).
+      // El texto legal y la casilla ya lo anuncian; de momento el lead se registra en HubSpot.
       event.currentTarget.reset();
       setStatus("success");
-      setMessage("Gràcies. T'avisarem quan publiquem la propera edició.");
+      setMessage(
+        "Gràcies. En breu t'enviarem un correu per confirmar la subscripció.",
+      );
     } catch (error) {
       setStatus("error");
       setMessage(

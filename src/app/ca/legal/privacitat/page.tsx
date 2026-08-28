@@ -121,7 +121,8 @@ export default function PrivacitatPage() {
             <td>Nom i correu electrònic.</td>
             <td>
               Trametre les edicions de la newsletter d'Ulpiano, amb continguts tecnicojurídics i
-              novetats de la plataforma.
+              novetats de la plataforma. La subscripció es confirma mitjançant un segon correu
+              (doble opt-in).
             </td>
           </tr>
           <tr>
@@ -185,7 +186,10 @@ export default function PrivacitatPage() {
           </tr>
           <tr>
             <td>Subscripció a la newsletter</td>
-            <td>Consentiment, art. 6.1.a RGPD, i art. 21 LSSI.</td>
+            <td>
+              Consentiment, art. 6.1.a RGPD, i art. 21 LSSI. La subscripció es confirma
+              mitjançant un segon correu (doble opt-in).
+            </td>
           </tr>
           <tr>
             <td>
@@ -279,7 +283,7 @@ export default function PrivacitatPage() {
           <tr>
             <td>Evidència de consentiment, retirada, oposició i baixa</td>
             <td>
-              <strong>6 anys</strong> des de la retirada, oposició o baixa, per acreditar-ne el
+              <strong>2 anys</strong> des de la retirada, oposició o baixa, per acreditar-ne el
               compliment i per a la defensa davant de reclamacions.
             </td>
           </tr>
@@ -379,16 +383,34 @@ export default function PrivacitatPage() {
         la defensa de reclamacions.
       </p>
       <p>
-        <strong>Transferències internacionals.</strong> Alguns dels proveïdors anteriors formen
-        part de grups empresarials amb matriu als Estats Units i poden dur a terme, o permetre
-        accessos que constitueixin, transferències internacionals de dades fora de l'Espai
-        Econòmic Europeu. Aquestes transferències s'emparen en les{" "}
-        <strong>clàusules contractuals tipus</strong> aprovades per la Comissió Europea (Decisió
-        d'Execució (UE) 2021/914) i, quan l'entitat importadora estigui certificada, en el{" "}
-        <strong>Marc de Privadesa de Dades UE-Estats Units</strong> (Decisió d'adequació de 10 de
-        juliol de 2023), juntament amb les mesures complementàries que resultin aplicables. Podeu
-        sol·licitar informació addicional sobre les garanties aplicables a una transferència
-        concreta escrivint a privacidad@ulpiano.es.
+        <strong>Proveïdors i les seves polítiques.</strong> Ulpiano utilitza aquests serveis de
+        tercers per operar el lloc web i gestionar les dades recollides per mitjà seu. El
+        tractament que cada proveïdor realitza es regeix per la seva pròpia política de
+        privacitat:
+      </p>
+      <ul>
+        <li>
+          HubSpot:{" "}
+          <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">
+            https://legal.hubspot.com/privacy-policy
+          </a>
+        </li>
+        <li>
+          Vercel:{" "}
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+            https://vercel.com/legal/privacy-policy
+          </a>
+        </li>
+        <li>
+          Google:{" "}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            https://policies.google.com/privacy
+          </a>
+        </li>
+      </ul>
+      <p>
+        Alguns d'aquests proveïdors poden tractar dades des de fora de l'Espai Econòmic Europeu.
+        Per a qualsevol qüestió sobre aquest tractament, podeu escriure a privacidad@ulpiano.es.
       </p>
 
       <h2>7. Drets de les persones interessades</h2>
@@ -438,10 +460,11 @@ export default function PrivacitatPage() {
 
       <h2>10. Cookies i tecnologies equivalents</h2>
       <p>
-        El lloc utilitza Google Tag Manager i Google Analytics 4 amb finalitats analítiques{" "}
-        <strong>únicament quan la persona usuària presta el seu consentiment</strong> per mitjà
-        del panell de preferències. El Consent Mode v2 es configura amb el consentiment denegat
-        per defecte.
+        El lloc utilitza Google Tag Manager, Google Analytics 4 i cookies de màrqueting de Google
+        i HubSpot{" "}
+        <strong>únicament quan la persona usuària presta el seu consentiment</strong> a la
+        categoria corresponent per mitjà del panell de preferències. El Consent Mode v2 es
+        configura amb el consentiment denegat per defecte.
       </p>
       <p>
         La informació detallada sobre cookies, proveïdors, finalitats, durades i mecanismes

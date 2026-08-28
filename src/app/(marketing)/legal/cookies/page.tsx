@@ -26,7 +26,7 @@ export default function CookiesPage() {
   return (
     <LegalPage
       title="Política de Cookies"
-      updatedLabel="Versión 1.0 — en vigor desde el 28 de agosto de 2026"
+      updatedLabel="Versión 1.1 — en vigor desde el 28 de agosto de 2026"
     >
       <p>
         Esta Política de Cookies se publica en castellano y catalán. En caso de discrepancia de
@@ -107,11 +107,11 @@ export default function CookiesPage() {
       </p>
       <p>
         <strong>
-          A la fecha de esta Política, el Sitio Web no instala ninguna cookie de marketing.
+          Tras aceptar la categoría de marketing, el Sitio Web puede instalar cookies de marketing
+          de los servicios que utiliza
         </strong>{" "}
-        La categoría se mantiene disponible en el panel de preferencias para que cualquier
-        tecnología de marketing que se incorpore en el futuro quede bloqueada hasta la aceptación
-        del usuario.
+        (Google, a través de Tag Manager y Consent Mode, y HubSpot). Mientras el usuario no acepte
+        esa categoría, estas cookies no se instalan.
       </p>
 
       <h3>4.4. Configuración de consentimiento</h3>
@@ -187,22 +187,56 @@ export default function CookiesPage() {
             <td>Analítica</td>
             <td>2 años</td>
           </tr>
+          <tr>
+            <td>
+              <code>_gcl_au</code>
+            </td>
+            <td>Google Ireland Limited</td>
+            <td>Tercero</td>
+            <td>
+              Atribución de clics y conversiones de campañas de Google. Solo se instala tras
+              aceptar la categoría de marketing.
+            </td>
+            <td>Marketing</td>
+            <td>90 días</td>
+          </tr>
+          <tr>
+            <td>
+              <code>hubspotutk</code>
+            </td>
+            <td>HubSpot Ireland Limited</td>
+            <td>Tercero</td>
+            <td>
+              Identifica al visitante para atribuir el envío de formularios y el seguimiento de
+              campañas en HubSpot. Solo se instala tras aceptar la categoría de marketing.
+            </td>
+            <td>Marketing</td>
+            <td>13 meses</td>
+          </tr>
         </tbody>
       </LegalTable>
       <p>
         <strong>Google Tag Manager</strong> (contenedor <code>GTM-MBNWK2CW</code>) es un gestor de
-        etiquetas: por sí solo no instala cookies. A la fecha de esta Política el contenedor
-        publica <strong>exclusivamente</strong> la etiqueta de configuración de Google Analytics 4
-        y sus etiquetas de evento, además de la etiqueta de estado por defecto de Consent Mode v2.
-        No hay etiquetas publicitarias, píxeles de terceros ni etiquetas de redes sociales
-        publicadas en el contenedor.
+        etiquetas: por sí solo no instala cookies. Puede cargar etiquetas de medición y de
+        marketing de los servicios que Ulpiano utiliza (Google y HubSpot){" "}
+        <strong>únicamente tras el consentimiento de la categoría correspondiente</strong>.
+      </p>
+      <p>
+        La lista exacta de cookies que instala cada proveedor, y su duración, puede consultarse
+        también en la política de privacidad de Google (
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          https://policies.google.com/privacy
+        </a>
+        ) y de HubSpot (
+        <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">
+          https://legal.hubspot.com/privacy-policy
+        </a>
+        ).
       </p>
       <p>
         <strong>Advertencia operativa.</strong> Antes de incorporar cualquier píxel, etiqueta o
-        tecnología de terceros nueva —incluidos LinkedIn Ads o Google Ads— debe actualizarse
-        previamente esta tabla, el panel de preferencias y la configuración de bloqueo previo. La
-        tabla se revisa mediante auditoría técnica en producción, con y sin consentimiento para
-        cada categoría, antes de cada cambio en las etiquetas, scripts, dominios o proveedores.
+        tecnología de terceros nueva debe actualizarse previamente esta tabla, el panel de
+        preferencias y la configuración de bloqueo previo.
       </p>
 
       <h2>6. Aceptación, rechazo, modificación y revocación de preferencias</h2>
@@ -274,18 +308,21 @@ export default function CookiesPage() {
         sirven desde el dominio <code>.ulpiano.es</code>.
       </p>
       <p>
-        Dicho tratamiento puede implicar accesos desde <strong>Google LLC</strong> (Estados Unidos)
-        como subencargado. Esas transferencias se amparan en las{" "}
-        <strong>cláusulas contractuales tipo</strong> aprobadas por la Comisión Europea y, cuando
-        resulte aplicable, en el <strong>Marco de Privacidad de Datos UE-Estados Unidos</strong>.
+        Cuando el usuario acepta las cookies de marketing, Google y HubSpot pueden instalar las
+        cookies identificadas en la tabla anterior. El tratamiento que realizan se rige por sus
+        propias políticas:{" "}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          política de privacidad de Google
+        </a>{" "}
+        y{" "}
+        <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">
+          política de privacidad de HubSpot
+        </a>
+        .
       </p>
       <p>
-        La incorporación futura de terceros, incluidos proveedores de publicidad o píxeles de
-        LinkedIn Ads o Google Ads, no podrá realizarse hasta que, con carácter previo a su
-        instalación: (i) se identifique cada tecnología y tercero; (ii) se determine su categoría,
-        finalidad, duración, titularidad, posible acceso a datos personales y transferencias; (iii)
-        se actualicen esta Política y el panel de preferencias; y (iv) se configure el bloqueo
-        previo hasta que exista consentimiento cuando sea exigible.
+        Antes de incorporar un proveedor de marketing adicional debe actualizarse esta tabla, el
+        panel de preferencias y el bloqueo previo.
       </p>
 
       <h2>9. Simetría de las opciones del banner</h2>

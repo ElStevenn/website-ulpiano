@@ -27,7 +27,7 @@ export default function CookiesPage() {
   return (
     <LegalPage
       title="Política de Cookies"
-      updatedLabel="Versió 1.0 — en vigor des del 28 d'agost de 2026"
+      updatedLabel="Versió 1.1 — en vigor des del 28 d'agost de 2026"
     >
       <p>
         Aquesta Política de Cookies es publica en castellà i en català. En cas de discrepància
@@ -108,10 +108,11 @@ export default function CookiesPage() {
       </p>
       <p>
         <strong>
-          A la data d'aquesta Política, el Lloc Web no instal·la cap cookie de màrqueting.
+          Després d'acceptar la categoria de màrqueting, el Lloc Web pot instal·lar cookies de
+          màrqueting dels serveis que utilitza
         </strong>{" "}
-        La categoria es manté disponible al panell de preferències perquè qualsevol tecnologia de
-        màrqueting que s'incorpori en el futur quedi bloquejada fins a l'acceptació de l'usuari.
+        (Google, per mitjà de Tag Manager i Consent Mode, i HubSpot). Mentre l'usuari no accepti
+        aquesta categoria, aquestes cookies no s'instal·len.
       </p>
 
       <h3>4.4. Configuració de consentiment</h3>
@@ -187,23 +188,56 @@ export default function CookiesPage() {
             <td>Analítica</td>
             <td>2 anys</td>
           </tr>
+          <tr>
+            <td>
+              <code>_gcl_au</code>
+            </td>
+            <td>Google Ireland Limited</td>
+            <td>Tercer</td>
+            <td>
+              Atribució de clics i conversions de campanyes de Google. Només s'instal·la després
+              d'acceptar la categoria de màrqueting.
+            </td>
+            <td>Màrqueting</td>
+            <td>90 dies</td>
+          </tr>
+          <tr>
+            <td>
+              <code>hubspotutk</code>
+            </td>
+            <td>HubSpot Ireland Limited</td>
+            <td>Tercer</td>
+            <td>
+              Identifica el visitant per atribuir l'enviament de formularis i el seguiment de
+              campanyes a HubSpot. Només s'instal·la després d'acceptar la categoria de màrqueting.
+            </td>
+            <td>Màrqueting</td>
+            <td>13 mesos</td>
+          </tr>
         </tbody>
       </LegalTable>
       <p>
         <strong>Google Tag Manager</strong> (contenidor <code>GTM-MBNWK2CW</code>) és un gestor
-        d'etiquetes: per si sol no instal·la cookies. A la data d'aquesta Política el contenidor
-        publica <strong>exclusivament</strong> l'etiqueta de configuració de Google Analytics 4 i
-        les seves etiquetes d'esdeveniment, a més de l'etiqueta d'estat per defecte de Consent Mode
-        v2. No hi ha etiquetes publicitàries, píxels de tercers ni etiquetes de xarxes socials
-        publicades al contenidor.
+        d'etiquetes: per si sol no instal·la cookies. Pot carregar etiquetes de mesurament i de
+        màrqueting dels serveis que Ulpiano utilitza (Google i HubSpot){" "}
+        <strong>únicament després del consentiment de la categoria corresponent</strong>.
+      </p>
+      <p>
+        La llista exacta de cookies que instal·la cada proveïdor, i la seva durada, també es pot
+        consultar a la política de privacitat de Google (
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          https://policies.google.com/privacy
+        </a>
+        ) i de HubSpot (
+        <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">
+          https://legal.hubspot.com/privacy-policy
+        </a>
+        ).
       </p>
       <p>
         <strong>Advertiment operatiu.</strong> Abans d'incorporar qualsevol píxel, etiqueta o
-        tecnologia de tercers nova —inclosos LinkedIn Ads o Google Ads— cal actualitzar prèviament
-        aquesta taula, el panell de preferències i la configuració de bloqueig previ. La taula es
-        revisa amb una auditoria tècnica en producció, amb consentiment i sense per a cada
-        categoria, abans de cada canvi en les etiquetes, els scripts, els dominis o els
-        proveïdors.
+        tecnologia de tercers nova cal actualitzar prèviament aquesta taula, el panell de
+        preferències i la configuració de bloqueig previ.
       </p>
 
       <h2>6. Acceptació, rebuig, modificació i revocació de preferències</h2>
@@ -274,18 +308,21 @@ export default function CookiesPage() {
         <code>_ga_FW9TKGSK59</code> se serveixen des del domini <code>.ulpiano.es</code>.
       </p>
       <p>
-        Aquest tractament pot implicar accessos des de <strong>Google LLC</strong> (Estats Units)
-        com a subencarregat. Aquestes transferències s'emparen en les{" "}
-        <strong>clàusules contractuals tipus</strong> aprovades per la Comissió Europea i, quan
-        resulti aplicable, en el <strong>Marc de Privacitat de Dades UE-Estats Units</strong>.
+        Quan l'usuari accepta les cookies de màrqueting, Google i HubSpot poden instal·lar les
+        cookies identificades a la taula anterior. El tractament que realitzen es regeix per les
+        seves pròpies polítiques:{" "}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          política de privacitat de Google
+        </a>{" "}
+        i{" "}
+        <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">
+          política de privacitat de HubSpot
+        </a>
+        .
       </p>
       <p>
-        La incorporació futura de tercers, inclosos proveïdors de publicitat o píxels de LinkedIn
-        Ads o Google Ads, no es podrà dur a terme fins que, amb caràcter previ a la seva
-        instal·lació: (i) s'identifiqui cada tecnologia i cada tercer; (ii) se'n determini la
-        categoria, la finalitat, la durada, la titularitat, el possible accés a dades personals i
-        les transferències; (iii) s'actualitzin aquesta Política i el panell de preferències; i
-        (iv) es configuri el bloqueig previ fins que existeixi consentiment quan sigui exigible.
+        Abans d'incorporar un proveïdor de màrqueting addicional cal actualitzar aquesta taula, el
+        panell de preferències i el bloqueig previ.
       </p>
 
       <h2>9. Simetria de les opcions del bàner</h2>

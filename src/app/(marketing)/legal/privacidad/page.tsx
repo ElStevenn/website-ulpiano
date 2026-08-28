@@ -120,7 +120,8 @@ export default function PrivacidadPage() {
             <td>Nombre y correo electrónico.</td>
             <td>
               Remitir las ediciones de la newsletter de Ulpiano, con contenidos técnico-jurídicos y
-              novedades de la plataforma.
+              novedades de la plataforma. La suscripción se confirma mediante un segundo correo
+              (doble opt-in).
             </td>
           </tr>
           <tr>
@@ -182,7 +183,10 @@ export default function PrivacidadPage() {
           </tr>
           <tr>
             <td>Suscripción a la newsletter</td>
-            <td>Consentimiento, art. 6.1.a RGPD, y art. 21 LSSI.</td>
+            <td>
+              Consentimiento, art. 6.1.a RGPD, y art. 21 LSSI. La suscripción se confirma
+              mediante un segundo correo (doble opt-in).
+            </td>
           </tr>
           <tr>
             <td>
@@ -276,7 +280,7 @@ export default function PrivacidadPage() {
           <tr>
             <td>Evidencia de consentimiento, retirada, oposición y baja</td>
             <td>
-              <strong>6 años</strong> desde la retirada, oposición o baja, para acreditar el
+              <strong>2 años</strong> desde la retirada, oposición o baja, para acreditar el
               cumplimiento y para la defensa frente a reclamaciones.
             </td>
           </tr>
@@ -376,16 +380,34 @@ export default function PrivacidadPage() {
         defensa de reclamaciones.
       </p>
       <p>
-        <strong>Transferencias internacionales.</strong> Algunos de los proveedores anteriores
-        forman parte de grupos empresariales con matriz en Estados Unidos y pueden realizar, o
-        permitir accesos que constituyan, transferencias internacionales de datos fuera del
-        Espacio Económico Europeo. Dichas transferencias se amparan en las{" "}
-        <strong>cláusulas contractuales tipo</strong> aprobadas por la Comisión Europea (Decisión
-        de Ejecución (UE) 2021/914) y, cuando la entidad importadora esté certificada, en el{" "}
-        <strong>Marco de Privacidad de Datos UE-Estados Unidos</strong> (Decisión de adecuación de
-        10 de julio de 2023), junto con las medidas complementarias que resulten aplicables. Puede
-        solicitar información adicional sobre las garantías aplicables a una transferencia
-        concreta escribiendo a privacidad@ulpiano.es.
+        <strong>Proveedores y sus políticas.</strong> Ulpiano utiliza estos servicios de
+        terceros para operar el sitio web y gestionar los datos recabados a través de él. El
+        tratamiento que cada proveedor realiza se rige por su propia política de privacidad:
+      </p>
+      <ul>
+        <li>
+          HubSpot:{" "}
+          <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">
+            https://legal.hubspot.com/privacy-policy
+          </a>
+        </li>
+        <li>
+          Vercel:{" "}
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+            https://vercel.com/legal/privacy-policy
+          </a>
+        </li>
+        <li>
+          Google:{" "}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            https://policies.google.com/privacy
+          </a>
+        </li>
+      </ul>
+      <p>
+        Algunos de estos proveedores pueden tratar datos desde fuera del Espacio Económico
+        Europeo. Para cualquier cuestión sobre este tratamiento, puede escribir a
+        privacidad@ulpiano.es.
       </p>
 
       <h2>7. Derechos de las personas interesadas</h2>
@@ -436,10 +458,11 @@ export default function PrivacidadPage() {
 
       <h2>10. Cookies y tecnologías equivalentes</h2>
       <p>
-        El sitio utiliza Google Tag Manager y Google Analytics 4 con fines analíticos{" "}
-        <strong>únicamente cuando la persona usuaria presta su consentimiento</strong> a través
-        del panel de preferencias. El Consent Mode v2 se configura con el consentimiento denegado
-        por defecto.
+        El sitio utiliza Google Tag Manager, Google Analytics 4 y cookies de marketing de Google
+        y HubSpot{" "}
+        <strong>únicamente cuando la persona usuaria presta su consentimiento</strong> a la
+        categoría correspondiente a través del panel de preferencias. El Consent Mode v2 se
+        configura con el consentimiento denegado por defecto.
       </p>
       <p>
         La información detallada sobre cookies, proveedores, finalidades, duraciones y
