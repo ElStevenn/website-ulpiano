@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ConsentCheckbox from "@/components/forms/ConsentCheckbox";
+import { localeFromPathname } from "@/lib/legal/consent-texts";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -242,17 +245,31 @@ export function ChecklistSqueezeClient() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  const [consentProcessing, setConsentProcessing] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
+  const [consentError, setConsentError] = useState(false);
+  const locale = localeFromPathname(usePathname() ?? "");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!consentProcessing) {
+      setConsentError(true);
+      return;
+    }
     setSending(true);
     setError("");
+    setConsentError(false);
 
     const form = e.currentTarget;
     const data = {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       source: "checklist-sucesorio",
+      consentProcessing,
+      consentMarketing,
+      locale,
+      formId: "resource-download" as const,
+      sourceUrl: window.location.href,
     };
 
     try {
@@ -483,6 +500,19 @@ export function ChecklistSqueezeClient() {
                           style={inputStyle}
                         />
                       </div>
+                      <ConsentCheckbox
+                        locale={locale}
+                        formId="resource-download"
+                        showMarketing
+                        consentProcessing={consentProcessing}
+                        consentMarketing={consentMarketing}
+                        onProcessingChange={(v) => {
+                          setConsentProcessing(v);
+                          if (v) setConsentError(false);
+                        }}
+                        onMarketingChange={setConsentMarketing}
+                        processingError={consentError}
+                      />
                       {error && (
                         <p style={{ fontSize: 13, color: "var(--error)", lineHeight: 1.4 }}>
                           {error}

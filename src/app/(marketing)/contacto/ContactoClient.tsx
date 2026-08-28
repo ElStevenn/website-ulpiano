@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ConsentCheckbox from "@/components/forms/ConsentCheckbox";
+import { localeFromPathname } from "@/lib/legal/consent-texts";
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -76,34 +79,110 @@ function CheckCircle() {
   );
 }
 
-/* ─── Contact info ─── */
+/* ─── Copy ─── */
 
-const contactInfo = [
-  {
-    icon: <MailIcon />,
-    label: "Email",
-    value: "soporte@ulpiano.es",
-    href: "mailto:soporte@ulpiano.es",
+const COPY = {
+  es: {
+    eyebrow: "CONTACTO",
+    heroTitle: "¿Tienes preguntas? Hablemos.",
+    heroBody:
+      "Escríbenos y te responderemos en menos de 24 horas. Si prefieres ver el producto en acción, reserva directamente una sesión.",
+    sendMessage: "Enviar mensaje",
+    reserveDemo: "Reserva tu Demo",
+    successTitle: "Mensaje enviado",
+    successBody:
+      "Hemos recibido tu consulta. Te responderemos en menos de 24 horas laborables.",
+    backHome: "Volver al inicio",
+    formTitle: "Envíanos un mensaje",
+    formIntro: "Completa el formulario y nos pondremos en contacto contigo.",
+    name: "Nombre *",
+    namePlaceholder: "Tu nombre",
+    email: "Email *",
+    company: "Empresa",
+    companyPlaceholder: "Nombre del despacho",
+    subject: "Asunto *",
+    subjectPlaceholder: "Selecciona un tema",
+    subjects: {
+      "info-producto": "Información sobre el producto",
+      precios: "Precios y planes",
+      soporte: "Soporte técnico",
+      partnership: "Colaboración / Partnership",
+      otro: "Otro",
+    },
+    message: "Mensaje *",
+    messagePlaceholder: "Cuéntanos en qué podemos ayudarte...",
+    sending: "Enviando...",
+    submit: "Enviar mensaje",
+    formError: "Ha ocurrido un error. Inténtalo de nuevo.",
+    infoEyebrow: "INFORMACIÓN DE CONTACTO",
+    infoTitle: "Otras formas de contactarnos",
+    emailLabel: "Email",
+    phoneLabel: "Teléfono",
+    locationLabel: "Ubicación",
+    hoursLabel: "Horario de soporte",
+    hoursValue: "Lunes a Viernes, 9:00 – 18:00",
+    demoCardTitle: "¿Prefieres verlo en acción?",
+    demoCardBody:
+      "Reserva una sesión de 25 minutos directamente sobre el producto con un caso real.",
+    ctaTitle: "El sistema operativo de las herencias, a tu alcance",
+    ctaBody:
+      "Gestión sucesoria estructurada, trazable y precisa. Para profesionales que gestionan herencias con responsabilidad.",
+    seePrices: "Ver precios",
+    homeHref: "/",
+    demoHref: "/demo",
+    pricesHref: "/precios",
   },
-  {
-    icon: <PhoneIcon />,
-    label: "Teléfono",
-    value: "+34 972 XXX XXX",
-    href: "tel:+34972000000",
+  ca: {
+    eyebrow: "CONTACTE",
+    heroTitle: "Tens preguntes? Parlem-ne.",
+    heroBody:
+      "Escriu-nos i et respondrem en menys de 24 hores. Si prefereixes veure el producte en acció, reserva directament una sessió.",
+    sendMessage: "Envia un missatge",
+    reserveDemo: "Reserva la teva demo",
+    successTitle: "Missatge enviat",
+    successBody:
+      "Hem rebut la teva consulta. Et respondrem en menys de 24 hores laborables.",
+    backHome: "Torna a l'inici",
+    formTitle: "Envia'ns un missatge",
+    formIntro: "Omple el formulari i ens posarem en contacte amb tu.",
+    name: "Nom *",
+    namePlaceholder: "El teu nom",
+    email: "Correu *",
+    company: "Empresa",
+    companyPlaceholder: "Nom del despatx",
+    subject: "Assumpte *",
+    subjectPlaceholder: "Tria un tema",
+    subjects: {
+      "info-producto": "Informació sobre el producte",
+      precios: "Preus i plans",
+      soporte: "Suport tècnic",
+      partnership: "Col·laboració / Partnership",
+      otro: "Un altre",
+    },
+    message: "Missatge *",
+    messagePlaceholder: "Explica'ns en què et podem ajudar...",
+    sending: "Enviant...",
+    submit: "Envia el missatge",
+    formError: "S'ha produït un error. Torna-ho a provar.",
+    infoEyebrow: "INFORMACIÓ DE CONTACTE",
+    infoTitle: "Altres maneres de contactar-nos",
+    emailLabel: "Correu",
+    phoneLabel: "Telèfon",
+    locationLabel: "Ubicació",
+    hoursLabel: "Horari de suport",
+    hoursValue: "Dilluns a divendres, de 9:00 a 18:00",
+    demoCardTitle: "Prefereixes veure-ho en acció?",
+    demoCardBody:
+      "Reserva una sessió de 25 minuts directament sobre el producte, amb un cas real.",
+    ctaTitle: "El sistema operatiu de les herències, a l'abast",
+    ctaBody:
+      "Gestió successòria estructurada, traçable i precisa. Per a professionals que gestionen herències amb responsabilitat.",
+    seePrices: "Veure preus",
+    homeHref: "/ca",
+    demoHref: "/ca/demo",
+    pricesHref: "/ca/preus",
   },
-  {
-    icon: <MapPinIcon />,
-    label: "Ubicación",
-    value: "Girona, Catalunya",
-    href: null,
-  },
-  {
-    icon: <ClockIcon />,
-    label: "Horario de soporte",
-    value: "Lunes a Viernes, 9:00 – 18:00",
-    href: null,
-  },
-];
+} as const;
 
 /* ─── Main ─── */
 
@@ -113,7 +192,38 @@ export function ContactoClient() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
+  const [consentProcessing, setConsentProcessing] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const formStartedRef = useRef(false);
+  const locale = localeFromPathname(usePathname() ?? "");
+  const t = COPY[locale];
+  const contactInfo = [
+    {
+      icon: <MailIcon />,
+      label: t.emailLabel,
+      value: "soporte@ulpiano.es",
+      href: "mailto:soporte@ulpiano.es",
+    },
+    {
+      icon: <PhoneIcon />,
+      label: t.phoneLabel,
+      value: "+34 972 XXX XXX",
+      href: "tel:+34972000000",
+    },
+    {
+      icon: <MapPinIcon />,
+      label: t.locationLabel,
+      value: "Girona, Catalunya",
+      href: null,
+    },
+    {
+      icon: <ClockIcon />,
+      label: t.hoursLabel,
+      value: t.hoursValue,
+      href: null,
+    },
+  ];
 
   const dl = useRef(
     () => (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer,
@@ -127,8 +237,13 @@ export function ContactoClient() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!consentProcessing) {
+      setConsentError(true);
+      return;
+    }
     setSending(true);
     setFormError("");
+    setConsentError(false);
 
     const form = e.currentTarget;
     const data = {
@@ -137,6 +252,11 @@ export function ContactoClient() {
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       subject: (form.elements.namedItem("subject") as HTMLSelectElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      consentProcessing,
+      consentMarketing,
+      locale,
+      formId: "contact" as const,
+      sourceUrl: window.location.href,
     };
 
     try {
@@ -145,7 +265,7 @@ export function ContactoClient() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Error al enviar");
+      if (!res.ok) throw new Error(t.formError);
       setSubmitted(true);
 
       dl.current()?.push({
@@ -159,7 +279,7 @@ export function ContactoClient() {
         value: 50,
       });
     } catch {
-      setFormError("Ha ocurrido un error. Inténtalo de nuevo.");
+      setFormError(t.formError);
       dl.current()?.push({
         event: "form_error",
         form_name: "contact",
@@ -200,13 +320,13 @@ export function ContactoClient() {
             className="eyebrow reveal"
             style={{ color: "rgba(255,255,255,0.5)", marginBottom: "var(--space-4)" }}
           >
-            CONTACTO
+            {t.eyebrow}
           </p>
           <h1
             className="h1 reveal"
             style={{ color: "var(--white)", maxWidth: 680, margin: "0 auto", ...stagger(1) }}
           >
-            ¿Tienes preguntas? Hablemos.
+            {t.heroTitle}
           </h1>
           <p
             className="body-lg reveal"
@@ -217,8 +337,7 @@ export function ContactoClient() {
               ...stagger(2),
             }}
           >
-            Escríbenos y te responderemos en menos de 24 horas. Si prefieres
-            ver el producto en acción, reserva directamente una sesión.
+            {t.heroBody}
           </p>
           <div
             className="reveal"
@@ -232,10 +351,10 @@ export function ContactoClient() {
             }}
           >
             <a href="#formulario" className="btn-primary">
-              Enviar mensaje
+              {t.sendMessage}
             </a>
-            <Link href="/demo" className="btn-ghost" style={{ color: "var(--white)" }}>
-              Reserva tu Demo <ArrowIcon />
+            <Link href={t.demoHref} className="btn-ghost" style={{ color: "var(--white)" }}>
+              {t.reserveDemo} <ArrowIcon />
             </Link>
           </div>
         </div>
@@ -259,7 +378,7 @@ export function ContactoClient() {
                     <CheckCircle />
                   </div>
                   <h3 style={{ color: "var(--ink)", fontSize: 22 }}>
-                    Mensaje enviado
+                    {t.successTitle}
                   </h3>
                   <p
                     style={{
@@ -272,15 +391,14 @@ export function ContactoClient() {
                       marginRight: "auto",
                     }}
                   >
-                    Hemos recibido tu consulta. Te responderemos en menos de 24
-                    horas laborables.
+                    {t.successBody}
                   </p>
                   <Link
-                    href="/"
+                    href={t.homeHref}
                     className="btn-ghost btn-ghost--dark"
                     style={{ marginTop: "var(--space-6)", display: "inline-flex" }}
                   >
-                    Volver al inicio <ArrowIcon />
+                    {t.backHome} <ArrowIcon />
                   </Link>
                 </div>
               ) : (
@@ -294,7 +412,7 @@ export function ContactoClient() {
                       marginBottom: "var(--space-2)",
                     }}
                   >
-                    Envíanos un mensaje
+                    {t.formTitle}
                   </h2>
                   <p
                     style={{
@@ -303,7 +421,7 @@ export function ContactoClient() {
                       marginBottom: "var(--space-6)",
                     }}
                   >
-                    Completa el formulario y nos pondremos en contacto contigo.
+                    {t.formIntro}
                   </p>
                   <form
                     onSubmit={handleSubmit}
@@ -316,21 +434,21 @@ export function ContactoClient() {
                     <div className="contacto-form-row">
                       <div>
                         <label htmlFor="c-name" style={labelStyle}>
-                          Nombre *
+                          {t.name}
                         </label>
                         <input
                           type="text"
                           id="c-name"
                           name="name"
                           required
-                          placeholder="Tu nombre"
+                          placeholder={t.namePlaceholder}
                           onFocus={handleFormStarted}
                           style={inputStyle}
                         />
                       </div>
                       <div>
                         <label htmlFor="c-email" style={labelStyle}>
-                          Email *
+                          {t.email}
                         </label>
                         <input
                           type="email"
@@ -345,19 +463,19 @@ export function ContactoClient() {
                     <div className="contacto-form-row">
                       <div>
                         <label htmlFor="c-company" style={labelStyle}>
-                          Empresa
+                          {t.company}
                         </label>
                         <input
                           type="text"
                           id="c-company"
                           name="company"
-                          placeholder="Nombre del despacho"
+                          placeholder={t.companyPlaceholder}
                           style={inputStyle}
                         />
                       </div>
                       <div>
                         <label htmlFor="c-subject" style={labelStyle}>
-                          Asunto *
+                          {t.subject}
                         </label>
                         <select
                           id="c-subject"
@@ -365,29 +483,29 @@ export function ContactoClient() {
                           required
                           style={inputStyle}
                         >
-                          <option value="">Selecciona un tema</option>
+                          <option value="">{t.subjectPlaceholder}</option>
                           <option value="info-producto">
-                            Información sobre el producto
+                            {t.subjects["info-producto"]}
                           </option>
-                          <option value="precios">Precios y planes</option>
-                          <option value="soporte">Soporte técnico</option>
+                          <option value="precios">{t.subjects.precios}</option>
+                          <option value="soporte">{t.subjects.soporte}</option>
                           <option value="partnership">
-                            Colaboración / Partnership
+                            {t.subjects.partnership}
                           </option>
-                          <option value="otro">Otro</option>
+                          <option value="otro">{t.subjects.otro}</option>
                         </select>
                       </div>
                     </div>
                     <div>
                       <label htmlFor="c-message" style={labelStyle}>
-                        Mensaje *
+                        {t.message}
                       </label>
                       <textarea
                         id="c-message"
                         name="message"
                         required
                         rows={5}
-                        placeholder="Cuéntanos en qué podemos ayudarte..."
+                        placeholder={t.messagePlaceholder}
                         style={{
                           ...inputStyle,
                           resize: "vertical",
@@ -395,6 +513,18 @@ export function ContactoClient() {
                         }}
                       />
                     </div>
+                    <ConsentCheckbox
+                      locale={locale}
+                      formId="contact"
+                      consentProcessing={consentProcessing}
+                      consentMarketing={consentMarketing}
+                      onProcessingChange={(v) => {
+                        setConsentProcessing(v);
+                        if (v) setConsentError(false);
+                      }}
+                      onMarketingChange={setConsentMarketing}
+                      processingError={consentError}
+                    />
                     {formError && (
                       <p style={{ fontSize: 13, color: "var(--error)", lineHeight: 1.4 }}>
                         {formError}
@@ -406,7 +536,7 @@ export function ContactoClient() {
                       disabled={sending}
                       style={{ width: "100%", marginTop: "var(--space-2)" }}
                     >
-                      {sending ? "Enviando..." : "Enviar mensaje"}
+                      {sending ? t.sending : t.submit}
                     </button>
                   </form>
                 </div>
@@ -417,7 +547,7 @@ export function ContactoClient() {
             <div>
               <div className="reveal" style={stagger(1)}>
                 <p className="eyebrow" style={{ color: "var(--slate)" }}>
-                  INFORMACIÓN DE CONTACTO
+                  {t.infoEyebrow}
                 </p>
                 <h3
                   style={{
@@ -426,7 +556,7 @@ export function ContactoClient() {
                     fontSize: 20,
                   }}
                 >
-                  Otras formas de contactarnos
+                  {t.infoTitle}
                 </h3>
               </div>
 
@@ -518,7 +648,7 @@ export function ContactoClient() {
                 }}
               >
                 <h3 style={{ color: "var(--ink)", fontSize: 18 }}>
-                  ¿Prefieres verlo en acción?
+                  {t.demoCardTitle}
                 </h3>
                 <p
                   style={{
@@ -528,11 +658,10 @@ export function ContactoClient() {
                     marginTop: "var(--space-2)",
                   }}
                 >
-                  Reserva una sesión de 25 minutos directamente sobre el
-                  producto con un caso real.
+                  {t.demoCardBody}
                 </p>
                 <Link
-                  href="/demo"
+                  href={t.demoHref}
                   className="btn-primary"
                   style={{
                     marginTop: "var(--space-4)",
@@ -541,7 +670,7 @@ export function ContactoClient() {
                     padding: "10px 24px",
                   }}
                 >
-                  Reserva tu Demo
+                  {t.reserveDemo}
                 </Link>
               </div>
             </div>
@@ -562,7 +691,7 @@ export function ContactoClient() {
               textAlign: "center",
             }}
           >
-            El sistema operativo de las herencias, a tu alcance
+            {t.ctaTitle}
           </h2>
           <p
             className="reveal"
@@ -576,8 +705,7 @@ export function ContactoClient() {
               ...stagger(1),
             }}
           >
-            Gestión sucesoria estructurada, trazable y precisa. Para
-            profesionales que gestionan herencias con responsabilidad.
+            {t.ctaBody}
           </p>
           <div
             className="reveal"
@@ -590,11 +718,11 @@ export function ContactoClient() {
               ...stagger(2),
             }}
           >
-            <Link href="/demo" className="btn-primary">
-              Reserva tu Demo
+            <Link href={t.demoHref} className="btn-primary">
+              {t.reserveDemo}
             </Link>
-            <Link href="/precios" className="btn-ghost">
-              Ver precios <ArrowIcon />
+            <Link href={t.pricesHref} className="btn-ghost">
+              {t.seePrices} <ArrowIcon />
             </Link>
           </div>
         </div>

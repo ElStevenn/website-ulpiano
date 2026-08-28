@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import LegalPage from "@/components/legal/LegalPage";
+import IdentidadTitular from "@/components/legal/IdentidadTitular";
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones",
+  title: "Términos de Uso",
   description:
-    "Términos y condiciones de uso de Ulpiano, la plataforma de gestión sucesoria para despachos, asesorías y notarías profesionales.",
+    "Términos de uso del sitio web ulpiano.es y de los recursos que se ponen a disposición a través de él.",
   alternates: {
     canonical: "https://ulpiano.es/legal/terminos",
     languages: {
@@ -16,47 +19,413 @@ export const metadata: Metadata = {
     url: "https://ulpiano.es/legal/terminos",
     images: [{ url: "https://ulpiano.es/opengraph-image", width: 1200, height: 630, alt: "Ulpiano" }],
   },
-
 };
 
 export default function TerminosPage() {
   return (
-    <article className="pt-28 pb-20 px-6">
-      <div className="max-w-3xl mx-auto prose prose-slate">
-        <h1>Términos y Condiciones</h1>
-        <p className="text-slate">
-          Última actualización: abril 2026
-        </p>
-        <p>
-          Estos Términos y Condiciones regulan el acceso y uso de la plataforma
-          Ulpiano. Al utilizar nuestros servicios, aceptas las condiciones aquí
-          descritas.
-        </p>
-        <h2>Objeto del servicio</h2>
-        <p>
-          Ulpiano es una plataforma integral de gestión sucesoria destinada a
-          profesionales del sector jurídico, fiscal y notarial. El servicio
-          incluye herramientas de inventario patrimonial, cálculo fiscal,
-          generación documental y gestión de expedientes sucesorios.
-        </p>
-        <h2>Condiciones de uso</h2>
-        <ul>
-          <li>El usuario se compromete a facilitar información veraz y actualizada.</li>
-          <li>El uso de la plataforma requiere registro profesional.</li>
-          <li>Queda prohibido el uso del servicio para fines distintos a la gestión sucesoria profesional.</li>
-        </ul>
-        <h2>Responsabilidad</h2>
-        <p>
-          Ulpiano facilita herramientas de apoyo al profesional. La
-          responsabilidad sobre las decisiones jurídicas y fiscales corresponde
-          al profesional que utiliza la plataforma.
-        </p>
-        <h2>Contacto</h2>
-        <p>
-          Para cualquier consulta relativa a estos términos, escríbenos a
-          soporte@ulpiano.es.
-        </p>
-      </div>
-    </article>
+    <LegalPage
+      title="Términos de Uso del Sitio Web y Recursos de Ulpiano"
+      updatedLabel="Versión 1.0 — en vigor desde el 28 de agosto de 2026"
+    >
+      <p>
+        <strong>Ámbito.</strong> Estos términos regulan exclusivamente el acceso, navegación y uso
+        del sitio web ulpiano.es y de los contenidos, herramientas y recursos que se pongan a
+        disposición a través de él. <strong>No regulan el uso de la plataforma SaaS de Ulpiano</strong>,
+        que se rige por su propio Acuerdo Marco de Servicios.
+      </p>
+
+      <h2>1. Identificación del titular</h2>
+      <IdentidadTitular locale="es" />
+      <p>
+        A los efectos del deber de información previsto en el artículo 10 de la Ley 34/2002, de 11
+        de julio, de servicios de la sociedad de la información y de comercio electrónico (la
+        «LSSI»), la información completa del titular figura en el{" "}
+        <Link href="/legal/aviso-legal">Aviso Legal</Link>.
+      </p>
+
+      <h2>2. Objeto, aceptación y ámbito de los Términos</h2>
+      <p>
+        2.1. Estos Términos de Uso regulan el acceso, navegación y utilización del Sitio Web,
+        incluidos sus páginas informativas, publicaciones de blog, contenidos jurídicos
+        divulgativos, páginas relativas a modelos tributarios de sucesiones, formularios y los
+        recursos descargables o herramientas que Ulpiano pueda poner a disposición (conjuntamente,
+        los «Recursos»).
+      </p>
+      <p>
+        2.2. El acceso, navegación o uso del Sitio Web atribuye a quien lo realiza la condición de
+        usuario (el «Usuario») e implica la aceptación de estos Términos de Uso. Si el Usuario no
+        está de acuerdo con ellos, deberá abstenerse de utilizar el Sitio Web y los Recursos.
+      </p>
+      <p>
+        2.3. Ulpiano podrá modificar estos Términos de Uso cuando resulte necesario por razones
+        legales, técnicas, operativas o de actualización de los contenidos y Recursos. La versión
+        vigente será la publicada en el Sitio Web en cada momento. El uso posterior a su
+        publicación supondrá la aceptación de la versión actualizada.
+      </p>
+      <p>
+        2.4. El Sitio Web se dirige principalmente a profesionales y organizaciones que desarrollen
+        su actividad en España. El Usuario que acceda desde otra jurisdicción lo hará bajo su
+        exclusiva responsabilidad y deberá verificar que dicho acceso y uso resultan conformes con
+        la normativa que le sea aplicable.
+      </p>
+
+      <h2>3. Deslinde expreso respecto de la plataforma SaaS</h2>
+      <p>
+        3.1. Estos Términos de Uso y las condiciones contractuales de la plataforma SaaS de Ulpiano
+        son documentos distintos, con objeto, ámbito subjetivo y régimen jurídico propios.
+      </p>
+      <p>
+        3.2. El Sitio Web es un entorno público de información, divulgación y, en su caso, puesta a
+        disposición de Recursos. La plataforma SaaS de Ulpiano es un servicio B2B diferenciado,
+        destinado a despachos profesionales, asesorías fiscales, gestorías y notarías que
+        formalicen la contratación correspondiente.
+      </p>
+      <p>
+        3.3. El acceso o uso del Sitio Web, la descarga de un Recurso, la remisión de un formulario
+        o la suscripción a comunicaciones <strong>no</strong> constituyen contratación de la
+        plataforma SaaS, <strong>no</strong> confieren derecho de acceso a ella, <strong>no</strong>{" "}
+        habilitan el uso de sus funcionalidades y <strong>no</strong> crean una cuenta en dicha
+        plataforma.
+      </p>
+      <p>
+        3.4. El acceso a la plataforma SaaS requerirá, en todo caso, la formalización separada del
+        Acuerdo Marco de Servicios y de la Hoja de Suscripción correspondientes y el cumplimiento
+        de los requisitos de alta, contratación y pago allí previstos. En caso de contradicción
+        entre estos Términos de Uso y las condiciones contractuales de la plataforma SaaS respecto
+        de esta última, prevalecerán estas últimas.
+      </p>
+
+      <h2>4. Condiciones de acceso y uso del Sitio Web</h2>
+      <p>
+        4.1. El acceso al Sitio Web es, con carácter general, libre y gratuito, sin perjuicio del
+        coste de conexión y de los medios de telecomunicaciones contratados por el Usuario con su
+        proveedor.
+      </p>
+      <p>
+        4.2. Algunos Recursos podrán requerir la cumplimentación previa de un formulario, la
+        aceptación de condiciones particulares, la acreditación de determinados requisitos o la
+        facilitación de datos de contacto. Cuando exista una condición particular, esta se mostrará
+        al Usuario antes de su acceso o descarga y complementará estos Términos de Uso.
+      </p>
+      <p>
+        4.3. El Usuario se obliga a utilizar el Sitio Web y los Recursos de forma diligente, lícita
+        y conforme con estos Términos de Uso, la buena fe, el orden público y la normativa
+        aplicable. En particular, se abstendrá de:
+      </p>
+      <ul>
+        <li>
+          utilizar los contenidos o Recursos para fines ilícitos, fraudulentos o que lesionen
+          derechos o intereses de Ulpiano o de terceros;
+        </li>
+        <li>
+          introducir o difundir virus, código malicioso, programas o cualesquiera elementos capaces
+          de alterar, interrumpir o dañar sistemas, redes, datos o contenidos;
+        </li>
+        <li>
+          acceder o intentar acceder sin autorización a zonas restringidas, cuentas, sistemas o
+          datos de Ulpiano o de terceros;
+        </li>
+        <li>
+          realizar extracción sistemática, minería de datos, scraping, indexación no autorizada,
+          ingeniería inversa o uso automatizado del Sitio Web o de los Recursos que exceda de la
+          navegación ordinaria;
+        </li>
+        <li>
+          suplantar la identidad de terceros, utilizar datos ajenos sin autorización o facilitar
+          información falsa, incompleta, fraudulenta o ilícita; y
+        </li>
+        <li>
+          reproducir, distribuir, comunicar públicamente, transformar, poner a disposición, ceder,
+          sublicenciar, comercializar o explotar contenidos o Recursos fuera de los usos
+          expresamente permitidos en estos Términos de Uso o por la ley.
+        </li>
+      </ul>
+      <p>
+        4.4. Ulpiano podrá suspender, limitar o denegar el acceso al Sitio Web o a Recursos
+        concretos cuando aprecie un uso contrario a estos Términos de Uso, un riesgo para la
+        seguridad o integridad de sus sistemas, o una obligación legal de hacerlo, sin perjuicio de
+        las acciones que puedan corresponderle.
+      </p>
+
+      <h2>5. Información divulgativa, herramientas orientativas y calculadoras</h2>
+      <p>
+        5.1. Los contenidos del Sitio Web tienen carácter general, divulgativo e informativo. No
+        constituyen asesoramiento jurídico, fiscal, contable, notarial, financiero ni de cualquier
+        otra naturaleza profesional, ni sustituyen el análisis de las circunstancias concretas de
+        cada caso por un profesional competente.
+      </p>
+      <p>
+        5.2. Las herramientas orientativas, simuladores, cuestionarios y calculadoras —incluidas
+        las que puedan referirse al Impuesto sobre Sucesiones y Donaciones («ISD») u otros
+        tributos— se facilitan exclusivamente con fines informativos y de aproximación. Sus
+        resultados son estimaciones basadas en los datos introducidos por el Usuario y en las
+        hipótesis, alcance, fecha de actualización y limitaciones que, en su caso, se indiquen en
+        cada herramienta.
+      </p>
+      <p>
+        5.3. En particular, el resultado de una calculadora de ISD{" "}
+        <strong>no constituye</strong> una liquidación, autoliquidación, declaración, valoración,
+        informe pericial, criterio vinculante, instrucción de cumplimiento ni documento apto para
+        su presentación ante la administración tributaria competente. El cálculo tributario puede
+        depender, entre otros extremos, de hechos, valoraciones, parentesco, residencia, normativa
+        aplicable, beneficios fiscales, plazos, documentación disponible y criterios
+        administrativos o judiciales que una herramienta pública no puede verificar ni resolver de
+        forma exhaustiva.
+      </p>
+      <p>
+        5.4. El Usuario deberá revisar, contrastar y, cuando resulte pertinente, someter a
+        validación profesional independiente cualquier resultado obtenido antes de adoptar
+        decisiones, formular recomendaciones, efectuar pagos, presentar documentos o realizar
+        actuaciones con trascendencia jurídica, tributaria, económica o patrimonial. Ulpiano no
+        asume la dirección ni responsabilidad profesional de tales decisiones o actuaciones.
+      </p>
+      <p>
+        5.5. Las herramientas del Sitio Web no adoptan decisiones automatizadas con efectos
+        jurídicos para el Usuario ni para terceros en el sentido del artículo 22 del Reglamento
+        (UE) 2016/679. La eventual introducción de datos en una herramienta no determina por sí
+        misma derechos, obligaciones, cuotas tributarias, plazos ni resultados jurídicamente
+        vinculantes.
+      </p>
+      <p>
+        5.6. En la máxima medida permitida por la normativa aplicable, Ulpiano no responderá de las
+        decisiones, actos, omisiones, declaraciones, presentaciones, cálculos definitivos, pagos o
+        perjuicios que el Usuario o un tercero adopte, ejecute o sufra basándose exclusiva o
+        principalmente en contenidos, estimaciones o resultados de las herramientas del Sitio Web.
+        Esta exclusión no limita la responsabilidad que no pueda excluirse o limitarse válidamente
+        por norma imperativa.
+      </p>
+
+      <h2>6. Recursos descargables</h2>
+      <p>
+        6.1. Los Recursos descargables, tales como plantillas, listas de comprobación de
+        expedientes, guías, documentos de trabajo u otros materiales análogos, se facilitan para el
+        uso propio del Usuario conforme a la licencia limitada prevista en esta cláusula. Su
+        descarga o disponibilidad no supone la prestación por Ulpiano de un servicio profesional al
+        Usuario ni a un tercero.
+      </p>
+      <p>
+        6.2. Salvo que un Recurso o sus condiciones particulares establezcan expresamente otra
+        cosa, Ulpiano concede al Usuario una licencia no exclusiva, revocable, personal,
+        profesional, intransferible y no sublicenciable para descargar, reproducir y utilizar el
+        Recurso únicamente para sus necesidades internas y su práctica profesional propia.
+      </p>
+      <p>
+        6.3. Queda expresamente prohibido, sin autorización previa y escrita de Ulpiano: (a)
+        redistribuir, compartir, publicar, alojar, poner a disposición de terceros o incorporar a
+        repositorios públicos o privados los Recursos; (b) venderlos, revenderlos, alquilarlos,
+        licenciarlos, sublicenciarlos o explotarlos comercialmente de forma autónoma; (c) eliminar
+        sus avisos de titularidad, limitar o eludir medidas técnicas de protección; o (d)
+        presentarlos como propios o atribuir su autoría a persona distinta de Ulpiano o del titular
+        identificado en el Recurso.
+      </p>
+      <p>
+        6.4. Los Recursos son materiales generales y requieren una adaptación y revisión
+        profesional específicas para cada supuesto, atendiendo a los hechos, documentos, partes
+        intervinientes, legislación aplicable y finalidad perseguida. El Usuario es el único
+        responsable de dicha adaptación, de su empleo y de verificar su adecuación, integridad,
+        vigencia y licitud antes de utilizarlo, facilitarlo a un tercero, firmarlo o presentarlo
+        ante cualquier organismo o autoridad.
+      </p>
+
+      <h2>7. Formularios y veracidad de los datos</h2>
+      <p>
+        7.1. El Usuario garantiza que los datos que facilite a través de formularios del Sitio Web
+        son veraces, exactos, completos, lícitos y actualizados, y que cuenta con base jurídica
+        suficiente para comunicar cualquier dato de terceros. Asimismo, se compromete a
+        actualizarlos cuando sea necesario.
+      </p>
+      <p>
+        7.2. El Usuario responderá frente a Ulpiano y frente a terceros de los daños y perjuicios
+        que se deriven de datos falsos, inexactos, incompletos, desactualizados, ilícitos o
+        facilitados sin la autorización necesaria.
+      </p>
+      <p>
+        7.3. La entrega de un Recurso podrá condicionarse a que el Usuario facilite los datos
+        identificados como obligatorios en el formulario correspondiente y a que preste el
+        consentimiento requerido para el tratamiento de sus datos. La negativa a facilitarlos podrá
+        impedir la gestión de la solicitud, sin que ello genere derecho alguno frente a Ulpiano.
+      </p>
+      <p>
+        7.4. Los datos personales facilitados mediante formularios se tratarán conforme a la{" "}
+        <Link href="/legal/privacidad">Política de Privacidad</Link>, que identifica las
+        finalidades, bases jurídicas, destinatarios, plazos de conservación y modo de ejercicio de
+        derechos aplicables a cada formulario, en cumplimiento del artículo 13 del Reglamento (UE)
+        2016/679 y del artículo 11 de la Ley Orgánica 3/2018.
+      </p>
+
+      <h2>8. Contenidos generados por usuarios</h2>
+      <p>
+        8.1.{" "}
+        <strong>
+          A la fecha de estos Términos de Uso, el Sitio Web no habilita comentarios, foros ni
+          ninguna otra funcionalidad de publicación de contenidos por parte de los Usuarios.
+        </strong>{" "}
+        Las cláusulas 8.2 a 8.5 resultarán de aplicación únicamente si Ulpiano habilita en el
+        futuro alguna de esas funcionalidades.
+      </p>
+      <p>
+        8.2. Si Ulpiano habilita comentarios, foros u otra funcionalidad de publicación de
+        contenidos, el Usuario será el único responsable de los contenidos, manifestaciones, datos,
+        enlaces, archivos o materiales que publique (los «Contenidos de Usuario»). El Usuario
+        garantiza que dispone de los derechos, autorizaciones y bases jurídicas necesarios para su
+        publicación.
+      </p>
+      <p>
+        8.3. El Usuario no podrá publicar Contenidos de Usuario que sean ilícitos, falsos,
+        difamatorios, amenazantes, discriminatorios, obscenos, infractores de derechos de
+        propiedad intelectual o industrial, vulneradores de la confidencialidad, de datos
+        personales o del secreto profesional, ni contenidos publicitarios o comerciales no
+        autorizados, spam, código malicioso o enlaces a materiales de esa naturaleza.
+      </p>
+      <p>
+        8.4. Ulpiano podrá moderar, bloquear, retirar o comunicar a las autoridades los Contenidos
+        de Usuario cuando tenga conocimiento efectivo de su ilicitud, infracción o incompatibilidad
+        con estos Términos de Uso, o cuando resulte razonablemente necesario para preservar la
+        seguridad, los derechos de terceros o la integridad del Sitio Web. Esta facultad no supone
+        una obligación general de supervisión previa.
+      </p>
+      <p>
+        8.5. La publicación de Contenidos de Usuario no concede al Usuario derecho alguno sobre el
+        Sitio Web ni obliga a Ulpiano a conservar, publicar o responder a dichos contenidos. El
+        Usuario mantendrá indemne a Ulpiano frente a reclamaciones de terceros originadas por sus
+        Contenidos de Usuario, sin perjuicio de los límites legalmente aplicables.
+      </p>
+
+      <h2>9. Propiedad intelectual e industrial; régimen de citas</h2>
+      <p>
+        9.1. El Sitio Web, sus textos, artículos, Recursos, diseños, marcas, nombres comerciales,
+        logotipos, fotografías, gráficos, vídeos, software, código fuente, bases de datos y demás
+        elementos, así como los derechos de propiedad intelectual e industrial que recaen sobre
+        ellos, pertenecen a Ulpiano o a sus licenciantes. Su acceso no atribuye al Usuario ningún
+        derecho de explotación distinto de los expresamente reconocidos en estos Términos de Uso.
+      </p>
+      <p>
+        9.2. Sin perjuicio de los límites y excepciones legalmente aplicables, y en particular de
+        los artículos 17 y siguientes y 32 del texto refundido de la Ley de Propiedad Intelectual,
+        aprobado por el Real Decreto Legislativo 1/1996, de 12 de abril («LPI»), queda prohibida la
+        reproducción, distribución, comunicación pública, puesta a disposición, transformación o
+        explotación de los contenidos del Sitio Web, total o parcial, sin autorización previa y
+        escrita de Ulpiano.
+      </p>
+      <p>
+        9.3. Ulpiano autoriza expresamente a profesionales y organizaciones a citar fragmentos
+        razonables de artículos publicados en el Sitio Web, siempre que concurran conjuntamente las
+        siguientes condiciones: (a) que la cita se integre en una obra, publicación o contenido
+        propio y tenga finalidad de cita, análisis, comentario o juicio crítico; (b) que no altere
+        el sentido del contenido citado ni induzca a error sobre su alcance o vigencia; (c) que se
+        atribuya de forma clara a Ulpiano, con identificación del autor cuando este figure; (d) que
+        se incluya un enlace visible, funcional y directo al artículo original en ulpiano.es; y (e)
+        que no se reproduzca el artículo íntegro ni una parte sustancial que permita prescindir de
+        la consulta de la fuente original.
+      </p>
+      <p>
+        9.4. La autorización de cita de la cláusula 9.3 no permite la reproducción íntegra de
+        artículos, la agregación sistemática de contenidos, la publicación en repositorios, la
+        adaptación, traducción, comercialización, explotación publicitaria ni cualquier uso que
+        exceda de lo necesario para la cita atribuida. Tampoco autoriza a emplear marcas, logotipos
+        o elementos gráficos de Ulpiano sin consentimiento previo y escrito.
+      </p>
+      <p>
+        9.5. Las solicitudes de autorización para usos no previstos en esta cláusula, así como las
+        comunicaciones relativas a una eventual infracción, deberán dirigirse a{" "}
+        <strong>hola@ulpiano.es</strong>.
+      </p>
+
+      <h2>10. Enlaces a terceros</h2>
+      <p>
+        10.1. El Sitio Web puede incluir enlaces a sitios, plataformas, documentos o recursos de
+        terceros. Tales enlaces se proporcionan únicamente para facilitar la navegación o ampliar
+        información y no implican aprobación, recomendación, asociación, control o garantía por
+        parte de Ulpiano respecto de sus contenidos, servicios, disponibilidad, seguridad o
+        políticas.
+      </p>
+      <p>
+        10.2. Al acceder a un sitio de tercero, el Usuario quedará sujeto a las condiciones,
+        políticas de privacidad, cookies y demás normas de ese tercero. Ulpiano no responde de los
+        daños o perjuicios derivados del acceso, navegación, contratación o uso de sitios y
+        servicios de terceros.
+      </p>
+      <p>
+        10.3. No se permite establecer enlaces al Sitio Web desde páginas que contengan contenidos
+        ilícitos o que puedan dañar la reputación, imagen o derechos de Ulpiano, ni presentar el
+        Sitio Web o sus contenidos de modo que sugiera asociación, patrocinio o aprobación
+        inexistentes. Ulpiano podrá solicitar la retirada de cualquier enlace que incumpla esta
+        cláusula.
+      </p>
+
+      <h2>11. Disponibilidad, modificaciones y exclusión de garantías</h2>
+      <p>
+        11.1. Ulpiano procurará mantener el Sitio Web y los Recursos disponibles y razonablemente
+        actualizados, pero no garantiza su disponibilidad ininterrumpida, ausencia de errores,
+        seguridad absoluta, compatibilidad con todos los dispositivos o navegadores, ni la
+        exactitud, integridad, actualidad o idoneidad de todos los contenidos para una finalidad
+        particular.
+      </p>
+      <p>
+        11.2. Ulpiano podrá, en cualquier momento y sin obligación de preaviso, modificar,
+        actualizar, retirar, restringir, suspender o eliminar contenidos, Recursos, funcionalidades
+        o el propio Sitio Web, total o parcialmente, sin que ello genere derecho a compensación
+        para el Usuario.
+      </p>
+      <p>
+        11.3. El Usuario deberá utilizar medios adecuados para proteger sus sistemas y datos frente
+        a programas dañinos y riesgos propios de las comunicaciones electrónicas. En la máxima
+        medida permitida por la normativa aplicable, Ulpiano no responderá de daños derivados de
+        interrupciones, fallos de telecomunicaciones, indisponibilidad, accesos no autorizados,
+        ataques, virus o elementos tecnológicamente perjudiciales, cuando no le sean imputables.
+      </p>
+      <p>
+        11.4. Nada de lo previsto en estos Términos de Uso excluye o limita responsabilidad por
+        dolo, ni cualquier otra responsabilidad cuya exclusión o limitación esté prohibida por una
+        norma imperativa.
+      </p>
+
+      <h2>12. Protección de datos y cookies</h2>
+      <p>
+        12.1. El tratamiento de datos personales derivado del uso del Sitio Web y de sus
+        formularios se regula en la <Link href="/legal/privacidad">Política de Privacidad</Link>.
+        El uso de tecnologías de almacenamiento y recuperación de datos en el equipo terminal del
+        Usuario se regula en la <Link href="/legal/cookies">Política de Cookies</Link>, de
+        conformidad con el artículo 22.2 de la LSSI.
+      </p>
+      <p>
+        12.2. Las políticas indicadas en la cláusula anterior forman parte del marco informativo
+        del Sitio Web, pero tienen objeto propio y no se sustituyen por estos Términos de Uso.
+      </p>
+
+      <h2>13. Comunicaciones</h2>
+      <p>
+        13.1. Las comunicaciones del Usuario relativas al Sitio Web o a estos Términos de Uso
+        deberán remitirse a <strong>hola@ulpiano.es</strong>. Las relativas a protección de datos,
+        a <strong>privacidad@ulpiano.es</strong>.
+      </p>
+      <p>
+        13.2. Ulpiano podrá efectuar comunicaciones relativas a estos Términos de Uso mediante su
+        publicación en el Sitio Web o, cuando proceda y disponga de los datos necesarios, por
+        medios electrónicos.
+      </p>
+
+      <h2>14. Ley aplicable y jurisdicción</h2>
+      <p>
+        14.1. Estos Términos de Uso se regirán e interpretarán conforme al Derecho español.
+      </p>
+      <p>
+        14.2. Para cualquier controversia derivada de estos Términos de Uso o del uso del Sitio
+        Web, las partes se someten a los juzgados y tribunales de Girona, salvo que una norma
+        imperativa establezca otro fuero aplicable. Si el Usuario ostentara la condición de
+        consumidor o usuario, se respetarán los fueros imperativos que le resulten aplicables.
+      </p>
+
+      <h2>15. Nulidad parcial y no renuncia</h2>
+      <p>
+        15.1. La declaración de nulidad, invalidez o ineficacia de alguna disposición de estos
+        Términos de Uso no afectará a la validez de las restantes, que continuarán vigentes en la
+        máxima medida permitida por la ley.
+      </p>
+      <p>
+        15.2. La falta de ejercicio o demora de Ulpiano en el ejercicio de un derecho o facultad no
+        constituirá renuncia a este.
+      </p>
+    </LegalPage>
   );
 }

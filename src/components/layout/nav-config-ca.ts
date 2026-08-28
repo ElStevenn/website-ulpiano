@@ -125,6 +125,7 @@ export const esToCaMap: Record<string, string> = {
   "/recursos/blog/ia-abogados-sucesiones": "/ca/recursos/blog/ia-advocats-successions",
   "/recursos/blog/quarta-falcidia": "/ca/recursos/blog/quarta-falcidia",
   "/recursos/blog/quadern-particional-cataluna": "/ca/recursos/blog/quadern-particional-catalunya",
+  "/legal/aviso-legal": "/ca/legal/avis-legal",
   "/legal/privacidad": "/ca/legal/privacitat",
   "/legal/terminos": "/ca/legal/termes",
   "/legal/cookies": "/ca/legal/cookies",

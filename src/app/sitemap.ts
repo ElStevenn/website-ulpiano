@@ -37,6 +37,7 @@ const pairs: Array<{ es: string; ca: string; priority: number; freq: "weekly" | 
   { es: "/recursos/blog/quadern-particional-cataluna",    ca: "/ca/recursos/blog/quadern-particional-catalunya",  priority: 0.6, freq: "monthly" },
   { es: "/demo",                                          ca: "/ca/demo",                                         priority: 0.9, freq: "monthly" },
   { es: "/contacto",                                      ca: "/ca/contacte",                                     priority: 0.7, freq: "monthly" },
+  { es: "/legal/aviso-legal",                             ca: "/ca/legal/avis-legal",                             priority: 0.3, freq: "yearly"  },
   { es: "/legal/privacidad",                              ca: "/ca/legal/privacitat",                             priority: 0.3, freq: "yearly"  },
   { es: "/legal/terminos",                                ca: "/ca/legal/termes",                                 priority: 0.3, freq: "yearly"  },
   { es: "/legal/cookies",                                 ca: "/ca/legal/cookies",                                priority: 0.3, freq: "yearly"  },
